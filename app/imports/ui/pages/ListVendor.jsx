@@ -4,7 +4,6 @@ import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
-import StuffItem from '../components/StuffItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListVendor extends React.Component {
@@ -28,9 +27,6 @@ class ListVendor extends React.Component {
               <Table.HeaderCell>Edit</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-          <Table.Body>
-            {this.props.vendors.map((vendor) => <StuffItem key={vendor._id} vendor={vendor} />)}
-          </Table.Body>
         </Table>
       </Container>
     );
