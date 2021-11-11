@@ -15,6 +15,7 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import AddVendor from '../pages/AddVendor';
 import TopPicks from '../pages/TopPicks';
 import AvailableNow from '../pages/AvailableNow';
 
@@ -34,6 +35,7 @@ class App extends React.Component {
             <Route path="/AvailableNow" component={AvailableNow}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
+            <ProtectedRoute path="/addVendor" component={AddVendor}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>
