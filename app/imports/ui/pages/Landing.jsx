@@ -1,22 +1,27 @@
 import React from 'react';
-import { Grid, Image } from 'semantic-ui-react';
+import { Grid, Icon, Header } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
+    const gridStyle = { height: '500px' };
     return (
-      <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
+      <div className="bowbites-background-image">
+        <Grid container stackable centered columns={2} verticalAlign="middle" style={gridStyle}>
 
-        <Grid.Column width={4}>
-          <Image size='small' circular src="/images/meteor-logo.png"/>
-        </Grid.Column>
+          <Grid.Column textAlign="center">
+            <Icon name="utensils" size="huge" inverted/>
+            <Header as="h1" inverted>Bow Bites</Header>
+            <Header as="h3" inverted>Connecting the UH community to Campus Vendors to make finding good eats easy, quick, and accessible</Header>
+          </Grid.Column>
 
-        <Grid.Column width={8}>
-          <h1>Welcome to this template</h1>
-          <p>Now get to work and modify this app!</p>
-        </Grid.Column>
-
-      </Grid>
+          <Grid.Column textAlign="center">
+            <Icon name="truck" size="huge" inverted/>
+            <Header as="h1" inverted>Become a Vendor</Header>
+            <Header as="h3" inverted>Become a vendor to showcase your food and choice of the day to members of the UH community</Header>
+          </Grid.Column>
+        </Grid>
+      </div>
     );
   }
 }
