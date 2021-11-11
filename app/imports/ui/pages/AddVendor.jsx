@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SelectField, NumField, SubmitField, ListField, TextField, LongTextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SelectField, NumField, SubmitField, ListField, TextField, LongTextField, RadioField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -62,9 +62,9 @@ class AddVendor extends React.Component {
               <TextField name='name'/>
               <TextField name='foodType'/>
               <NumField name='open'/>
-              <SelectField name='openAmOrPm'/>
+              <RadioField name='openAmOrPm'/>
               <NumField name='close'/>
-              <SelectField name='closeAmOrPm'/>
+              <RadioField name='closeAmOrPm'/>
               <ListField name='menuItem'/>
               <LongTextField name='description'/>
               <SubmitField value='Submit'/>
