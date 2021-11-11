@@ -15,13 +15,13 @@ const formSchema = new SimpleSchema({
   openAmOrPm: {
     type: String,
     allowedValues: ['AM', 'PM'],
-    defaultValue: 'AM',
+    uniforms: { checkboxes: true },
   },
   close: Number,
   closeAmOrPm: {
     type: String,
     allowedValues: ['AM', 'PM'],
-    defaultValue: 'PM',
+    uniforms: { checkboxes: true },
   },
   menuItem: { type: Array, minCount: 1 },
   'menuItem.$': Object,
