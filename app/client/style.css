@@ -1,3 +1,13 @@
 #NavBar {
   background-color: #024731;
 }
+
+.bowbites-background-image {
+  background: url('images/bowbites-background.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  height: 500px;
+}
+
+.middle-background {
+  background-color: white;
+}
