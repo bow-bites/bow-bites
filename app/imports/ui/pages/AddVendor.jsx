@@ -11,6 +11,7 @@ import { Vendors } from '../../api/vendor/Vendor';
 const formSchema = new SimpleSchema({
   name: String,
   foodType: String,
+  storeImage: String,
   open: Number,
   openAmOrPm: {
     type: String,
@@ -27,6 +28,8 @@ const formSchema = new SimpleSchema({
   'menuItem.$': Object,
   'menuItem.$.name': { type: String },
   'menuItem.$.price': { type: Number, min: 0 },
+  'menuItem.$.description': { type: String },
+  'menuItem.$.image': { type: String },
   description: String,
 });
 
@@ -37,9 +40,9 @@ class AddVendor extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, foodType, open, openAmOrPm, close, closeAmOrPm, menuItem, description } = data;
+    const { name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } = data;
     const owner = Meteor.user().username;
-    Vendors.collection.insert({ name, foodType, open, openAmOrPm, close, closeAmOrPm, menuItem, description, owner },
+    Vendors.collection.insert({ name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -56,11 +59,12 @@ class AddVendor extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Add Vendor</Header>
+          <Header as="h2" textAlign="center" inverted>Add Vendor</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='name'/>
               <TextField name='foodType'/>
+              <TextField name='storeImage'/>
               <NumField name='open'/>
               <RadioField name='openAmOrPm'/>
               <NumField name='close'/>

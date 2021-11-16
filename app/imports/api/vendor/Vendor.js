@@ -15,22 +15,17 @@ class VendorsCollection {
     this.schema = new SimpleSchema({
       name: String,
       foodType: String,
+      storeImage: String,
       open: Number,
-      openAmOrPm: {
-        type: String,
-        allowedValues: ['AM', 'PM'],
-        defaultValue: 'AM',
-      },
+      openAmOrPm: String,
       close: Number,
-      closeAmOrPm: {
-        type: String,
-        allowedValues: ['AM', 'PM'],
-        defaultValue: 'PM',
-      },
+      closeAmOrPm: String,
       menuItem: { type: Array, minCount: 1 },
       'menuItem.$': Object,
       'menuItem.$.name': { type: String },
       'menuItem.$.price': { type: Number, min: 0 },
+      'menuItem.$.description': { type: String },
+      'menuItem.$.image': { type: String },
       description: String,
       owner: String,
     }, { tracker: Tracker });
