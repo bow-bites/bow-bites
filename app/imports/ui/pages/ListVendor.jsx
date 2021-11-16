@@ -1,9 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Item, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
+import VendorItem from '../components/VendorItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListVendor extends React.Component {
@@ -17,17 +18,11 @@ class ListVendor extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Vendors</Header>
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Quantity</Table.HeaderCell>
-              <Table.HeaderCell>Condition</Table.HeaderCell>
-              <Table.HeaderCell>Edit</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-        </Table>
+        <Header as="h2" textAlign="center" inverted>List Contacts</Header>
+        <Item.Group>
+          {this.props.vendors.map((vendor, index) => <VendorItem
+            key={index} menu={vendor}/>)}
+        </Item.Group>
       </Container>
     );
   }
@@ -35,7 +30,7 @@ class ListVendor extends React.Component {
 
 // Require an array of Stuff documents in the props.
 ListVendor.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  vendors: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -46,9 +41,9 @@ export default withTracker(() => {
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const stuffs = Vendors.collection.find({}).fetch();
+  const vendors = Vendors.collection.find({}).fetch();
   return {
-    stuffs,
+    vendors,
     ready,
   };
 })(ListVendor);
