@@ -23,11 +23,9 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
-/*
 if (Vendors.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
     console.log('Creating default Vendors.');
     Meteor.settings.defaultVendor.map(data => addVendor(data));
   }
 }
-*/

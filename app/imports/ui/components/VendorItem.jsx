@@ -9,14 +9,19 @@ class VendorItem extends React.Component {
     return (
       <div className="middle-background">
         <Container>
-          <Item.Group>
+          <Item.Group divided>
             <Item>
-              <Item.Image size='small' src={this.props.vendor.menuItem.$.image}/>
-              <Item.Content>
-                <Item.Header as='a'>{this.props.vendor.menuItem.$.name}</Item.Header>
-                <Item.Meta>Description</Item.Meta>
+              <Item.Image size='medium' src={this.props.vendor.storeImage}/>
+              <Item.Content verticalAlign="middle">
+                <Item.Header as="h1">{this.props.vendor.name}</Item.Header>
+                <Item.Extra>
+                  {this.props.vendor.name} sells {this.props.vendor.foodType} food
+                </Item.Extra>
                 <Item.Description>
-                  {this.props.vendor.menuItem.$.description}
+                  {this.props.vendor.description}
+                </Item.Description>
+                <Item.Description>
+                  Open from {this.props.vendor.open} am to {this.props.vendor.close} pm.
                 </Item.Description>
                 <Item.Extra>
                   Link to {this.props.vendor.name}&apos;s Profile page.
@@ -32,7 +37,19 @@ class VendorItem extends React.Component {
 
 // Require a document to be passed to this component.
 VendorItem.propTypes = {
-  vendor: PropTypes.object.isRequired,
+  vendor: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    storeImage: PropTypes.string,
+    foodType: PropTypes.string,
+    open: PropTypes.number,
+    close: PropTypes.number,
+    menuItem: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+      description: PropTypes.string,
+      image: PropTypes.string,
+    })),
+  }).isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
