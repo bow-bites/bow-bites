@@ -19,9 +19,9 @@ class ListVendor extends React.Component {
     return (
       <Container>
         <Header as="h2" textAlign="center" inverted>List Contacts</Header>
-        <Item.Group>
+        <Item.Group divided>
           {this.props.vendors.map((vendor, index) => <VendorItem
-            key={index} menu={vendor}/>)}
+            key={index} vendor={vendor}/>)}
         </Item.Group>
       </Container>
     );
