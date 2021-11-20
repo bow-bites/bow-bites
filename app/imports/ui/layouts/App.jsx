@@ -19,6 +19,7 @@ import AddVendor from '../pages/AddVendor';
 import ListVendor from '../pages/ListVendor';
 import TopPicks from '../pages/TopPicks';
 import AvailableNow from '../pages/AvailableNow';
+import VendorProfile from '../pages/VendorProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -34,6 +35,7 @@ class App extends React.Component {
             <Route path="/signout" component={Signout}/>
             <Route path="/TopPicks" component={TopPicks}/>
             <Route path="/AvailableNow" component={AvailableNow}/>
+            <Route path="/VendorProfile" component={VendorProfile}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <ProtectedRoute path="/addVendor" component={AddVendor}/>
