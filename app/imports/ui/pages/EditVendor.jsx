@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Loader } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, NumField, SubmitField, ListField, TextField, LongTextField, RadioField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -41,28 +41,25 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 class EditVendor extends React.Component {
 
   // On submit, insert the data.
-  submit(data, formRef) {
-    const { name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } = data;
-    const owner = Meteor.user().username;
-    Vendors.collection.update({ name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description, owner },
-      (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Vendor updated successfully', 'success');
-          formRef.reset();
-        }
-      });
+  submit(data) {
+    const { name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description, _id } = data;
+    Vendors.collection.update(_id, { $set: { name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } }, (error) => (error ?
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Vendor updated successfully', 'success')));
+  }
+
+  // If the subscription(s) have been received, render the page, otherwise show a loading icon.
+  render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
-  render() {
-    let fRef = null;
+  renderPage() {
     return (
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center" inverted>Edit Vendor</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <TextField name='name'/>
               <TextField name='foodType'/>

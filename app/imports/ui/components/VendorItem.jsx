@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Item } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class VendorItem extends React.Component {
@@ -26,6 +26,9 @@ class VendorItem extends React.Component {
                 <Item.Extra>
                   Link to {this.props.vendor.name}&apos;s Profile page.
                 </Item.Extra>
+                <Item.Extra>
+                  <Link to={`/edit/${this.props.vendor._id}`}>Edit</Link>
+                </Item.Extra>
               </Item.Content>
             </Item>
           </Item.Group>
@@ -39,6 +42,7 @@ class VendorItem extends React.Component {
 VendorItem.propTypes = {
   vendor: PropTypes.shape({
     name: PropTypes.string,
+    _id: PropTypes.string,
     description: PropTypes.string,
     storeImage: PropTypes.string,
     foodType: PropTypes.string,
