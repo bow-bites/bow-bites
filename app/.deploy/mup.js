@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '143.198.158.134',
+      host: 'bowbites.xyz',
       username: 'root',
       password: '123Welcome'
     }
@@ -14,12 +14,19 @@ module.exports = {
     servers: { one: {}, },
     buildOptions: { serverOnly: true },
     env: {
-      ROOT_URL: 'http://143.198.158.134',
+      ROOT_URL: 'http://bowbites.xyz',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
     docker: { image: 'zodern/meteor:latest' },
     enableUploadProgressBar: true
+  },
+  proxy: {
+    domains: 'bowbites.xyz',
+    ssl: {
+      letsEncryptEmail: 'hblazier@hawaii.edu',
+      forceSSL: true
+    }
   },
   mongo: { version: '3.4.1', servers: { one: {} }
   },
