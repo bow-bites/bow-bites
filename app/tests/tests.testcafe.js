@@ -1,4 +1,5 @@
 import { landingPage } from './landing.page';
+import { listVendorPage } from './listvendor.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
@@ -9,7 +10,7 @@ import { navBar } from './navbar.component';
 const credentials = { username: 'john@foo.com', password: 'changeme' };
 
 fixture('meteor-application-template-react localhost test with default db')
-    .page('http://localhost:3000');
+  .page('http://localhost:3000');
 
 test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
@@ -21,4 +22,12 @@ test('Test that signin and signout work', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
+});
+
+test('Test the List Vendor page', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoListVendorPage(testController);
+  await listVendorPage.isDisplayed(testController);
+  await listVendorPage.hasMenuItem(testController);
 });
