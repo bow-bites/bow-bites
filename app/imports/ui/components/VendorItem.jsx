@@ -23,6 +23,17 @@ class VendorItem extends React.Component {
                 <Item.Description>
                   Open from {this.props.vendor.open} am to {this.props.vendor.close} pm.
                 </Item.Description>
+                <Item.Description>
+                  Menu Items total {this.props.vendor.menuItem.length}
+                </Item.Description>
+                {this.props.vendor.menuItem.map((menuItem) => (
+                  <header>
+                    <Item.Description>{menuItem.name}</Item.Description>
+                    <Item.Image size='small' src={menuItem.image}/>
+                    <Item.Description>{menuItem.description}</Item.Description>
+                    <Item.Description>Price: {menuItem.price}$</Item.Description>
+                  </header>
+                ))}
                 <Item.Extra>
                   Link to {this.props.vendor.name}&apos;s Profile page.
                 </Item.Extra>
