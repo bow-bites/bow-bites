@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Item, Button, Popup } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import { Mongo } from 'meteor/mongo';
 import { Vendors } from '../../api/vendor/Vendor';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -13,6 +12,8 @@ class VendorItem extends React.Component {
   }
 
   render() {
+    const delVenTxt = `Delete   ${this.props.vendor.name}`;
+
     return (
       <div className="middle-background">
         <Container>
@@ -36,7 +37,7 @@ class VendorItem extends React.Component {
                 <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
                 <Popup
                   trigger={
-                    <Button color='red' icon='trash alternate' id="listVendor-Delete">Delete {this.props.vendor.name}</Button>
+                    <Button color='red' icon='trash alternate' id="listVendor-Delete" content={delVenTxt} />
                   }
                   content={<Button color='green' onClick={this.deleteVendor} id="listVendor-ConfirmDelete">Confirm to Delete {this.props.vendor.name}</Button>}
                   on='click'
