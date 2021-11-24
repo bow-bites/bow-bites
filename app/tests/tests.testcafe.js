@@ -4,6 +4,7 @@ import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { addVendorPage } from './addvendor.page';
+import { removeVendorPage } from './removeVendor.page';
 
 /* global fixture:false, test:false */
 
@@ -70,4 +71,13 @@ test('Test the Add Vendor page', async (testController) => {
   await addVendorPage.addVendor(testController, testVendor);
   await navBar.gotoListVendorPage(testController);
   await addVendorPage.vendorExists(testController, testVendor.name);
+});
+
+test('Test the Delete Vendor Function', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoListVendorPage(testController);
+  await addVendorPage.vendorExists(testController, testVendor.name);
+  await removeVendorPage.removeVendor(testController, testVendor.name);
+  await addVendorPage.existingTestVendorCheck(testController, testVendor.name);
 });
