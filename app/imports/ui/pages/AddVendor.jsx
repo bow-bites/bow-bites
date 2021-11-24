@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SubmitField, ListField, TextField, LongTextField, RadioField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, NumField, SubmitField, ListField, TextField, LongTextField, RadioField, SelectField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -10,7 +10,11 @@ import { Vendors } from '../../api/vendor/Vendor';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
-  foodType: String,
+  foodType: {
+    type: String,
+    defaultValue: 'Vegetarian',
+    allowedValues: ['Vegetarian', 'Italian', 'French', 'Chinese', 'Japanese', 'Vietnamese', 'Fast', 'Mexican', 'American', 'Indian', 'Korean', 'Hawaiian', 'Filipino'],
+  },
   storeImage: String,
   open: Number,
   openAmOrPm: {
@@ -63,7 +67,7 @@ class AddVendor extends React.Component {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='name'/>
-              <TextField name='foodType'/>
+              <SelectField name='foodType'/>
               <TextField name='storeImage'/>
               <NumField name='open'/>
               <RadioField name='openAmOrPm'/>
