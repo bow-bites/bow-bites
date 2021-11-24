@@ -43,6 +43,13 @@ class NavBar {
       await testController.click('#navbar-list-vendor');
     }
   }
+
+  async gotoAddVendorPage(testController) {
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-add-vendor');
+    }
+  }
 }
 
 export const navBar = new NavBar();

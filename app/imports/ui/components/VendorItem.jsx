@@ -13,7 +13,7 @@ class VendorItem extends React.Component {
             <Item>
               <Item.Image size='medium' src={this.props.vendor.storeImage}/>
               <Item.Content verticalAlign="middle">
-                <Item.Header as="h1">{this.props.vendor.name}</Item.Header>
+                <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
                 <Item.Extra>
                   {this.props.vendor.name} sells {this.props.vendor.foodType} food
                 </Item.Extra>
