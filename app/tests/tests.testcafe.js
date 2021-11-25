@@ -61,7 +61,7 @@ test('Test the List Vendor page', async (testController) => {
   await listVendorPage.hasMenuItem(testController);
 });
 
-test('Test the Add Vendor page', async (testController) => {
+test.only('Test the Add Vendor page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoListVendorPage(testController);
