@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Item, Header, Loader } from 'semantic-ui-react';
+import { Container, Item, Header, Loader, Popup, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
@@ -20,7 +20,6 @@ class UserProfile extends React.Component {
     const userEmail = Meteor.users.findOne(Meteor.userId()).username;
     const userName = userEmail.split('@');
     const pageName = `${userName[0]}'s Page`;
-    console.log(pageName);
 
     return (
       <Container id="list-vendor-page">
