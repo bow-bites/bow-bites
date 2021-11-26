@@ -31,8 +31,14 @@ class VendorItem extends React.Component {
       console.log('User already has a collection');
       const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
       const userProId = userPro._id;
-      console.log('user profile id', userPro);
-      Favorites.collection.update({ _id: userProId }, { $push: { liked: favorite } });
+      const newArr = [];
+      userPro.liked.forEach(element => newArr.push(element.favorite));
+      if (newArr.includes(data)) {
+        console.log('it exists');
+      } else {
+        console.log('it does not exist updating collection');
+        Favorites.collection.update({ _id: userProId }, { $push: { liked: favorite } });
+      }
     } else {
       Favorites.collection.insert({ user, liked },
         (error) => {
