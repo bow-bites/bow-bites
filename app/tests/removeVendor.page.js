@@ -14,7 +14,7 @@ class RemoveVendorPage {
   /** Removes the test Vendor. */
   async removeVendor(testController, testVendor) {
     const vendorDelete = Selector('#listVendor-Delete').withText('Delete ' + testVendor);
-    const vendorDeleteConfirm = Selector('#listVendor-ConfirmDelete').withText('Confirm to Delete ' + testVendor);
+    const vendorDeleteConfirm = Selector('.button.ui.primary.button').withText('OK');
 
     await this.isDisplayed(testController);
     await testController.click(vendorDelete());

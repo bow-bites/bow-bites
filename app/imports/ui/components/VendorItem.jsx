@@ -22,7 +22,7 @@ class VendorItem extends React.Component {
   like = () => {
     const data = this.props.vendor._id;
     const liked = [];
-    const favorite = { 'favorite': data };
+    const favorite = { favorite: data };
     liked.push(favorite);
     const user = Meteor.user().username;
     console.log('adding to favorites');

@@ -20,7 +20,7 @@ class VendorItemUserProfile extends React.Component {
     if (favIndex > -1) {
       favList.splice(favIndex, 1);
       if (favList[0]) {
-        Favorites.collection.update({ _id: curFav._id }, { $set: { 'liked': favList } });
+        Favorites.collection.update({ _id: curFav._id }, { $set: { liked: favList } });
       } else {
         Favorites.collection.remove(curFav._id);
       }
