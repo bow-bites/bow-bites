@@ -15,10 +15,12 @@ function addVendor(data) {
   console.log(`  Adding: ${data.name} (${data.owner})`);
   Vendors.collection.insert(data);
 }
+/*
 function addFavorite(data) {
   console.log(`  Adding: ${data.userId} (${data.liked})`);
   Favorites.collection.insert(data);
 }
+*/
 
 // Initialize the StuffsCollection if empty.
 if (Stuffs.collection.find().count() === 0) {
@@ -35,9 +37,9 @@ if (Vendors.collection.find().count() === 0) {
   }
 }
 
-if (Favorites.collection.find().count() === 0) {
+/* if (Favorites.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
     console.log('Creating default Favorites.');
     Meteor.settings.defaultFavorites.map(data => addFavorite(data));
   }
-}
+} */
