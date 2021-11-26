@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Item, Button } from 'semantic-ui-react';
-import PropTypes, { element } from 'prop-types';
+import PropTypes, { } from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withRouter } from 'react-router-dom';
 import { Favorites } from '../../api/favorite/Favorite';
@@ -8,14 +8,14 @@ import { Favorites } from '../../api/favorite/Favorite';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class VendorItemUserProfile extends React.Component {
 
-  isValid = (element) => element.favorite === this.props.vendor._id;
+  isValid = (frag) => frag.favorite === this.props.vendor._id;
 
   deleteFavorite = () => {
     const user = Meteor.user().username;
     const curFav = Favorites.collection.find({ userId: user }).fetch()[0];
     const allFav = Favorites.collection.find({ userId: user }).fetch()[0];
     const favList = [];
-    allFav.liked.forEach(element => favList.push(element));
+    allFav.liked.forEach(frag => favList.push(frag));
     const favIndex = curFav.liked.findIndex(this.isValid);
     if (favIndex > -1) {
       favList.splice(favIndex, 1);
