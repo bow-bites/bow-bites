@@ -19,7 +19,8 @@ class VendorItem extends React.Component {
     Vendors.collection.remove(this.props.vendor._id);
   }
 
-  like = (data) => {
+  like = () => {
+    const data = this.props.vendor._id;
     const liked = [];
     const favorite = { 'favorite': data };
     liked.push(favorite);
@@ -75,7 +76,7 @@ class VendorItem extends React.Component {
                   Link to {this.props.vendor.name}&apos;s Profile page.
                 </Item.Extra>
                 <Item.Extra>
-                  <Button color='green' onClick={this.like(this.props.vendor._id)}> Favorite </Button>
+                  <Button color='green' onClick={this.like}> Favorite </Button>
                 </Item.Extra>
                 <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
                 <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>
