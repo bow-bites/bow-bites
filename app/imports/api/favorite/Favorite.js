@@ -13,10 +13,10 @@ class FavoritesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      userId: String,
-      favorites: { type: Array, minCount: 1 },
-      'menuItem.$': Object,
-      'menuItem.$.favorite': { type: String },
+      user: String,
+      liked: { type: Array, minCount: 1 },
+      'liked.$': Object,
+      'liked.$.favorite': { type: String },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -30,4 +30,4 @@ class FavoritesCollection {
  * The singleton instance of the FavoritesCollection.
  * @type {FavoritesCollection}
  */
-export const Stuffs = new FavoritesCollection();
+export const Favorites = new FavoritesCollection();

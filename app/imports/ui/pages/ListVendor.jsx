@@ -4,6 +4,7 @@ import { Container, Item, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
+import { Favorites } from '../../api/favorite/Favorite';
 import VendorItem from '../components/VendorItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -38,12 +39,17 @@ ListVendor.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Vendors.userPublicationName);
+  const subscription2 = Meteor.subscribe(Favorites.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
+  const vamos = subscription2.ready();
   // Get the Stuff documents
   const vendors = Vendors.collection.find({}).fetch();
+  const favorites = Favorites.collection.find({}).fetch();
   return {
     vendors,
+    favorites,
     ready,
+    vamos,
   };
 })(ListVendor);

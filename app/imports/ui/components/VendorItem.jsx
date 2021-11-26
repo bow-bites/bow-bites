@@ -1,8 +1,10 @@
 import React from 'react';
-import { Container, Item, Button, Confirm, Radio } from 'semantic-ui-react';
+import { Container, Item, Button, Confirm } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 import { Link, withRouter } from 'react-router-dom';
 import { Vendors } from '../../api/vendor/Vendor';
+import { Favorites } from '../../api/favorite/Favorite';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class VendorItem extends React.Component {
@@ -13,10 +15,43 @@ class VendorItem extends React.Component {
 
   close = () => this.setState({ open: false })
 
-  test = () => console.log("it CLicked")
+  test = () => console.log('it CLicked')
 
   deleteVendor = () => {
     Vendors.collection.remove(this.props.vendor._id);
+  }
+
+  like(data) {
+    const liked = [];
+    const favorite = { 'favorite': data };
+    liked.push(favorite);
+    const user = Meteor.user().username;
+    console.log('adding to favorites');
+    if (Favorites.collection.find({ userId: user })) {
+      console.log('User already has a collection');
+      const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
+      if (userPro.liked) {
+        console.log('user profile id', userPro);
+        userPro.liked.push(favorite);
+        const favList = userPro.liked;
+        const newArr = favList.slice();
+        console.log('fav array', favList);
+        console.log('new array', newArr);
+        //Favorites.collection.update({ _id: userPro._id }, { $set: { liked: newArr } });
+        const userProNew = Favorites.collection.find({ userId: user }).fetch()[0];
+        console.log('user profile liked', userPro.liked);
+        console.log('user profile', userProNew.liked);
+      }
+    } else {
+      Favorites.collection.insert({ user, liked },
+        (error) => {
+          if (error) {
+            console.log('Error', error.message, 'error');
+          } else {
+            console.log('Success', 'Vendor added successfully', 'success');
+          }
+        });
+    }
   }
 
   render() {
@@ -43,7 +78,7 @@ class VendorItem extends React.Component {
                   Link to {this.props.vendor.name}&apos;s Profile page.
                 </Item.Extra>
                 <Item.Extra>
-                  <Button color='green' onClick={this.test}> Favorite </Button>
+                  <Button color='green' onClick={this.like(this.props.vendor._id)}> Favorite </Button>
                 </Item.Extra>
                 <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
                 <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>

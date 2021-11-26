@@ -11,6 +11,16 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
+  "defaultFavorites": [
+    { "userId": "john@foo.com",
+      "liked": [
+        {
+          "favorite" : "pXbWnhZyWowWjmTJy"
+        }
+      ]
+    }
+  ],
+
   "defaultVendor": [
     {
       "_id" : "pXbWnhZyWowWjmTJy",
