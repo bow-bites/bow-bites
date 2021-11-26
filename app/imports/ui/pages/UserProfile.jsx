@@ -4,6 +4,7 @@ import { Container, Item, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
+import { Favorites } from '../../api/favorite/Favorite';
 import VendorItemUserProfile from '../components/VendorItemUserProfile';
 import Anything from '../components/Anything';
 
@@ -20,13 +21,21 @@ class UserProfile extends React.Component {
     const userEmail = Meteor.users.findOne(Meteor.userId()).username;
     const userName = userEmail.split('@');
     const pageName = `${userName[0]}'s Page`;
+    const user = Meteor.user().username;
+    const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
+    const newArr = [];
+    if (userPro) {
+      userPro.liked.forEach(element => newArr.push(Vendors.collection.find({ _id: element.favorite }).fetch()[0]));
+    } else {
+      console.log('userPro empty');
+    }
 
     return (
       <Container id="list-vendor-page">
         <Header as="h2" textAlign="center" inverted>{pageName}</Header>
         <Item.Group divided>
           <Anything/>
-          {this.props.vendors.map((vendor, index) => <VendorItemUserProfile
+          {newArr.map((vendor, index) => <VendorItemUserProfile
             key={index} vendor={vendor}/>)}
         </Item.Group>
       </Container>
@@ -44,12 +53,17 @@ UserProfile.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Vendors.userPublicationName);
+  const subscription2 = Meteor.subscribe(Favorites.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
+  const vamos = subscription2.ready();
   // Get the Stuff documents
   const vendors = Vendors.collection.find({}).fetch();
+  const favorites = Favorites.collection.find({}).fetch();
   return {
     vendors,
+    favorites,
     ready,
+    vamos,
   };
 })(UserProfile);

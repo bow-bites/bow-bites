@@ -15,13 +15,11 @@ class VendorItem extends React.Component {
 
   close = () => this.setState({ open: false })
 
-  test = () => console.log('it CLicked')
-
   deleteVendor = () => {
     Vendors.collection.remove(this.props.vendor._id);
   }
 
-  like(data) {
+  like = (data) => {
     const liked = [];
     const favorite = { 'favorite': data };
     liked.push(favorite);
@@ -30,14 +28,16 @@ class VendorItem extends React.Component {
     if (Favorites.collection.find({ userId: user })) {
       console.log('User already has a collection');
       const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
-      const userProId = userPro._id;
-      const newArr = [];
-      userPro.liked.forEach(element => newArr.push(element.favorite));
-      if (newArr.includes(data)) {
-        console.log('it exists');
-      } else {
-        console.log('it does not exist updating collection');
-        Favorites.collection.update({ _id: userProId }, { $push: { liked: favorite } });
+      if (userPro) {
+        const userProId = userPro._id;
+        const newArr = [];
+        userPro.liked.forEach(element => newArr.push(element.favorite));
+        if (newArr.includes(data)) {
+          console.log('Vendor already exists in favorites');
+        } else {
+          console.log('it does not exist updating collection');
+          Favorites.collection.update({ _id: userProId }, { $push: { liked: favorite } });
+        }
       }
     } else {
       Favorites.collection.insert({ user, liked },
