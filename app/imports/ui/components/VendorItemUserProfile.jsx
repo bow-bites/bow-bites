@@ -1,14 +1,30 @@
 import React from 'react';
 import { Container, Item, Button } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import PropTypes, { element } from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 import { withRouter } from 'react-router-dom';
-import { Vendors } from '../../api/vendor/Vendor';
+import { Favorites } from '../../api/favorite/Favorite';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class VendorItemUserProfile extends React.Component {
 
-  deleteVendor = () => {
-    Vendors.collection.remove(this.props.vendor._id);
+  isValid = (element) => element.favorite === this.props.vendor._id;
+
+  deleteFavorite = () => {
+    const user = Meteor.user().username;
+    const curFav = Favorites.collection.find({ userId: user }).fetch()[0];
+    const allFav = Favorites.collection.find({ userId: user }).fetch()[0];
+    const favList = [];
+    allFav.liked.forEach(element => favList.push(element));
+    const favIndex = curFav.liked.findIndex(this.isValid);
+    if (favIndex > -1) {
+      favList.splice(favIndex, 1);
+      if (favList[0]) {
+        Favorites.collection.update({ _id: curFav._id }, { $set: { 'liked': favList } });
+      } else {
+        Favorites.collection.remove(curFav._id);
+      }
+    }
   }
 
   render() {
@@ -32,6 +48,9 @@ class VendorItemUserProfile extends React.Component {
                 </Item.Description>
                 <Item.Extra>
                   <Button>Link to {this.props.vendor.name}&apos;s Profile page.</Button>
+                </Item.Extra>
+                <Item.Extra>
+                  <Button color='red' onClick={this.deleteFavorite}>Remove from Favorites</Button>
                 </Item.Extra>
                 <Item.Description>
                   Menu Items total {this.props.vendor.menuItem.length}

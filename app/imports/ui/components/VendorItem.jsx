@@ -26,7 +26,7 @@ class VendorItem extends React.Component {
     liked.push(favorite);
     const user = Meteor.user().username;
     console.log('adding to favorites');
-    if (Favorites.collection.find({ userId: user })) {
+    if (Favorites.collection.find({ userId: user }).fetch()[0]) {
       console.log('User already has a collection');
       const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
       if (userPro) {
@@ -41,7 +41,8 @@ class VendorItem extends React.Component {
         }
       }
     } else {
-      Favorites.collection.insert({ user, liked },
+      const userId = user;
+      Favorites.collection.insert({ userId, liked },
         (error) => {
           if (error) {
             console.log('Error', error.message, 'error');
