@@ -13,7 +13,7 @@ class FavoritesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      user: String,
+      userId: String,
       liked: { type: Array, minCount: 1 },
       'liked.$': Object,
       'liked.$.favorite': { type: String },

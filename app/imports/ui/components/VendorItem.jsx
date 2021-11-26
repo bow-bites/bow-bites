@@ -30,18 +30,9 @@ class VendorItem extends React.Component {
     if (Favorites.collection.find({ userId: user })) {
       console.log('User already has a collection');
       const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
-      if (userPro.liked) {
-        console.log('user profile id', userPro);
-        userPro.liked.push(favorite);
-        const favList = userPro.liked;
-        const newArr = favList.slice();
-        console.log('fav array', favList);
-        console.log('new array', newArr);
-        //Favorites.collection.update({ _id: userPro._id }, { $set: { liked: newArr } });
-        const userProNew = Favorites.collection.find({ userId: user }).fetch()[0];
-        console.log('user profile liked', userPro.liked);
-        console.log('user profile', userProNew.liked);
-      }
+      const userProId = userPro._id;
+      console.log('user profile id', userPro);
+      Favorites.collection.update({ _id: userProId }, { $push: { liked: favorite } });
     } else {
       Favorites.collection.insert({ user, liked },
         (error) => {
