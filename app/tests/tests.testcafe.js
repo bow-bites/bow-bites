@@ -5,6 +5,8 @@ import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { addVendorPage } from './addvendor.page';
 import { removeVendorPage } from './removeVendor.page';
+import { addFavorite } from './addFavorite';
+import { removeFavorite } from './removeFavorite';
 
 /* global fixture:false, test:false */
 
@@ -73,11 +75,28 @@ test('Test the Add Vendor page', async (testController) => {
   await addVendorPage.vendorExists(testController, testVendor.name);
 });
 
+test('Test the Favorite Button', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoListVendorPage(testController);
+  await addFavorite.addFavorite(testController, testVendor.name);
+  await navBar.gotoUserProfilePage(testController);
+  await addFavorite.likeExists(testController, testVendor.name);
+});
+
+test('Test Remove Favorite Button', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoUserProfilePage(testController);
+  await removeFavorite.removeFavorite(testController, testVendor.name);
+  await removeFavorite.likeRemoved(testController, testVendor.name);
+});
+
 test('Test the Delete Vendor Function', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoListVendorPage(testController);
   await addVendorPage.vendorExists(testController, testVendor.name);
-  await removeVendorPage.removeVendor(testController, testVendor.name);
+  await removeVendorPage.RemoveVendor(testController, testVendor.name);
   await addVendorPage.existingTestVendorCheck(testController, testVendor.name);
 });

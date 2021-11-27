@@ -31,7 +31,7 @@ class UserProfile extends React.Component {
     }
 
     return (
-      <Container id="list-vendor-page">
+      <Container id="user-profile-page">
         <Header as="h2" textAlign="center" inverted>{pageName}</Header>
         <Item.Group divided>
           <Anything/>

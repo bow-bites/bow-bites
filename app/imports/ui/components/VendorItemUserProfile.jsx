@@ -28,6 +28,7 @@ class VendorItemUserProfile extends React.Component {
   }
 
   render() {
+    const removeVenTxt = `Remove ${this.props.vendor.name} from Favorites`;
 
     return (
       <div className="middle-background">
@@ -36,7 +37,7 @@ class VendorItemUserProfile extends React.Component {
             <Item>
               <Item.Image size='small' src={this.props.vendor.storeImage}/>
               <Item.Content verticalAlign="middle">
-                <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
+                <Item.Header as="h1" id='userProfile-Name'>{this.props.vendor.name}</Item.Header>
                 <Item.Extra>
                   {this.props.vendor.name} sells {this.props.vendor.foodType} food
                 </Item.Extra>
@@ -50,7 +51,7 @@ class VendorItemUserProfile extends React.Component {
                   <Button>Link to {this.props.vendor.name}&apos;s Profile page.</Button>
                 </Item.Extra>
                 <Item.Extra>
-                  <Button color='red' onClick={this.deleteFavorite}>Remove from Favorites</Button>
+                  <Button color='red' id="userProfile-Delete" onClick={this.deleteFavorite}>{removeVenTxt}</Button>
                 </Item.Extra>
                 <Item.Description>
                   Menu Items total {this.props.vendor.menuItem.length}

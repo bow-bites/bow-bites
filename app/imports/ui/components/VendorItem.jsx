@@ -55,6 +55,7 @@ class VendorItem extends React.Component {
 
   render() {
     const delVenTxt = `Delete   ${this.props.vendor.name}`;
+    const favVenTxt = `Favorite ${this.props.vendor.name}`;
 
     return (
       <div className="middle-background">
@@ -77,7 +78,7 @@ class VendorItem extends React.Component {
                   Link to {this.props.vendor.name}&apos;s Profile page.
                 </Item.Extra>
                 <Item.Extra>
-                  <Button color='green' onClick={this.like}> Favorite </Button>
+                  <Button color='green' id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
                 </Item.Extra>
                 <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
                 <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>

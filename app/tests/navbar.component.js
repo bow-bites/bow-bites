@@ -50,6 +50,13 @@ class NavBar {
       await testController.click('#navbar-add-vendor');
     }
   }
+
+  async gotoUserProfilePage(testController) {
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-user-profile');
+    }
+  }
 }
 
 export const navBar = new NavBar();
