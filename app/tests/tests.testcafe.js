@@ -8,6 +8,7 @@ import { removeVendorPage } from './removeVendor.page';
 import { addFavorite } from './addFavorite';
 import { removeFavorite } from './removeFavorite';
 import { topPicksPage } from './topPicks.page';
+import { availableNowPage } from './availableNow';
 
 /* global fixture:false, test:false */
 
@@ -106,4 +107,10 @@ test('Test the Top Picks Page', async (testController) => {
   await navBar.gotoTopPicksPage(testController);
   await topPicksPage.isDisplayed(testController);
   await topPicksPage.hasMenuItem(testController);
+});
+
+test('Test the Available Now Page', async (testController) => {
+  await navBar.gotoAvailableNow(testController);
+  await availableNowPage.isDisplayed(testController);
+  await availableNowPage.hasMenuItem(testController);
 });

@@ -61,6 +61,10 @@ class NavBar {
   async gotoTopPicksPage(testController) {
     await testController.click('#navbar-top-picks');
   }
+
+  async gotoAvailableNow(testController) {
+    await testController.click('#navbar-available-now');
+  }
 }
 
 export const navBar = new NavBar();
