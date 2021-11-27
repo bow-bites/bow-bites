@@ -18,10 +18,10 @@ class VendorProfile extends React.Component {
   renderPage() {
     return (
       <div className="VendorProfile">
-        <div className="ui image">
+        <div className="ui image" >
           <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
         </div>
-        <Grid container stackable centered columns={2} verticalAlign="middle" inverted>
+        <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid">
           <Grid.Column>
             <Item.Group>
               <Item>
@@ -59,14 +59,14 @@ class VendorProfile extends React.Component {
               open during convenient hours, and serving a wide variety of foods (and not just our award winning leafy greens),
               stop by Salad Vendor today!
             </p>
-            <Item.Group>
+            <Item.Group id="VendorProfileMenu">
               <Item>
                 <Item.Header as='h3'>
-                  Best salads on campus!
+                  Caesar&apos;s Glory
                 </Item.Header>
+                <Item.Image size="tiny" src="https://natashaskitchen.com/wp-content/uploads/2019/01/Caesar-Salad-Recipe-3.jpg"/>
                 <Item.Description>
-                  Salad Vendor offers the best caesar salads on campus. As someone who is certainly not trying to pad the content
-                  on this page, I suggest you visit salad vendor today!
+                  A favorite on the campus, refresh your lunch with the best caesar salad around!
                 </Item.Description>
               </Item>
             </Item.Group>
