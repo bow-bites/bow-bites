@@ -104,6 +104,6 @@ test('Test the Delete Vendor Function', async (testController) => {
 
 test('Test the Top Picks Page', async (testController) => {
   await navBar.gotoTopPicksPage(testController);
-  await topPicksPage.isDisplayed();
-  await topPicksPage.hasMenuItem();
+  await topPicksPage.isDisplayed(testController);
+  await topPicksPage.hasMenuItem(testController);
 });
