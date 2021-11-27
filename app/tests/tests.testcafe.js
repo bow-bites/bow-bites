@@ -7,6 +7,7 @@ import { addVendorPage } from './addvendor.page';
 import { removeVendorPage } from './removeVendor.page';
 import { addFavorite } from './addFavorite';
 import { removeFavorite } from './removeFavorite';
+import { topPicksPage } from './topPicks.page';
 
 /* global fixture:false, test:false */
 
@@ -99,4 +100,10 @@ test('Test the Delete Vendor Function', async (testController) => {
   await addVendorPage.vendorExists(testController, testVendor.name);
   await removeVendorPage.RemoveVendor(testController, testVendor.name);
   await addVendorPage.existingTestVendorCheck(testController, testVendor.name);
+});
+
+test('Test the Top Picks Page', async (testController) => {
+  await navBar.gotoTopPicksPage(testController);
+  await topPicksPage.isDisplayed();
+  await topPicksPage.hasMenuItem();
 });
