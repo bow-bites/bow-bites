@@ -17,7 +17,7 @@ class TopPicks extends React.Component {
   renderPage() {
     return (
       <div className="middle-background">
-        <Container>
+        <Container id='top-picks'>
           <Header as="h2" textAlign="center">Top Picks</Header>
           <Item.Group>
             <Item>

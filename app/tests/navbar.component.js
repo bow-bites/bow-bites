@@ -57,6 +57,10 @@ class NavBar {
       await testController.click('#navbar-user-profile');
     }
   }
+
+  async gotoTopPicksPage(testController) {
+    await testController.click('#navbar-top-picks');
+  }
 }
 
 export const navBar = new NavBar();
