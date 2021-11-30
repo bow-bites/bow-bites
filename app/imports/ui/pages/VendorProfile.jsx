@@ -18,40 +18,43 @@ class VendorProfile extends React.Component {
   renderPage() {
     return (
       <div className="VendorProfile">
-        <div className="ui image" id='vendor-picture' >
+        <div className="ui image" id='vendor-profile-picture' >
           <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
         </div>
-        <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid">
-          <Grid.Column>
-            <Item.Group>
+        <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid" >
+          <Grid.Column style={{ color: 'white' }}>
+            <Item.Group id='vendor-profile-left-col'>
+              <Header as='h1' style={{ color: 'white' }}>
+                Information
+              </Header>
               <Item>
-                <Item.Header as='h2'>
+                <Item.Header as='h3'>
                   Hours of Operation
                 </Item.Header>
-                <Item.Description>
-                  M-F: 9AM-3PM
-                </Item.Description>
+                <Item.Meta>
+                  <span>M-F: 9AM-3PM</span>
+                </Item.Meta>
               </Item>
               <Item>
-                <Item.Header as='h2'>
+                <Item.Header as='h3'>
                   Location
                 </Item.Header>
-                <Item.Description>
+                <Item.Meta>
                   Paradise Palms
-                </Item.Description>
+                </Item.Meta>
               </Item>
               <Item>
-                <Item.Header as='h2'>
+                <Item.Header as='h3'>
                   Cuisine
                 </Item.Header>
-                <Item.Description>
+                <Item.Meta>
                   Salad Bar
-                </Item.Description>
+                </Item.Meta>
               </Item>
             </Item.Group>
           </Grid.Column>
-          <Grid.Column>
-            <Header as='h1' inverted>
+          <Grid.Column style={{ color: 'white' }}>
+            <Header as='h1' style={{ color: 'white' }}>
                   Salad Vendor
             </Header>
             <p>

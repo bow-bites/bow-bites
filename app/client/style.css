@@ -12,7 +12,11 @@
   background-color: white;
 }
 
-#vendor-picture {
+#vendor-profile-picture {
   display: flex;
   justify-content: center;
+}
+
+#vendor-profile-left-col {
+  foreground-color: white;
 }
