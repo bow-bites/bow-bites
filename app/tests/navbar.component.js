@@ -36,6 +36,35 @@ class NavBar {
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
   }
+
+  async gotoListVendorPage(testController) {
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-list-vendor');
+    }
+  }
+
+  async gotoAddVendorPage(testController) {
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-add-vendor');
+    }
+  }
+
+  async gotoUserProfilePage(testController) {
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-user-profile');
+    }
+  }
+
+  async gotoTopPicksPage(testController) {
+    await testController.click('#navbar-top-picks');
+  }
+
+  async gotoAvailableNow(testController) {
+    await testController.click('#navbar-available-now');
+  }
 }
 
 export const navBar = new NavBar();

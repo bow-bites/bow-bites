@@ -6,7 +6,7 @@ class Landing extends React.Component {
   render() {
     const gridStyle = { height: '500px' };
     return (
-      <div className="bowbites-background-image">
+      <div className="bowbites-background-image" id="landing-page">
         <Grid container stackable centered columns={2} verticalAlign="middle" style={gridStyle}>
 
           <Grid.Column textAlign="center">

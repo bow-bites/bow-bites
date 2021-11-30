@@ -5,10 +5,11 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
 import { Favorites } from '../../api/favorite/Favorite';
-import VendorItem from '../components/VendorItem';
+import VendorItemUserProfile from '../components/VendorItemUserProfile';
+import Anything from '../components/Anything';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListVendor extends React.Component {
+class UserProfile extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -17,11 +18,24 @@ class ListVendor extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    const userEmail = Meteor.users.findOne(Meteor.userId()).username;
+    const userName = userEmail.split('@');
+    const pageName = `${userName[0]}'s Page`;
+    const user = Meteor.user().username;
+    const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
+    const newArr = [];
+    if (userPro) {
+      userPro.liked.forEach(element => newArr.push(Vendors.collection.find({ _id: element.favorite }).fetch()[0]));
+    } else {
+      console.log('userPro empty');
+    }
+
     return (
-      <Container id="list-vendor-page">
-        <Header as="h2" textAlign="center" inverted>List of Vendors</Header>
+      <Container id="user-profile-page">
+        <Header as="h2" textAlign="center" inverted>{pageName}</Header>
         <Item.Group divided>
-          {this.props.vendors.map((vendor, index) => <VendorItem
+          <Anything/>
+          {newArr.map((vendor, index) => <VendorItemUserProfile
             key={index} vendor={vendor}/>)}
         </Item.Group>
       </Container>
@@ -30,8 +44,8 @@ class ListVendor extends React.Component {
 }
 
 // Require an array of Stuff documents in the props.
-ListVendor.propTypes = {
-  vendors: PropTypes.array.isRequired,
+UserProfile.propTypes = {
+  // vendors: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -52,4 +66,4 @@ export default withTracker(() => {
     ready,
     vamos,
   };
-})(ListVendor);
+})(UserProfile);

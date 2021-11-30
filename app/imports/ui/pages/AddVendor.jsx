@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SubmitField, ListField, TextField, LongTextField, RadioField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, NumField, SubmitField, ListField, TextField, LongTextField, RadioField, SelectField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -10,7 +10,11 @@ import { Vendors } from '../../api/vendor/Vendor';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
-  foodType: String,
+  foodType: {
+    type: String,
+    defaultValue: 'Vegetarian',
+    allowedValues: ['Vegetarian', 'Italian', 'French', 'Chinese', 'Japanese', 'Vietnamese', 'Fast', 'Mexican', 'American', 'Indian', 'Korean', 'Hawaiian', 'Filipino'],
+  },
   storeImage: String,
   open: Number,
   openAmOrPm: {
@@ -57,21 +61,21 @@ class AddVendor extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
+      <Grid container centered id='add-vendor-page'>
         <Grid.Column>
           <Header as="h2" textAlign="center" inverted>Add Vendor</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='name'/>
-              <TextField name='foodType'/>
-              <TextField name='storeImage'/>
-              <NumField name='open'/>
-              <RadioField name='openAmOrPm'/>
-              <NumField name='close'/>
-              <RadioField name='closeAmOrPm'/>
-              <ListField name='menuItem'/>
-              <LongTextField name='description'/>
-              <SubmitField value='Submit'/>
+              <TextField name='name' id='addVendor-Name'/>
+              <SelectField name='foodType' id='addVendor-FoodType'/>
+              <TextField name='storeImage' id='addVendor-StoreImage'/>
+              <NumField name='open' id='addVendor-Open'/>
+              <RadioField name='openAmOrPm' id='addVendor-OpenAmOrPm'/>
+              <NumField name='close' id='addVendor-Close'/>
+              <RadioField name='closeAmOrPm' id='addVendor-CloseAmOrPm'/>
+              <ListField name='menuItem' id='addVendor-MenuItem'/>
+              <LongTextField name='description' id='addVendor-Description'/>
+              <SubmitField value='Submit' id='addVendor-Submit'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>
