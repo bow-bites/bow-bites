@@ -1,7 +1,7 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "admin@foo.com", "password": "bowbitestestadmin123!", "role": "admin" },
+    { "email": "john@foo.com", "password": "bowbitestestjohn123!" }
   ],
 
   "defaultFavorites": [
