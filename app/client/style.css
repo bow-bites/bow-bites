@@ -11,3 +11,8 @@
 .middle-background {
   background-color: white;
 }
+
+#vendor-picture {
+  display: flex;
+  justify-content: center;
+}

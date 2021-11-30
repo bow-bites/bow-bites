@@ -18,7 +18,7 @@ class VendorProfile extends React.Component {
   renderPage() {
     return (
       <div className="VendorProfile">
-        <div className="ui image" >
+        <div className="ui image" id='vendor-picture' >
           <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
         </div>
         <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid">
