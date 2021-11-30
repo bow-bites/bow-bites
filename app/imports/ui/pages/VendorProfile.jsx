@@ -22,8 +22,8 @@ class VendorProfile extends React.Component {
           <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
         </div>
         <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid" >
-          <Grid.Column style={{ color: 'white' }}>
-            <Item.Group id='vendor-profile-left-col'>
+          <Grid.Column style={{ color: 'white' }} id='vendor-profile-left-col'>
+            <Item.Group >
               <Header as='h1' style={{ color: 'white' }}>
                 Information
               </Header>
@@ -71,6 +71,9 @@ class VendorProfile extends React.Component {
                 <Item.Description>
                   A favorite on the campus, refresh your lunch with the best caesar salad around!
                 </Item.Description>
+                <Item.Meta>
+                  <span>$6.99</span>
+                </Item.Meta>
               </Item>
             </Item.Group>
           </Grid.Column>
