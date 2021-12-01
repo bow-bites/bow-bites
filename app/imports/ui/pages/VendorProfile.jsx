@@ -17,7 +17,7 @@ class VendorProfile extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <div className="VendorProfile">
+      <div className="VendorProfile" id="vendor-profile">
         <div className="ui image" id='vendor-profile-picture' >
           <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
         </div>

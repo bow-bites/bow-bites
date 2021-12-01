@@ -65,6 +65,10 @@ class NavBar {
   async gotoAvailableNow(testController) {
     await testController.click('#navbar-available-now');
   }
+
+  async gotoVendorProfile(testController) {
+    await testController.click('#navbar-vendor-profile');
+  }
 }
 
 export const navBar = new NavBar();

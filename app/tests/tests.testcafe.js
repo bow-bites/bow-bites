@@ -9,6 +9,7 @@ import { addFavorite } from './addFavorite';
 import { removeFavorite } from './removeFavorite';
 import { topPicksPage } from './topPicks.page';
 import { availableNowPage } from './availableNow';
+import { vendorProfilePage } from './vendorProfile';
 
 /* global fixture:false, test:false */
 
@@ -113,4 +114,9 @@ test('Test the Available Now Page', async (testController) => {
   await navBar.gotoAvailableNow(testController);
   await availableNowPage.isDisplayed(testController);
   await availableNowPage.hasMenuItem(testController);
+});
+
+test('Test the Available Now Page', async (testController) => {
+  await navBar.gotoVendorProfile(testController);
+  await vendorProfilePage.isDisplayed(testController);
 });
