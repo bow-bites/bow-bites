@@ -3,6 +3,14 @@ import { Meteor } from 'meteor/meteor';
 import { Vendors } from '../../api/vendor/Vendor';
 import { Favorites } from '../../api/favorite/Favorite';
 
+Meteor.publish(Vendors.public, function () {
+  if (this) {
+    return Vendors.collection.find();
+  }
+  return this.ready();
+
+});
+
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
 Meteor.publish(Vendors.userPublicationName, function () {

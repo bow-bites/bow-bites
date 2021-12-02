@@ -13,6 +13,7 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import AddVendor from '../pages/AddVendor';
 import ListVendor from '../pages/ListVendor';
+import PublicListVendor from '../pages/PublicListVendor';
 import TopPicks from '../pages/TopPicks';
 import AvailableNow from '../pages/AvailableNow';
 import VendorProfile from '../pages/VendorProfile';
@@ -34,6 +35,7 @@ class App extends React.Component {
             <Route path="/TopPicks" component={TopPicks}/>
             <Route path="/AvailableNow" component={AvailableNow}/>
             <Route path="/VendorProfile" component={VendorProfile}/>
+            <Route path="/PublicListVendor" component={PublicListVendor}/>
             <ProtectedRoute path="/addVendor" component={AddVendor}/>
             <ProtectedRoute path="/editVendor" component={EditVendor}/>
             <ProtectedRoute path="/edit/:_id" component={EditVendor}/>
