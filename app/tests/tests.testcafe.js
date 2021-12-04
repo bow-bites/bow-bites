@@ -1,7 +1,7 @@
 import { landingPage } from './landing.page';
 import { listVendorPage } from './listvendor.page';
-import { publicListVendorPage } from './public-listvendor.page.page';
-import { adminListVendorPage } from './admin-listvendor.page.page';
+import { publicListVendorPage } from './public-listvendor.page';
+import { adminListVendorPage } from './admin-listvendor.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
@@ -62,7 +62,7 @@ test('Test that signin and signout work', async (testController) => {
 });
 
 test('Test the Public List Vendor page', async (testController) => {
-  await navBar.gotoListVendorPage(testController);
+  await navBar.gotoPublicListVendorPage(testController);
   await publicListVendorPage.isDisplayed(testController);
   await publicListVendorPage.hasMenuItem(testController);
 });
