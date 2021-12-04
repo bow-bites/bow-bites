@@ -4,7 +4,7 @@ import { Container, Item, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
-import PublicVendorItem from '../components/PublicVendorItem';
+import AdminVendorItem from '../components/AdminVendorItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListVendor extends React.Component {
@@ -17,10 +17,10 @@ class ListVendor extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container id="public-list-vendor-page">
-        <Header as="h2" textAlign="center" inverted>List of Vendors</Header>
+      <Container id="admin-list-vendor-page">
+        <Header as="h2" textAlign="center" inverted>Admin Vendor Page</Header>
         <Item.Group divided>
-          {this.props.vendors.map((vendor, index) => <PublicVendorItem
+          {this.props.vendors.map((vendor, index) => <AdminVendorItem
             key={index} vendor={vendor}/>)}
         </Item.Group>
       </Container>
@@ -37,7 +37,7 @@ ListVendor.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Vendors.userPublicationName);
+  const subscription = Meteor.subscribe(Vendors.adminPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents

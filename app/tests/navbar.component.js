@@ -44,6 +44,17 @@ class NavBar {
     }
   }
 
+  async gotoPublicListVendorPage(testController) {
+    await testController.click('#navbar-public-list-vendor');
+  }
+
+  async gotoAdminListVendorPage(testController) {
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-admin-list-vendor');
+    }
+  }
+
   async gotoAddVendorPage(testController) {
     const loggedInUser = await Selector('#navbar-current-user').exists;
     if (loggedInUser) {
@@ -59,7 +70,10 @@ class NavBar {
   }
 
   async gotoTopPicksPage(testController) {
-    await testController.click('#navbar-top-picks');
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-top-picks');
+    }
   }
 
   async gotoAvailableNow(testController) {
@@ -67,7 +81,10 @@ class NavBar {
   }
 
   async gotoVendorProfile(testController) {
-    await testController.click('#navbar-vendor-profile');
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-vendor-profile');
+    }
   }
 }
 
