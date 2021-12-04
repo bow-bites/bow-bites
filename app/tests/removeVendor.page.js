@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 
 class RemoveVendorPage {
   constructor() {
-    this.pageId = '#list-vendor-page';
+    this.pageId = '#admin-list-vendor-page';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -13,7 +13,7 @@ class RemoveVendorPage {
 
   /** Removes the test Vendor. */
   async RemoveVendor(testController, testVendor) {
-    const vendorDelete = Selector('#listVendor-Delete').withText('Delete ' + testVendor);
+    const vendorDelete = Selector('#listVendor-Delete').withText(`Delete ${testVendor}`);
     const vendorDeleteConfirm = Selector('.button.ui.primary.button').withText('OK');
 
     await this.isDisplayed(testController);
