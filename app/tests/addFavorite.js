@@ -13,7 +13,7 @@ class AddFavorite {
 
   /** Removes the test Vendor. */
   async addFavorite(testController, testVendor) {
-    const vendorFavorite = Selector('#listVendor-Favorite').withText('Favorite ' + testVendor);
+    const vendorFavorite = Selector('#listVendor-Favorite').withText(`Favorite ${testVendor}`);
 
     await this.isDisplayed(testController);
     await testController.click(vendorFavorite());
