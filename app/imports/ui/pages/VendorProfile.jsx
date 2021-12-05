@@ -4,7 +4,7 @@ import { Item, Header, Loader, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
-// import VendorItem from '../components/VendorItem'; // Need to come back to add Vendors
+import VendorItem from '../components/VendorItem';
 
 /** Represents a vendor's profile page */
 class VendorProfile extends React.Component {
@@ -63,18 +63,7 @@ class VendorProfile extends React.Component {
               stop by Salad Vendor today!
             </p>
             <Item.Group id="VendorProfileMenu">
-              <Item>
-                <Item.Header as='h3'>
-                  Caesar&apos;s Glory
-                </Item.Header>
-                <Item.Image size="tiny" src="https://natashaskitchen.com/wp-content/uploads/2019/01/Caesar-Salad-Recipe-3.jpg"/>
-                <Item.Description>
-                  A favorite on the campus, refresh your lunch with the best caesar salad around!
-                </Item.Description>
-                <Item.Meta>
-                  <span>$6.99</span>
-                </Item.Meta>
-              </Item>
+              <VendorItem vendor={this.props.vendor.menuItem[0]}/>
             </Item.Group>
           </Grid.Column>
         </Grid>
@@ -85,7 +74,20 @@ class VendorProfile extends React.Component {
 
 // Require a vendor ID to be passed in
 VendorProfile.propTypes = {
-  vendor: PropTypes.object,
+  vendor: PropTypes.shape({
+    name: PropTypes.string,
+    _id: PropTypes.string,
+    description: PropTypes.string,
+    storeImage: PropTypes.string,
+    foodType: PropTypes.string,
+    open: PropTypes.number,
+    close: PropTypes.number,
+    menuItem: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+      description: PropTypes.string,
+      image: PropTypes.string,
+    })),
+  }).isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -96,9 +98,9 @@ export default withTracker(() => {
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const vendors = Vendors.collection.find({}).fetch();
+  const vendor = Vendors.collection.find({}).fetch();
   return {
-    vendors,
+    vendor,
     ready,
   };
 })(VendorProfile);
