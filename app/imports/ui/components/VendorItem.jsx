@@ -81,6 +81,7 @@ class VendorItem extends React.Component {
                   <Button color='green' id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
                 </Item.Extra>
                 <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
+                <Button as={Link} to={`/VendorProfile/${this.props.vendor._id}`} > Profile</Button>
                 <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>
                 <Confirm
                   open={this.state.open}
