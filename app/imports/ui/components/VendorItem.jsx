@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withRouter } from 'react-router-dom';
 import { Favorites } from '../../api/favorite/Favorite';
+import OperatingTime from './OperatingTime';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class VendorItem extends React.Component {
@@ -42,7 +43,27 @@ class VendorItem extends React.Component {
   }
 
   render() {
-    const favVenTxt = `Favorite ${this.props.vendor.name}`;
+    let favVenTxt = `Favorite ${this.props.vendor.name}`;
+    let favAdded = 'green';
+
+    // Checks if the vendor has already been liked
+    const dataCheck = this.props.vendor._id;
+    const likedCheck = [];
+    const favoriteCheck = { favorite: dataCheck };
+    likedCheck.push(favoriteCheck);
+    const userCheck = Meteor.user().username;
+    if (Favorites.collection.find({ userId: userCheck }).fetch()[0]) {
+      const userProCheck = Favorites.collection.find({ userId: userCheck }).fetch()[0];
+      if (userProCheck) {
+        const newArrCheck = [];
+        userProCheck.liked.forEach(element => newArrCheck.push(element.favorite));
+        if (newArrCheck.includes(dataCheck)) {
+          console.log('Vendor already exists in favorites');
+          favAdded = 'grey';
+          favVenTxt = 'Added to Favorites';
+        }
+      }
+    }
 
     return (
       <div className="middle-background">
@@ -59,13 +80,13 @@ class VendorItem extends React.Component {
                   {this.props.vendor.description}
                 </Item.Description>
                 <Item.Description>
-                  Open from {this.props.vendor.open} am to {this.props.vendor.close} pm.
+                  <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
                 </Item.Description>
                 <Item.Extra>
                   Link to {this.props.vendor.name}&apos;s Profile page.
                 </Item.Extra>
                 <Item.Extra>
-                  <Button color='green' id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
+                  <Button color={favAdded} id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
                 </Item.Extra>
               </Item.Content>
             </Item>
@@ -86,6 +107,8 @@ VendorItem.propTypes = {
     foodType: PropTypes.string,
     open: PropTypes.number,
     close: PropTypes.number,
+    openAmOrPm: PropTypes.string,
+    closeAmOrPm: PropTypes.string,
     menuItem: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       description: PropTypes.string,

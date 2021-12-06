@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Item } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import OperatingTime from './OperatingTime';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class PublicVendorItem extends React.Component {
@@ -21,7 +22,7 @@ class PublicVendorItem extends React.Component {
                   {this.props.vendor.description}
                 </Item.Description>
                 <Item.Description>
-                  Open from {this.props.vendor.open} am to {this.props.vendor.close} pm.
+                  <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
                 </Item.Description>
                 <Item.Extra>
                   Link to {this.props.vendor.name}&apos;s Profile page.
@@ -45,6 +46,8 @@ PublicVendorItem.propTypes = {
     foodType: PropTypes.string,
     open: PropTypes.number,
     close: PropTypes.number,
+    openAmOrPm: PropTypes.string,
+    closeAmOrPm: PropTypes.string,
     menuItem: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       description: PropTypes.string,
