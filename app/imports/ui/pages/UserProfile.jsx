@@ -60,6 +60,9 @@ class UserProfile extends React.Component {
       this.filterVendor(newArr, userPro, data).forEach(foodType => newFilteredArr.push(foodType));
       console.log(newFilteredArr);
     };
+    const event2 = () => {
+      console.log('It updated');
+    };
     return (
       <Container id="user-profile-page">
         <Header as="h2" textAlign="center" inverted>{pageName}</Header>
@@ -75,7 +78,7 @@ class UserProfile extends React.Component {
             <Grid.Column>
               <TypeFilter onChange={eventhandler}/>
               {newFilteredArr.map((vendor, index) => <VendorItemUserProfile
-                key={index} vendor={vendor}/>)}
+                key={index} vendor={vendor} onChange={event2}/>)}
             </Grid.Column>
           </Grid.Row>
         </Grid>
