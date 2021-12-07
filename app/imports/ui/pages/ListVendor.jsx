@@ -18,7 +18,7 @@ class ListVendor extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container id="list-vendor-page">
+      <Container id="list-vendor-page" className="middle-background">
         <Header as="h2" textAlign="center" inverted>List of Vendors</Header>
         <Item.Group divided>
           {this.props.vendors.map((vendor, index) => <VendorItem

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Item, Button } from 'semantic-ui-react';
+import { Item, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Favorites } from '../../api/favorite/Favorite';
 import OperatingTime from './OperatingTime';
 
@@ -43,6 +43,8 @@ class VendorItem extends React.Component {
   }
 
   render() {
+    const itemPadding = { padding: '50px' };
+    const vendorImage = { height: '100px' };
     let favVenTxt = `Favorite ${this.props.vendor.name}`;
     let favAdded = 'green';
 
@@ -66,33 +68,29 @@ class VendorItem extends React.Component {
     }
 
     return (
-      <div className="middle-background">
-        <Container>
-          <Item.Group divided>
-            <Item>
-              <Item.Image size='medium' src={this.props.vendor.storeImage}/>
-              <Item.Content verticalAlign="middle">
-                <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
-                <Item.Extra>
-                  {this.props.vendor.name} sells {this.props.vendor.foodType} food
-                </Item.Extra>
-                <Item.Description>
-                  {this.props.vendor.description}
-                </Item.Description>
-                <Item.Description>
-                  <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
-                </Item.Description>
-                <Item.Extra>
-                  Link to {this.props.vendor.name}&apos;s Profile page.
-                </Item.Extra>
-                <Item.Extra>
-                  <Button color={favAdded} id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
-                </Item.Extra>
-              </Item.Content>
-            </Item>
-          </Item.Group>
-        </Container>
-      </div>
+      <Item style = {itemPadding}>
+        <Item.Image style={vendorImage} src={this.props.vendor.storeImage}/>
+        <Item.Content verticalAlign="middle">
+          <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
+          <Item.Extra>
+            {this.props.vendor.name} sells {this.props.vendor.foodType} food
+          </Item.Extra>
+          <Item.Description>
+            {this.props.vendor.description}
+          </Item.Description>
+          <Item.Description>
+            <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
+          </Item.Description>
+          <Item.Extra>
+            <Button color={favAdded} id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
+          </Item.Extra>
+          {Meteor.user().username === this.props.vendor.owner ? (<Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit My Vendor </Button>) : ''}
+          <Button primary floated='right'>
+                    View menu
+            <Icon name='right arrow' />
+          </Button>
+        </Item.Content>
+      </Item>
     );
   }
 }
@@ -101,6 +99,7 @@ class VendorItem extends React.Component {
 VendorItem.propTypes = {
   vendor: PropTypes.shape({
     name: PropTypes.string,
+    owner: PropTypes.string,
     _id: PropTypes.string,
     description: PropTypes.string,
     storeImage: PropTypes.string,
