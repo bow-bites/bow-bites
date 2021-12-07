@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Item, Button, Confirm } from 'semantic-ui-react';
+import { Item, Button, Confirm } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Vendors } from '../../api/vendor/Vendor';
@@ -19,39 +19,34 @@ class VendorItem extends React.Component {
 
   render() {
     const delVenTxt = `Delete   ${this.props.vendor.name}`;
-
+    const itemPadding = { padding: '50px' };
+    const vendorImage = { height: '100px' };
     return (
-      <div className="middle-background">
-        <Container>
-          <Item.Group divided>
-            <Item>
-              <Item.Image size='medium' src={this.props.vendor.storeImage}/>
-              <Item.Content verticalAlign="middle">
-                <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
-                <Item.Extra>
-                  {this.props.vendor.name} sells {this.props.vendor.foodType} food
-                </Item.Extra>
-                <Item.Description>
-                  {this.props.vendor.description}
-                </Item.Description>
-                <Item.Description>
+      <Item style = {itemPadding}>
+        <Item.Image style = {vendorImage} src={this.props.vendor.storeImage}/>
+        <Item.Content verticalAlign="middle">
+          <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
+          <Item.Extra>
+            {this.props.vendor.name} sells {this.props.vendor.foodType} food
+          </Item.Extra>
+          <Item.Description>
+            {this.props.vendor.description}
+          </Item.Description>
+          <Item.Description>
                   Open from {this.props.vendor.open} am to {this.props.vendor.close} pm.
-                </Item.Description>
-                <Item.Extra>
+          </Item.Description>
+          <Item.Extra>
                   Link to {this.props.vendor.name}&apos;s Profile page.
-                </Item.Extra>
-                <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
-                <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>
-                <Confirm
-                  open={this.state.open}
-                  onCancel={this.close}
-                  onConfirm={this.deleteVendor}
-                />
-              </Item.Content>
-            </Item>
-          </Item.Group>
-        </Container>
-      </div>
+          </Item.Extra>
+          <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
+          <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>
+          <Confirm
+            open={this.state.open}
+            onCancel={this.close}
+            onConfirm={this.deleteVendor}
+          />
+        </Item.Content>
+      </Item>
     );
   }
 }
