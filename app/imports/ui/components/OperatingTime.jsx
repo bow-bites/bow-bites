@@ -24,12 +24,12 @@ class OperatingTime extends React.Component {
       statMes = 'Open Now';
     } else {
       btnColour = 'red';
-      statMes = 'Closed';
+      statMes = 'Currently Closed: Operating Hours';
     }
     // console.log(THours);
     return (
       <Item.Description>
-        <Label color={btnColour} id="listVendor-Favorite"> Currently {statMes} Operating Hours {this.props.openTime} {this.props.openAP} to {this.props.closeTime} {this.props.closeAP} </Label>
+        <Label color={btnColour} id="listVendor-Favorite"> {statMes}: {this.props.openTime} {this.props.openAP} to {this.props.closeTime} {this.props.closeAP} </Label>
       </Item.Description>
     );
   }

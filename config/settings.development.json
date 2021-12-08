@@ -35,7 +35,7 @@
         {
           "name" : "SAUSAGE, EGG & CHEESE",
           "price" : 2.59,
-          "description" : "IT ALL STARTS WITH SAUSAGE\nA tasty sandwich stacked with egg, American cheese and irresistible sausage",
+          "description" : "IT ALL STARTS WITH SAUSAGE A tasty sandwich stacked with egg, American cheese and irresistible sausage",
           "image" : "https://www.dunkindonuts.com/content/dam/dd/img/menu-redesign/sandwiches-and-more/pdp-sandwiches-wraps/Sausage_Egg&Cheese.png"
         },
         {
@@ -45,21 +45,21 @@
           "image" : "https://www.dunkindonuts.com/content/dam/dd/img/menu-redesign/donuts/VanillaFrostedSprinklesDonut_570x570.png"
         },
         {
-          "name" : "WAKE-UP\nWRAP®",
+          "name" : "WAKE-UP WRAP®",
           "price" : 3.09,
-          "description" : "UNWRAP PERFECTION\nOur delicious Wake-Up Wrap® Sandwiches are made-to-order with your choice of protein, egg and cheese. The perfect portion to help start your day or fuel your afternoon.",
+          "description" : "UNWRAP PERFECTION Our delicious Wake-Up Wrap® Sandwiches are made-to-order with your choice of protein, egg and cheese. The perfect portion to help start your day or fuel your afternoon.",
           "image" : "https://www.dunkindonuts.com/content/dam/dd/img/menu-redesign/sandwiches-and-more/pdp-sandwiches-wraps/BaconEggCheeseWakeUpWrap_570x570.png"
         },
         {
           "name" : "BAGELS WITH CREAM CHEESE SPREAD",
           "price" : 2.09,
-          "description" : "A DELICIOUS WAY TO START YOUR DAY\nA delicious bagel with your favorite cream cheese spread. Enjoy with your favorite morning coffee!",
+          "description" : "A DELICIOUS WAY TO START YOUR DAY A delicious bagel with your favorite cream cheese spread. Enjoy with your favorite morning coffee!",
           "image" : "https://www.dunkindonuts.com/content/dam/dd/img/menu-redesign/bagels-and-muffins/pdp-bagels-muffins/PlainBagelCreamCheese.png"
         },
         {
           "name" : "Tea",
           "price" : 1.49,
-          "description" : "PREMIUM HOT TEAS AND HERBAL INFUSIONS\nPyramid style tea sachets containing high-quality loose leaf teas and a unique blend of herbs to offer guests a delicious cup every time.",
+          "description" : "PREMIUM HOT TEAS AND HERBAL INFUSIONS Pyramid style tea sachets containing high-quality loose leaf teas and a unique blend of herbs to offer guests a delicious cup every time.",
           "image" : "https://www.dunkindonuts.com/content/dam/dd/img/menu-redesign/teas-and-more/pdp-teas-and-more/HotTea_570x570.png"
         }
       ],
