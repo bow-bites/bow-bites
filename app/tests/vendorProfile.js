@@ -2,6 +2,7 @@ import { Selector } from 'testcafe';
 
 class VendorProfilePage {
   constructor() {
+    // this.pageId = '#vendor-profile';
     this.pageId = '#vendor-profile';
     this.pageSelector = Selector(this.pageId);
   }
@@ -12,10 +13,15 @@ class VendorProfilePage {
     await testController.wait(10000).expect(this.pageSelector.exists).ok();
   }
 
-  /** Makes sure TopPicks has Menu Items displayed */
-  async hasMenuItem(testController) {
-    const menuItemCount = Selector('.ui .item').count;
-    await testController.expect(menuItemCount).gte(1);
+  /** Navigate to Profile Page */
+  async gotoVendorProfile(testController) {
+    await testController.click(Selector('.btn').withText('Profile'));
+  }
+
+  /** Verify there's some MenuItems */
+  async hasMenuItems(testController) {
+    const profileItemCount = Selector('.ui .item').count;
+    await testController.expect(profileItemCount).gte(1);
   }
 }
 

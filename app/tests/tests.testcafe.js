@@ -136,8 +136,10 @@ test('Test the Available Now Page', async (testController) => {
 });
 
 test('Test the VendorProfile', async (testController) => {
-  await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await navBar.gotoPublicListVendorPage(testController);
+  await publicListVendorPage.isDisplayed(testController);
+  // await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
   await navBar.gotoVendorProfile(testController);
   await vendorProfilePage.isDisplayed(testController);
+  await vendorProfilePage.hasMenuItems(testController);
 });
