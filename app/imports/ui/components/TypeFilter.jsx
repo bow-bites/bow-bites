@@ -3,6 +3,7 @@ import { Dropdown } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+/*
 const tagOptionsOld = [
   {
     key: 'Vegetarian',
@@ -83,6 +84,7 @@ const tagOptionsOld = [
     label: { color: 'violet', empty: true, circular: true },
   },
 ];
+*/
 
 const tagOptions = [
   { key: 'Vegetarian', text: 'Vegetarian', value: 'Vegetarian' },
@@ -113,14 +115,14 @@ export class TypeFilter extends React.Component {
   birdUp = (event, { value }) => {
     // console.log(value);
     const fType = value;
-    const bird_name = event.target.textContent;
+    // const bird_name = event.target.textContent;
     // console.log(bird_name);
     // console.log('It got called');
     this.setState({
       filtered: fType }, () => {
-      if (this.props.onChange) {
+      /* if (this.props.onChange) {
         this.props.onChange(this.state);
-      }
+      } */
     });
   }
 
