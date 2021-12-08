@@ -38,12 +38,12 @@ class App extends React.Component {
             <Route path="/AvailableNow" component={AvailableNow}/>
             <Route path="/VendorProfile/:_id" component={VendorProfile}/>
             <Route path="/PublicListVendor" component={PublicListVendor}/>
-            <ProtectedRoute path="/addVendor" component={AddVendor}/>
             <ProtectedRoute path="/editListVendor" component={EditListVendor}/>
             <ProtectedRoute path="/editVendor" component={EditVendor}/>
             <ProtectedRoute path="/edit/:_id" component={EditVendor}/>
             <ProtectedRoute path="/listVendor" component={ListVendor}/>
             <ProtectedRoute path="/userProfile" component={UserProfile}/>
+            <AdminProtectedRoute path="/addVendor" component={AddVendor}/>
             <AdminProtectedRoute path="/admin" component={AdminListVendor}/>
             <Route component={NotFound}/>
           </Switch>
