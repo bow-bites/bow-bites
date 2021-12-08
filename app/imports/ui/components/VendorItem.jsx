@@ -89,6 +89,7 @@ class VendorItem extends React.Component {
                     View menu
             <Icon name='right arrow' />
           </Button>
+          <Button as={Link} to={`/VendorProfile/${this.props.vendor._id}`} > Profile</Button>
         </Item.Content>
       </Item>
     );

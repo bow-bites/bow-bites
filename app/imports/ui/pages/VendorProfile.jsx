@@ -4,7 +4,6 @@ import { Item, Header, Loader, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
-// import VendorItem from '../components/VendorItem'; // Need to come back to add Vendors
 
 /** Represents a vendor's profile page */
 class VendorProfile extends React.Component {
@@ -16,6 +15,9 @@ class VendorProfile extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    console.log('Hello World!');
+    console.log(this.props.vendor);
+    console.log(this.props.vendor._id);
     return (
       <div className="VendorProfile" id="vendor-profile">
         <div className="ui image" id='vendor-profile-picture' >
@@ -25,11 +27,11 @@ class VendorProfile extends React.Component {
           <Grid.Column style={{ color: 'white' }} id='vendor-profile-left-col'>
             <Item.Group >
               <Header as='h1' style={{ color: 'white' }}>
-                Information
+                  Information
               </Header>
               <Item>
                 <Item.Header as='h3'>
-                  Hours of Operation
+                    Hours of Operation
                 </Item.Header>
                 <Item.Meta>
                   <span>M-F: 9AM-3PM</span>
@@ -37,43 +39,43 @@ class VendorProfile extends React.Component {
               </Item>
               <Item>
                 <Item.Header as='h3'>
-                  Location
+                    Location
                 </Item.Header>
                 <Item.Meta>
-                  Paradise Palms
+                    Paradise Palms
                 </Item.Meta>
               </Item>
               <Item>
                 <Item.Header as='h3'>
-                  Cuisine
+                    Cuisine
                 </Item.Header>
                 <Item.Meta>
-                  Salad Bar
+                    Salad Bar
                 </Item.Meta>
               </Item>
             </Item.Group>
           </Grid.Column>
           <Grid.Column style={{ color: 'white' }}>
             <Header as='h1' style={{ color: 'white' }}>
-                  Salad Vendor
+                Salad Vendor
             </Header>
             <p>
-              Salad Vendor provides the best leafy salads UH has to offer. Located inside the convenient Paradise Palms,
-              open during convenient hours, and serving a wide variety of foods (and not just our award winning leafy greens),
-              stop by Salad Vendor today!
+                Salad Vendor provides the best leafy salads UH has to offer. Located inside the convenient Paradise Palms,
+                open during convenient hours, and serving a wide variety of foods (and not just our award winning leafy greens),
+                stop by Salad Vendor today!
             </p>
             <Item.Group id="VendorProfileMenu">
               <Item>
-                <Item.Header as='h3'>
-                  Caesar&apos;s Glory
-                </Item.Header>
-                <Item.Image size="tiny" src="https://natashaskitchen.com/wp-content/uploads/2019/01/Caesar-Salad-Recipe-3.jpg"/>
-                <Item.Description>
-                  A favorite on the campus, refresh your lunch with the best caesar salad around!
-                </Item.Description>
-                <Item.Meta>
-                  <span>$6.99</span>
-                </Item.Meta>
+                <Item.Content>
+                  {this.props.vendor.menuItem.map((menuItem) => (
+                    <div key={menuItem.name}>
+                      <Item.Description>{menuItem.name}</Item.Description>
+                      <Item.Image size='small' src={menuItem.image}/>
+                      <Item.Description>{menuItem.description}</Item.Description>
+                      <Item.Description>Price: {menuItem.price}$</Item.Description>
+                    </div>
+                  ))}
+                </Item.Content>
               </Item>
             </Item.Group>
           </Grid.Column>
@@ -84,21 +86,52 @@ class VendorProfile extends React.Component {
 }
 
 // Require a vendor ID to be passed in
+
+/*
 VendorProfile.propTypes = {
-  vendor: PropTypes.object,
+  vendor: PropTypes.shape({
+    name: PropTypes.string,
+    _id: PropTypes.string,
+    description: PropTypes.string,
+    storeImage: PropTypes.string,
+    foodType: PropTypes.string,
+    open: PropTypes.number,
+    close: PropTypes.number,
+    menuItem: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+      description: PropTypes.string,
+      image: PropTypes.string,
+    })),
+  }).isRequired,
+  ready: PropTypes.bool.isRequired,
+}; */
+
+VendorProfile.propTypes = {
+  vendor: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-export default withTracker(() => {
+export default withTracker(({ match }) => {
+  const vendorId = match.params._id;
+  console.log('This is vendorId');
+  console.log(match);
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Vendors.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const vendors = Vendors.collection.find({}).fetch();
+  // const vendorArray = Vendors.collection.find({}).fetch();
+  // const vendor = vendorArray[0];
+  // const vendor = Vendors.collection.findOne(vendorId).fetch();
+  // const vendorArray = Vendors.collection.find({ _id: vendorId }).fetch();
+  // const vendor = vendorArray[0];
+  const vendor = Vendors.collection.findOne({ _id: vendorId });
+  // const vendor = Vendors.collection.find({}).fetch();
+  // const vendor = vendorArray[0];
+  // const vendor = Vendors.collection.findOne(vendorId);
   return {
-    vendors,
+    vendor,
     ready,
   };
 })(VendorProfile);
