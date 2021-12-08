@@ -4,8 +4,7 @@ import { Container, Item, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
-import { Favorites } from '../../api/favorite/Favorite';
-import VendorItem from '../components/VendorItem';
+import PublicVendorItem from '../components/PublicVendorItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListVendor extends React.Component {
@@ -18,10 +17,10 @@ class ListVendor extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container id="list-vendor-page" className="middle-background">
+      <Container id="public-list-vendor-page" className="middle-background">
         <Header as="h2" textAlign="center" inverted>List of Vendors</Header>
         <Item.Group divided>
-          {this.props.vendors.map((vendor, index) => <VendorItem
+          {this.props.vendors.map((vendor, index) => <PublicVendorItem
             key={index} vendor={vendor}/>)}
         </Item.Group>
       </Container>
@@ -39,17 +38,12 @@ ListVendor.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Vendors.userPublicationName);
-  const subscription2 = Meteor.subscribe(Favorites.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
-  const vamos = subscription2.ready();
   // Get the Stuff documents
   const vendors = Vendors.collection.find({}).fetch();
-  const favorites = Favorites.collection.find({}).fetch();
   return {
     vendors,
-    favorites,
     ready,
-    vamos,
   };
 })(ListVendor);

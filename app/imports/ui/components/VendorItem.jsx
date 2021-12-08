@@ -1,24 +1,13 @@
 import React from 'react';
-import { Container, Item, Button, Confirm } from 'semantic-ui-react';
+import { Item, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Link, withRouter } from 'react-router-dom';
-import { Vendors } from '../../api/vendor/Vendor';
 import { Favorites } from '../../api/favorite/Favorite';
+import OperatingTime from './OperatingTime';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class VendorItem extends React.Component {
-
-  state = { open: false };
-
-  open = () => this.setState({ open: true })
-
-  close = () => this.setState({ open: false })
-
-  deleteVendor = () => {
-    Vendors.collection.remove(this.props.vendor._id);
-  }
-
   like = () => {
     const data = this.props.vendor._id;
     const liked = [];
@@ -54,45 +43,54 @@ class VendorItem extends React.Component {
   }
 
   render() {
-    const delVenTxt = `Delete   ${this.props.vendor.name}`;
-    const favVenTxt = `Favorite ${this.props.vendor.name}`;
+    const itemPadding = { padding: '50px' };
+    const vendorImage = { height: '100px' };
+    let favVenTxt = `Favorite ${this.props.vendor.name}`;
+    let favAdded = 'green';
+
+    // Checks if the vendor has already been liked
+    const dataCheck = this.props.vendor._id;
+    const likedCheck = [];
+    const favoriteCheck = { favorite: dataCheck };
+    likedCheck.push(favoriteCheck);
+    const userCheck = Meteor.user().username;
+    if (Favorites.collection.find({ userId: userCheck }).fetch()[0]) {
+      const userProCheck = Favorites.collection.find({ userId: userCheck }).fetch()[0];
+      if (userProCheck) {
+        const newArrCheck = [];
+        userProCheck.liked.forEach(element => newArrCheck.push(element.favorite));
+        if (newArrCheck.includes(dataCheck)) {
+          console.log('Vendor already exists in favorites');
+          favAdded = 'grey';
+          favVenTxt = 'Added to Favorites';
+        }
+      }
+    }
 
     return (
-      <div className="middle-background">
-        <Container>
-          <Item.Group divided>
-            <Item>
-              <Item.Image size='medium' src={this.props.vendor.storeImage}/>
-              <Item.Content verticalAlign="middle">
-                <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
-                <Item.Extra>
-                  {this.props.vendor.name} sells {this.props.vendor.foodType} food
-                </Item.Extra>
-                <Item.Description>
-                  {this.props.vendor.description}
-                </Item.Description>
-                <Item.Description>
-                  Open from {this.props.vendor.open} am to {this.props.vendor.close} pm.
-                </Item.Description>
-                <Item.Extra>
-                  Link to {this.props.vendor.name}&apos;s Profile page.
-                </Item.Extra>
-                <Item.Extra>
-                  <Button color='green' id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
-                </Item.Extra>
-                <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
-                <Button as={Link} to={`/VendorProfile/${this.props.vendor._id}`} > Profile</Button>
-                <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>
-                <Confirm
-                  open={this.state.open}
-                  onCancel={this.close}
-                  onConfirm={this.deleteVendor}
-                />
-              </Item.Content>
-            </Item>
-          </Item.Group>
-        </Container>
-      </div>
+      <Item style = {itemPadding}>
+        <Item.Image style={vendorImage} src={this.props.vendor.storeImage}/>
+        <Item.Content verticalAlign="middle">
+          <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
+          <Item.Extra>
+            {this.props.vendor.name} sells {this.props.vendor.foodType} food
+          </Item.Extra>
+          <Item.Description>
+            {this.props.vendor.description}
+          </Item.Description>
+          <Item.Description>
+            <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
+          </Item.Description>
+          <Item.Extra>
+            <Button color={favAdded} id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
+          </Item.Extra>
+          {Meteor.user().username === this.props.vendor.owner ? (<Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit My Vendor </Button>) : ''}
+          <Button primary floated='right'>
+                    View menu
+            <Icon name='right arrow' />
+          </Button>
+        </Item.Content>
+      </Item>
     );
   }
 }
@@ -101,12 +99,15 @@ class VendorItem extends React.Component {
 VendorItem.propTypes = {
   vendor: PropTypes.shape({
     name: PropTypes.string,
+    owner: PropTypes.string,
     _id: PropTypes.string,
     description: PropTypes.string,
     storeImage: PropTypes.string,
     foodType: PropTypes.string,
     open: PropTypes.number,
     close: PropTypes.number,
+    openAmOrPm: PropTypes.string,
+    closeAmOrPm: PropTypes.string,
     menuItem: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       description: PropTypes.string,

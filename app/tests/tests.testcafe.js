@@ -1,5 +1,7 @@
 import { landingPage } from './landing.page';
 import { listVendorPage } from './listvendor.page';
+import { publicListVendorPage } from './public-listvendor.page';
+import { adminListVendorPage } from './admin-listvendor.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
@@ -15,6 +17,7 @@ import { vendorProfilePage } from './vendorProfile';
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@foo.com', password: 'bowbitestestjohn123!' };
+const adminCredentials = { username: 'admin@foo.com', password: 'bowbitestestadmin123!' };
 
 const testVendor = {
   _id: 'opXbCopxTEPQizQ6C',
@@ -58,6 +61,12 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
+test('Test the Public List Vendor page', async (testController) => {
+  await navBar.gotoPublicListVendorPage(testController);
+  await publicListVendorPage.isDisplayed(testController);
+  await publicListVendorPage.hasMenuItem(testController);
+});
+
 test('Test the List Vendor page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
@@ -66,15 +75,23 @@ test('Test the List Vendor page', async (testController) => {
   await listVendorPage.hasMenuItem(testController);
 });
 
+test('Test the Admin List Vendor page', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await navBar.gotoAdminListVendorPage(testController);
+  await adminListVendorPage.isDisplayed(testController);
+  await adminListVendorPage.hasMenuItem(testController);
+});
+
 test('Test the Add Vendor page', async (testController) => {
   await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoListVendorPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await navBar.gotoAdminListVendorPage(testController);
   await addVendorPage.existingTestVendorCheck(testController, testVendor.name);
   await navBar.gotoAddVendorPage(testController);
   await addVendorPage.isDisplayed(testController);
   await addVendorPage.addVendor(testController, testVendor);
-  await navBar.gotoListVendorPage(testController);
+  await navBar.gotoAdminListVendorPage(testController);
   await addVendorPage.vendorExists(testController, testVendor.name);
 });
 
@@ -97,14 +114,16 @@ test('Test Remove Favorite Button', async (testController) => {
 
 test('Test the Delete Vendor Function', async (testController) => {
   await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoListVendorPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  await navBar.gotoAdminListVendorPage(testController);
   await addVendorPage.vendorExists(testController, testVendor.name);
   await removeVendorPage.RemoveVendor(testController, testVendor.name);
   await addVendorPage.existingTestVendorCheck(testController, testVendor.name);
 });
 
 test('Test the Top Picks Page', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoTopPicksPage(testController);
   await topPicksPage.isDisplayed(testController);
   await topPicksPage.hasMenuItem(testController);
@@ -116,7 +135,9 @@ test('Test the Available Now Page', async (testController) => {
   await availableNowPage.hasMenuItem(testController);
 });
 
-test('Test the Available Now Page', async (testController) => {
+test('Test the VendorProfile', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
   await navBar.gotoVendorProfile(testController);
   await vendorProfilePage.isDisplayed(testController);
 });

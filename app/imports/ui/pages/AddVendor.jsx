@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, NumField, SubmitField, ListField, TextField, LongTextField, RadioField, SelectField } from 'uniforms-semantic';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Vendors } from '../../api/vendor/Vendor';
@@ -10,6 +9,7 @@ import { Vendors } from '../../api/vendor/Vendor';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
+  owner: String,
   foodType: {
     type: String,
     defaultValue: 'Vegetarian',
@@ -44,8 +44,7 @@ class AddVendor extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } = data;
-    const owner = Meteor.user().username;
+    const { name, owner, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } = data;
     Vendors.collection.insert({ name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description, owner },
       (error) => {
         if (error) {
@@ -67,6 +66,7 @@ class AddVendor extends React.Component {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='name' id='addVendor-Name'/>
+              <TextField name='owner' id='addVendor-Owner'/>
               <SelectField name='foodType' id='addVendor-FoodType'/>
               <TextField name='storeImage' id='addVendor-StoreImage'/>
               <NumField name='open' id='addVendor-Open'/>
