@@ -2,7 +2,7 @@ import React from 'react';
 import { Item, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Favorites } from '../../api/favorite/Favorite';
 import OperatingTime from './OperatingTime';
 
@@ -84,7 +84,6 @@ class VendorItem extends React.Component {
           <Item.Extra>
             <Button color={favAdded} id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
           </Item.Extra>
-          {Meteor.user().username === this.props.vendor.owner ? (<Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit My Vendor </Button>) : ''}
           <Button primary floated='right'>
                     View menu
             <Icon name='right arrow' />

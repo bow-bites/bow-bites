@@ -21,18 +21,19 @@ class NavBar extends React.Component {
             <Menu.Item as={NavLink} activeClassName="active" exact to="/PublicListVendor" key='PublicListVendor' id='navbar-public-list-vendor'>Vendors</Menu.Item>,
           ]
         ) : ''}
-        {/* eslint-disable-next-line no-nested-ternary */}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           [
             <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin' id ="navbar-admin-list-vendor">Admin</Menu.Item>,
             <Menu.Item as={NavLink} activeClassName="active" exact to="/addVendor" key='addVendor' id="navbar-add-vendor">Add Vendor</Menu.Item>,
             <Menu.Item as={NavLink} activeClassName="active" exact to="/VendorProfile" key='VendorProfile' id='navbar-vendor-profile'>Vendor Profile</Menu.Item>,
           ]
-        ) : this.props.currentUser ? (
+        ) : ''}
+        {this.props.currentUser && !Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           [
             <Menu.Item as={NavLink} activeClassName="active" exact to="/AvailableNow" key='AvailableNow' id='navbar-available-now'>Available Now</Menu.Item>,
             <Menu.Item as={NavLink} activeClassName="active" exact to="/TopPicks" key='TopPicks' id='navbar-top-picks'>Top Picks</Menu.Item>,
             <Menu.Item as={NavLink} activeClassName="active" exact to="/listVendor" key='listVendor' id="navbar-list-vendor">Vendors</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/editListVendor" key='editListVendor'id="navbar-edit-list-vendor" >Edit my Vendors</Menu.Item>,
             <Menu.Item as={NavLink} activeClassName="active" exact to="/userProfile" key='userProfile' id="navbar-user-profile">User Profile</Menu.Item>,
           ]
         ) : '' }

@@ -44,6 +44,13 @@ class NavBar {
     }
   }
 
+  async gotoEditListVendorPage(testController) {
+    const loggedInUser = await Selector('#navbar-current-user').exists;
+    if (loggedInUser) {
+      await testController.click('#navbar-edit-list-vendor');
+    }
+  }
+
   async gotoPublicListVendorPage(testController) {
     await testController.click('#navbar-public-list-vendor');
   }
