@@ -15,6 +15,7 @@ import AddVendor from '../pages/AddVendor';
 import ListVendor from '../pages/ListVendor';
 import PublicListVendor from '../pages/PublicListVendor';
 import AdminListVendor from '../pages/AdminListVendor';
+import EditListVendor from '../pages/EditListVendor';
 import TopPicks from '../pages/TopPicks';
 import AvailableNow from '../pages/AvailableNow';
 import VendorProfile from '../pages/VendorProfile';
@@ -38,6 +39,7 @@ class App extends React.Component {
             <Route path="/VendorProfile/:_id" component={VendorProfile}/>
             <Route path="/PublicListVendor" component={PublicListVendor}/>
             <ProtectedRoute path="/addVendor" component={AddVendor}/>
+            <ProtectedRoute path="/editListVendor" component={EditListVendor}/>
             <ProtectedRoute path="/editVendor" component={EditVendor}/>
             <ProtectedRoute path="/edit/:_id" component={EditVendor}/>
             <ProtectedRoute path="/listVendor" component={ListVendor}/>

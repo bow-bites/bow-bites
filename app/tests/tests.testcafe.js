@@ -2,6 +2,7 @@ import { landingPage } from './landing.page';
 import { listVendorPage } from './listvendor.page';
 import { publicListVendorPage } from './public-listvendor.page';
 import { adminListVendorPage } from './admin-listvendor.page';
+import { editListVendorPage } from './edit-listvendor.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
@@ -73,6 +74,14 @@ test('Test the List Vendor page', async (testController) => {
   await navBar.gotoListVendorPage(testController);
   await listVendorPage.isDisplayed(testController);
   await listVendorPage.hasMenuItem(testController);
+});
+
+test('Test the Edit List Vendor page', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoEditListVendorPage(testController);
+  await editListVendorPage.isDisplayed(testController);
+  await editListVendorPage.hasMenuItem(testController);
 });
 
 test('Test the Admin List Vendor page', async (testController) => {
