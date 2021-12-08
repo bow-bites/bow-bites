@@ -16,6 +16,10 @@ class PublicListVendorPage {
     const menuItemCount = Selector('.ui .item').count;
     await testController.expect(menuItemCount).gte(1);
   }
+
+  async gotoVendorProfile(testController) {
+    await testController.click(Selector('#listVendor-profile').withText('View menu'));
+  }
 }
 
 export const publicListVendorPage = new PublicListVendorPage();
