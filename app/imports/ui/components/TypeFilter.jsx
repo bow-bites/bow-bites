@@ -120,9 +120,9 @@ export class TypeFilter extends React.Component {
     // console.log('It got called');
     this.setState({
       filtered: fType }, () => {
-      /* if (this.props.onChange) {
+      if (this.props.onChange) {
         this.props.onChange(this.state);
-      } */
+      }
     });
   }
 
@@ -139,6 +139,7 @@ export class TypeFilter extends React.Component {
 
 TypeFilter.propTypes = {
   sendData: PropTypes.array,
+  onChange: PropTypes.func,
 };
 
 export default withRouter(TypeFilter);
