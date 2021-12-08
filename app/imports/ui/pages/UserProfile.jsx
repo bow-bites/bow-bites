@@ -11,6 +11,12 @@ import TypeFilter from '../components/TypeFilter';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class UserProfile extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { newFilteredArr: [] };
+  }
+
   filterVendor = (newArr, userPro, data) => {
     // Type filter
     const newFilteredArr = [];
@@ -18,19 +24,15 @@ class UserProfile extends React.Component {
     if (data.filtered) {
       data.filtered.forEach(fType => sampleArr.push(fType));
     }
-    sampleArr.push('Fast');
     sampleArr.forEach(typeObj => {
       const filterUser = newArr.filter(type => type.foodType === typeObj);
       if (sampleArr) {
         filterUser.forEach(element => newFilteredArr.push(element));
-      } else {
-        // console.log('filtered type empty');
       }
     });
     if (sampleArr.length < 1 && userPro) {
       userPro.liked.forEach(element => newFilteredArr.push(Vendors.collection.find({ _id: element.favorite }).fetch()[0]));
     }
-    // console.log(newFilteredArr);
     return newFilteredArr;
   }
 
@@ -55,14 +57,13 @@ class UserProfile extends React.Component {
       // console.log('userPro empty');
     }
     let newFilteredArr = this.filterVendor(newArr, userPro, []);
+
     const eventhandler = data => {
       newFilteredArr = [];
       this.filterVendor(newArr, userPro, data).forEach(foodType => newFilteredArr.push(foodType));
-      console.log(newFilteredArr);
+      this.setState({ newFilteredArr: newFilteredArr });
     };
-    const event2 = () => {
-      console.log('It updated');
-    };
+
     return (
       <Container id="user-profile-page">
         <Header as="h2" textAlign="center" inverted>{pageName}</Header>
@@ -72,13 +73,13 @@ class UserProfile extends React.Component {
               <Item.Group divided>
                 <Anything/>
                 {newArr.map((vendor, index) => <VendorItemUserProfile
-                  key={index} vendor={vendor}/>)}
+                  key={index} vendor={vendor} onUpdate={eventhandler}/>)}
               </Item.Group>
             </Grid.Column>
             <Grid.Column>
               <TypeFilter onChange={eventhandler}/>
-              {newFilteredArr.map((vendor, index) => <VendorItemUserProfile
-                key={index} vendor={vendor} onChange={event2}/>)}
+              {this.state.newFilteredArr.map((vendor, index) => <VendorItemUserProfile
+                key={index} vendor={vendor} />)}
             </Grid.Column>
           </Grid.Row>
         </Grid>
