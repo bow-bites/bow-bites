@@ -26,7 +26,7 @@ class VendorItem extends React.Component {
           <Item.Extra>
             <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit My Vendor </Button>
           </Item.Extra>
-          <Button primary floated='right'>
+          <Button as={Link} to={`/VendorProfile/${this.props.vendor._id}`} primary floated='right'>
                     View menu
             <Icon name='right arrow' />
           </Button>
