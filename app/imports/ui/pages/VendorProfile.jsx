@@ -4,7 +4,7 @@ import { Item, Header, Loader, Grid, Container } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
-import OperatingTime from '../../ui/components/OperatingTime';
+import OperatingTime from '../components/OperatingTime';
 
 /** Represents a vendor's profile page */
 class VendorProfile extends React.Component {
@@ -77,9 +77,7 @@ class VendorProfile extends React.Component {
                 {this.props.vendor.name}
               </Header>
               <p>
-                Salad Vendor provides the best leafy salads UH has to offer. Located inside the convenient Paradise Palms,
-                open during convenient hours, and serving a wide variety of foods (and not just our award winning leafy greens),
-                stop by Salad Vendor today!
+                {this.props.vendor.description}
               </p>
               <Item.Group divided id="VendorProfileMenu">
                 <Item>
