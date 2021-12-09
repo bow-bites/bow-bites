@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Item, Button } from 'semantic-ui-react';
 import PropTypes, { } from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Favorites } from '../../api/favorite/Favorite';
 import OperatingTime from './OperatingTime';
 
@@ -31,11 +31,12 @@ class VendorItemUserProfile extends React.Component {
   render() {
     const vendorImage = { height: '100px' };
     const removeVenTxt = `Remove ${this.props.vendor.name} from Favorites`;
+    const itemPadding = { padding: '50px' };
 
     return (
       <div className="middle-background">
         <Container>
-          <Item.Group divided>
+          <Item.Group divided style = {itemPadding}>
             <Item>
               <Item.Image label={{
                 color: 'orange',
@@ -53,22 +54,11 @@ class VendorItemUserProfile extends React.Component {
                   <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
                 </Item.Description>
                 <Item.Extra>
-                  <Button>Link to {this.props.vendor.name}&apos;s Profile page.</Button>
+                  <Button as={Link} color='orange' to={`/VendorProfile/${this.props.vendor._id}`}>{this.props.vendor.name} menu.</Button>
                 </Item.Extra>
                 <Item.Extra>
                   <Button color='red' id="userProfile-Delete" onClick={this.deleteFavorite}>{removeVenTxt}</Button>
                 </Item.Extra>
-                <Item.Description>
-                  Menu Items total {this.props.vendor.menuItem.length}
-                </Item.Description>
-                {this.props.vendor.menuItem.map((menuItem) => (
-                  <div key={menuItem.name}>
-                    <Item.Description>{menuItem.name}</Item.Description>
-                    <Item.Image size='small' src={menuItem.image}/>
-                    <Item.Description>{menuItem.description}</Item.Description>
-                    <Item.Description>Price: {menuItem.price}$</Item.Description>
-                  </div>
-                ))}
               </Item.Content>
             </Item>
           </Item.Group>

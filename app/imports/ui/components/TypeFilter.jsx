@@ -3,13 +3,12 @@ import { Dropdown } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-/*
 const tagOptionsOld = [
   {
     key: 'Vegetarian',
     text: 'Vegetarian',
     value: 'Vegetarian',
-    label: { color: 'red', empty: true, circular: true },
+    label: { color: 'green', empty: true, circular: true },
   },
   {
     key: 'Italian',
@@ -63,7 +62,7 @@ const tagOptionsOld = [
     key: 'Indian',
     text: 'Indian',
     value: 'Indian',
-    label: { color: 'green', empty: true, circular: true },
+    label: { color: 'red', empty: true, circular: true },
   },
   {
     key: 'Korean',
@@ -84,8 +83,8 @@ const tagOptionsOld = [
     label: { color: 'violet', empty: true, circular: true },
   },
 ];
-*/
 
+/*
 const tagOptions = [
   { key: 'Vegetarian', text: 'Vegetarian', value: 'Vegetarian' },
   { key: 'Italian', text: 'Italian', value: 'Italian' },
@@ -101,6 +100,7 @@ const tagOptions = [
   { key: 'Hawaiian', text: 'Hawaiian', value: 'Hawaiian' },
   { key: 'Filipino', text: 'Filipino', value: 'Filipino' },
 ];
+*/
 
 export class TypeFilter extends React.Component {
 
@@ -126,11 +126,18 @@ export class TypeFilter extends React.Component {
     });
   }
 
+  renderLabel = (label) => ({
+    color: label.label.color,
+    content: `${label.text}`,
+    icon: 'check',
+  })
+
   render() {
     return (
       <Dropdown
-        placeholder='Types'
-        fluid multiple selection options={tagOptions}
+        placeholder='Filter by Food Type'
+        fluid multiple selection options={tagOptionsOld}
+        renderLabel={this.renderLabel}
         onChange={this.birdUp}
       />
     );
