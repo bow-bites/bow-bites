@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Item, Button } from 'semantic-ui-react';
 import PropTypes, { } from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Favorites } from '../../api/favorite/Favorite';
 import OperatingTime from './OperatingTime';
 
@@ -31,10 +31,11 @@ class VendorItemUserProfile extends React.Component {
   render() {
     const removeVenTxt = `Remove ${this.props.vendor.name} from Favorites`;
 
+    const itemPadding = { padding: '50px' };
     return (
       <div className="middle-background">
         <Container>
-          <Item.Group divided>
+          <Item.Group divided style = {itemPadding}>
             <Item>
               <Item.Image size='small' src={this.props.vendor.storeImage}/>
               <Item.Content verticalAlign="middle">
@@ -49,7 +50,7 @@ class VendorItemUserProfile extends React.Component {
                   <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
                 </Item.Description>
                 <Item.Extra>
-                  <Button>Link to {this.props.vendor.name}&apos;s Profile page.</Button>
+                  <Button as={Link} to={`/VendorProfile/${this.props.vendor._id}`}>{this.props.vendor.name} menu.</Button>
                 </Item.Extra>
                 <Item.Extra>
                   <Button color='red' id="userProfile-Delete" onClick={this.deleteFavorite}>{removeVenTxt}</Button>
