@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Item, Header, Loader, Grid } from 'semantic-ui-react';
+import { Item, Header, Loader, Grid, Container } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
@@ -16,7 +16,7 @@ class VendorProfile extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <container className="middle-background">
+      <Container className="middle-background">
         <div className="VendorProfile" id="vendor-profile">
           <div className="ui image" id='vendor-profile-picture' >
             <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
@@ -32,7 +32,8 @@ class VendorProfile extends React.Component {
                     Hours of Operation
                   </Item.Header>
                   <Item.Meta>
-                    <span>M-F: 9AM-3PM</span>
+                    {<br/>}
+                    <span><OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/></span>
                   </Item.Meta>
                 </Item>
                 <Item>
@@ -40,6 +41,7 @@ class VendorProfile extends React.Component {
                     Location
                   </Item.Header>
                   <Item.Meta>
+                    {<br/>}
                     Paradise Palms
                   </Item.Meta>
                 </Item>
@@ -48,14 +50,15 @@ class VendorProfile extends React.Component {
                     Cuisine
                   </Item.Header>
                   <Item.Meta>
-                    Salad Bar
+                    {<br/>}
+                    {this.props.vendor.foodType}
                   </Item.Meta>
                 </Item>
               </Item.Group>
             </Grid.Column>
             <Grid.Column>
               <Header as='h1'>
-                Salad Vendor
+                {this.props.vendor.name}
               </Header>
               <p>
                 Salad Vendor provides the best leafy salads UH has to offer. Located inside the convenient Paradise Palms,
@@ -79,32 +82,10 @@ class VendorProfile extends React.Component {
             </Grid.Column>
           </Grid>
         </div>
-      </container>
+      </Container>
     );
   }
 }
-
-// Require a vendor ID to be passed in
-
-/*
-VendorProfile.propTypes = {
-  vendor: PropTypes.shape({
-    name: PropTypes.string,
-    _id: PropTypes.string,
-    description: PropTypes.string,
-    storeImage: PropTypes.string,
-    foodType: PropTypes.string,
-    open: PropTypes.number,
-    close: PropTypes.number,
-    menuItem: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string,
-      description: PropTypes.string,
-      image: PropTypes.string,
-    })),
-  }).isRequired,
-  ready: PropTypes.bool.isRequired,
-}; */
-
 VendorProfile.propTypes = {
   vendor: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -113,22 +94,11 @@ VendorProfile.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(({ match }) => {
   const vendorId = match.params._id;
-  console.log('This is vendorId');
-  console.log(match);
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Vendors.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
-  // Get the Stuff documents
-  // const vendorArray = Vendors.collection.find({}).fetch();
-  // const vendor = vendorArray[0];
-  // const vendor = Vendors.collection.findOne(vendorId).fetch();
-  // const vendorArray = Vendors.collection.find({ _id: vendorId }).fetch();
-  // const vendor = vendorArray[0];
   const vendor = Vendors.collection.findOne({ _id: vendorId });
-  // const vendor = Vendors.collection.find({}).fetch();
-  // const vendor = vendorArray[0];
-  // const vendor = Vendors.collection.findOne(vendorId);
   return {
     vendor,
     ready,
