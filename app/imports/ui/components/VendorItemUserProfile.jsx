@@ -29,6 +29,7 @@ class VendorItemUserProfile extends React.Component {
   }
 
   render() {
+    const vendorImage = { height: '100px' };
     const removeVenTxt = `Remove ${this.props.vendor.name} from Favorites`;
 
     return (
@@ -36,12 +37,15 @@ class VendorItemUserProfile extends React.Component {
         <Container>
           <Item.Group divided>
             <Item>
-              <Item.Image size='small' src={this.props.vendor.storeImage}/>
+              <Item.Image label={{
+                color: 'orange',
+                content: `${this.props.vendor.foodType} Food`,
+                icon: 'food',
+                ribbon: true,
+              }} style = {vendorImage} src={this.props.vendor.storeImage}/>
               <Item.Content verticalAlign="middle">
                 <Item.Header as="h1" id='userProfile-Name'>{this.props.vendor.name}</Item.Header>
-                <Item.Extra>
-                  {this.props.vendor.name} sells {this.props.vendor.foodType} food
-                </Item.Extra>
+                <Item.Meta>{this.props.vendor.location}</Item.Meta>
                 <Item.Description>
                   {this.props.vendor.description}
                 </Item.Description>
@@ -78,6 +82,7 @@ class VendorItemUserProfile extends React.Component {
 VendorItemUserProfile.propTypes = {
   vendor: PropTypes.shape({
     name: PropTypes.string,
+    location: PropTypes.string,
     _id: PropTypes.string,
     description: PropTypes.string,
     storeImage: PropTypes.string,

@@ -11,18 +11,23 @@ class PublicVendorItem extends React.Component {
     const vendorImage = { height: '100px' };
     return (
       <Item style = {itemPadding}>
-        <Item.Image style = {vendorImage} src={this.props.vendor.storeImage}/>
+        <Item.Image label={{
+          color: 'orange',
+          content: `${this.props.vendor.foodType} Food`,
+          icon: 'food',
+          ribbon: true,
+        }} style = {vendorImage} src={this.props.vendor.storeImage}/>
         <Item.Content verticalAlign="middle">
           <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
-          <Item.Extra>
-            {this.props.vendor.name} sells {this.props.vendor.foodType} food
-          </Item.Extra>
+          <Item.Meta>{this.props.vendor.location}</Item.Meta>
           <Item.Description>
             {this.props.vendor.description}
           </Item.Description>
           <Item.Description>
             <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
           </Item.Description>
+          <Item.Extra>
+          </Item.Extra>
           <Item.Extra>
             <Button primary floated="right" as={Link} to={`/VendorProfile/${this.props.vendor._id}`} id='listVendor-profile'>
                     View menu
@@ -39,6 +44,7 @@ class PublicVendorItem extends React.Component {
 PublicVendorItem.propTypes = {
   vendor: PropTypes.shape({
     name: PropTypes.string,
+    location: PropTypes.string,
     _id: PropTypes.string,
     description: PropTypes.string,
     storeImage: PropTypes.string,

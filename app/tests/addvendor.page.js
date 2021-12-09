@@ -18,6 +18,7 @@ class AddVendorPage {
 
     await this.isDisplayed(testController);
     await testController.typeText('#addVendor-Name', testVendor.name);
+    await testController.typeText('#addVendor-Location', testVendor.location);
     await testController.typeText('#addVendor-Owner', testVendor.owner);
     await testController.click(foodTypeSelect);
     await testController.click(foodOption.withText(testVendor.foodType));
@@ -27,15 +28,15 @@ class AddVendorPage {
     await testController.click(Selector('label').withText(testVendor.openAmOrPm));
     await testController.typeText('#addVendor-Close', testVendor.close);
     await testController.click('#addVendor-CloseAmOrPm-UE0');
-    await testController.typeText('#uniforms-0000-000g', testVendor.menuItem[0].name);
-    await testController.typeText('#uniforms-0000-000h', testVendor.menuItem[0].price);
-    await testController.typeText('#uniforms-0000-000i', testVendor.menuItem[0].description);
-    await testController.typeText('#uniforms-0000-000j', testVendor.menuItem[0].image);
-    await testController.click('#uniforms-0000-0009');
-    await testController.typeText('#uniforms-0000-000q', testVendor.menuItem[1].name);
-    await testController.typeText('#uniforms-0000-000r', testVendor.menuItem[1].price);
-    await testController.typeText('#uniforms-0000-000s', testVendor.menuItem[1].description);
-    await testController.typeText('#uniforms-0000-000t', testVendor.menuItem[1].image);
+    await testController.typeText('#uniforms-0000-000h', testVendor.menuItem[0].name);
+    await testController.typeText('#uniforms-0000-000i', testVendor.menuItem[0].price);
+    await testController.typeText('#uniforms-0000-000j', testVendor.menuItem[0].description);
+    await testController.typeText('#uniforms-0000-000k', testVendor.menuItem[0].image);
+    await testController.click('#uniforms-0000-000a');
+    await testController.typeText('#uniforms-0000-000r', testVendor.menuItem[1].name);
+    await testController.typeText('#uniforms-0000-000s', testVendor.menuItem[1].price);
+    await testController.typeText('#uniforms-0000-000t', testVendor.menuItem[1].description);
+    await testController.typeText('#uniforms-0000-000u', testVendor.menuItem[1].image);
     await testController.typeText('#addVendor-Description', testVendor.description);
     await testController.click('#addVendor-Submit');
     await testController.pressKey('tab enter');

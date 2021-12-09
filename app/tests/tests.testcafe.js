@@ -22,6 +22,7 @@ const adminCredentials = { username: 'admin@foo.com', password: 'bowbitestestadm
 const testVendor = {
   _id: 'opXbCopxTEPQizQ6C',
   name: 'Panda Express Test',
+  location: 'Paradise Palms',
   foodType: 'Chinese',
   storeImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Panda_Express_logo.svg/1200px-Panda_Express_logo.svg.png',
   open: '10',
@@ -42,7 +43,7 @@ const testVendor = {
       image: 'https://i.ytimg.com/vi/25dFr40Oztg/maxresdefault.jpg',
     },
   ],
-  description: 'Fast and Delicious Chinese cuisine, located in Paradise Palms.',
+  description: 'Fast and Delicious Chinese cuisine.',
   owner: 'john@foo.com',
 };
 

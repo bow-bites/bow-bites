@@ -9,6 +9,7 @@ import { Vendors } from '../../api/vendor/Vendor';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
+  location: String,
   owner: String,
   foodType: {
     type: String,
@@ -44,8 +45,8 @@ class AddVendor extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, owner, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } = data;
-    Vendors.collection.insert({ name, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description, owner },
+    const { name, owner, location, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } = data;
+    Vendors.collection.insert({ name, foodType, location, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -66,6 +67,7 @@ class AddVendor extends React.Component {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='name' id='addVendor-Name'/>
+              <TextField name='location' id='addVendor-Location'/>
               <TextField name='owner' id='addVendor-Owner'/>
               <SelectField name='foodType' id='addVendor-FoodType'/>
               <TextField name='storeImage' id='addVendor-StoreImage'/>

@@ -19,6 +19,7 @@
     {
       "_id" : "pXbWnhZyWowWjmTJy",
       "name" : "Dunkin'",
+      "location" : "Paradise Palms",
       "foodType" : "Fast",
       "storeImage" : "https://finchannel.com/wp-content/uploads/2016/05/DOCS_DunkinDonuts.jpg",
       "open" : 7,
@@ -69,6 +70,7 @@
     {
       "_id" : "pXbWnhZyNowWjmTJ",
       "name" : "McDonalds",
+      "location" : "2915 E Manoa Rd, Honolulu, HI 96822",
       "foodType" : "Fast",
       "storeImage" : "https://corporate.mcdonalds.com/content/dam/gwscorp/assets/nav/m-logo_108x108.jpg",
       "open" : 6,
@@ -131,6 +133,7 @@
     {
       "_id" : "pXbWnhZyNowWjmTm",
       "name" : "Da Spot",
+      "location" : "Krauss Circle",
       "foodType" : "Vegetarian",
       "storeImage" : "https://s3-media0.fl.yelpcdn.com/bphoto/2tgqb6YKIJbHhw5pYCoILQ/o.jpg",
       "open" : 11,
@@ -175,6 +178,7 @@
     {
       "_id" : "pXbWahZyNowWjmTm",
       "name" : "Panda Express",
+      "location" : "Paradise Palms",
       "foodType" : "Chinese",
       "storeImage" : "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Panda_Express_logo.svg/1200px-Panda_Express_logo.svg.png",
       "open" : 10,
