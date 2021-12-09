@@ -40,9 +40,6 @@ class VendorItemUserProfile extends React.Component {
               <Item.Image size='small' src={this.props.vendor.storeImage}/>
               <Item.Content verticalAlign="middle">
                 <Item.Header as="h1" id='userProfile-Name'>{this.props.vendor.name}</Item.Header>
-                <Item.Extra>
-                  {this.props.vendor.name} sells {this.props.vendor.foodType} food
-                </Item.Extra>
                 <Item.Description>
                   {this.props.vendor.description}
                 </Item.Description>
@@ -50,22 +47,11 @@ class VendorItemUserProfile extends React.Component {
                   <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
                 </Item.Description>
                 <Item.Extra>
-                  <Button as={Link} to={`/VendorProfile/${this.props.vendor._id}`}>{this.props.vendor.name} menu.</Button>
+                  <Button as={Link} color='orange' to={`/VendorProfile/${this.props.vendor._id}`}>{this.props.vendor.name} menu.</Button>
                 </Item.Extra>
                 <Item.Extra>
                   <Button color='red' id="userProfile-Delete" onClick={this.deleteFavorite}>{removeVenTxt}</Button>
                 </Item.Extra>
-                <Item.Description>
-                  Menu Items total {this.props.vendor.menuItem.length}
-                </Item.Description>
-                {this.props.vendor.menuItem.map((menuItem) => (
-                  <div key={menuItem.name}>
-                    <Item.Description>{menuItem.name}</Item.Description>
-                    <Item.Image size='small' src={menuItem.image}/>
-                    <Item.Description>{menuItem.description}</Item.Description>
-                    <Item.Description>Price: {menuItem.price}$</Item.Description>
-                  </div>
-                ))}
               </Item.Content>
             </Item>
           </Item.Group>

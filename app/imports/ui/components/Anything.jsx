@@ -10,11 +10,11 @@ class Anything extends React.Component {
     return (
       <Popup
         trigger={
-          <Button color='green' icon='quidditch' id="listVendor-Delete" content="Anything"/>
+          <Button fluid color='green' icon='quidditch' id="listVendor-Delete" content="Anything"/>
         }
         content={<AnythingContent/>}
         on='click'
-        position='top right'
+        position='top left'
       />
     );
   }

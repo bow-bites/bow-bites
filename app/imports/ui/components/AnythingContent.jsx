@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Card, Button } from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Vendors } from '../../api/vendor/Vendor';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -30,7 +30,7 @@ class AnythingContent extends React.Component {
           <Card.Header>{theVendor.name} </Card.Header>
           <Card.Header>{randItem.name} {randItem.price}$</Card.Header>
           {randItem.description}
-          <Button>Link to {theVendor.name}&apos;s Profile page.</Button>
+          <Button as={Link} color='orange' to={`/VendorProfile/${theVendor._id}`}>{theVendor.name} menu.</Button>
         </Card.Content>
       </Card>
     );

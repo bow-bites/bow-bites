@@ -30,9 +30,11 @@ class UserProfile extends React.Component {
         filterUser.forEach(element => newFilteredArr.push(element));
       }
     });
+    /*
     if (sampleArr.length < 1 && userPro) {
       userPro.liked.forEach(element => newFilteredArr.push(Vendors.collection.find({ _id: element.favorite }).fetch()[0]));
     }
+     */
     return newFilteredArr;
   }
 
