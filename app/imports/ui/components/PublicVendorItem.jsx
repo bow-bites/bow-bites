@@ -24,7 +24,7 @@ class PublicVendorItem extends React.Component {
             <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
           </Item.Description>
           <Item.Extra>
-            <Button primary as={Link} to={`/VendorProfile/${this.props.vendor._id}`} id='listVendor-profile'>
+            <Button primary floated="right" as={Link} to={`/VendorProfile/${this.props.vendor._id}`} id='listVendor-profile'>
                     View menu
               <Icon name='right arrow' />
             </Button>

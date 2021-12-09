@@ -23,6 +23,7 @@ class ListVendor extends React.Component {
         <Item.Group divided>
           {this.props.vendors.map((vendor, index) => <VendorItem
             key={index} vendor={vendor}/>)}
+          <hr></hr>
         </Item.Group>
       </Container>
     );

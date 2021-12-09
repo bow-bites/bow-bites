@@ -22,6 +22,7 @@ class AdminListVendor extends React.Component {
         <Item.Group divided>
           {this.props.vendors.map((vendor, index) => <AdminVendorItem
             key={index} vendor={vendor}/>)}
+          <hr></hr>
         </Item.Group>
       </Container>
     );
