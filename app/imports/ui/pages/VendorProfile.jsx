@@ -4,6 +4,7 @@ import { Item, Header, Loader, Grid, Container } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
+import OperatingTime from '../../ui/components/OperatingTime';
 
 /** Represents a vendor's profile page */
 class VendorProfile extends React.Component {
@@ -23,36 +24,51 @@ class VendorProfile extends React.Component {
           </div>
           <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid" >
             <Grid.Column id='vendor-profile-left-col'>
-              <Item.Group >
+              <Item.Group divided>
                 <Header as='h1'>
                   Information
                 </Header>
                 <Item>
-                  <Item.Header as='h3'>
+                  <Grid container stackable columns={2}>
+                    <Grid.Column>
+                      <Item.Header as='h3'>
                     Hours of Operation
-                  </Item.Header>
-                  <Item.Meta>
-                    {<br/>}
-                    <span><OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/></span>
-                  </Item.Meta>
+                      </Item.Header>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Item.Meta>
+                        <span><OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/></span>
+                      </Item.Meta>
+                    </Grid.Column>
+                  </Grid>
                 </Item>
                 <Item>
-                  <Item.Header as='h3'>
+                  <Grid container stackable columns={2}>
+                    <Grid.Column>
+                      <Item.Header as='h3'>
                     Location
-                  </Item.Header>
-                  <Item.Meta>
-                    {<br/>}
+                      </Item.Header>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Item.Meta>
                     Paradise Palms
-                  </Item.Meta>
+                      </Item.Meta>
+                    </Grid.Column>
+                  </Grid>
                 </Item>
                 <Item>
-                  <Item.Header as='h3'>
+                  <Grid container stackable columns={2}>
+                    <Grid.Column>
+                      <Item.Header as='h3'>
                     Cuisine
-                  </Item.Header>
-                  <Item.Meta>
-                    {<br/>}
-                    {this.props.vendor.foodType}
-                  </Item.Meta>
+                      </Item.Header>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Item.Meta>
+                        {this.props.vendor.foodType}
+                      </Item.Meta>
+                    </Grid.Column>
+                  </Grid>
                 </Item>
               </Item.Group>
             </Grid.Column>
