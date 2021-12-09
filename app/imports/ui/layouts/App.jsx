@@ -16,7 +16,6 @@ import ListVendor from '../pages/ListVendor';
 import PublicListVendor from '../pages/PublicListVendor';
 import AdminListVendor from '../pages/AdminListVendor';
 import EditListVendor from '../pages/EditListVendor';
-import TopPicks from '../pages/TopPicks';
 import AvailableNow from '../pages/AvailableNow';
 import VendorProfile from '../pages/VendorProfile';
 import EditVendor from '../pages/EditVendor';
@@ -34,7 +33,6 @@ class App extends React.Component {
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <Route path="/TopPicks" component={TopPicks}/>
             <Route path="/AvailableNow" component={AvailableNow}/>
             <Route path="/VendorProfile/:_id" component={VendorProfile}/>
             <Route path="/PublicListVendor" component={PublicListVendor}/>
