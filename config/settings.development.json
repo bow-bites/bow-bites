@@ -67,8 +67,8 @@
       "owner" : "jane@foo.com"
     },
     {
-      "_id" : "pXbWnhZyNowWjmTJp",
-      "name" : "McDonalds'",
+      "_id" : "pXbWnhZyNowWjmTJ",
+      "name" : "McDonalds",
       "foodType" : "Fast",
       "storeImage" : "https://corporate.mcdonalds.com/content/dam/gwscorp/assets/nav/m-logo_108x108.jpg",
       "open" : 6,
@@ -97,7 +97,7 @@
         {
           "name" : "Quarter Pounder®* with Cheese",
           "price" : 4.49,
-          "description" : "Quarter Pounder®* with Cheese\n520 Cal.520 Cal.\nEach Quarter Pounder® with Cheese burger features a ¼ lb.* of 100% fresh beef that’s hot, deliciously juicy and cooked when you order. It’s seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with slivered onions, tangy pickles and two slices of melty American cheese on a sesame seed bun. Our QPC® contains no artificial flavors, preservatives or added colors from artificial sources. **Our pickle contains an artificial preservative.",
+          "description" : "Quarter Pounder®* with Cheese 520 Cal.520 Cal. Each Quarter Pounder® with Cheese burger features a ¼ lb.* of 100% fresh beef that’s hot, deliciously juicy and cooked when you order. It’s seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with slivered onions, tangy pickles and two slices of melty American cheese on a sesame seed bun. Our QPC® contains no artificial flavors, preservatives or added colors from artificial sources. **Our pickle contains an artificial preservative.",
           "image" : "https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-4pc.jpg?$Product_Desktop$"
         },
         {
@@ -127,6 +127,94 @@
       ],
       "description" : "Back in 1954, a man named Ray Kroc discovered a small burger restaurant in California, and wrote the first page of our history. From humble beginnings as a small restaurant, we're proud to have become one of the world's leading food service brands with more than 36,000 restaurants in more than 100 countries.",
       "owner" : "john@foo.com"
+    },
+    {
+      "_id" : "pXbWnhZyNowWjmTm",
+      "name" : "Da Spot",
+      "foodType" : "Vegeterian",
+      "storeImage" : "https://s3-media0.fl.yelpcdn.com/bphoto/2tgqb6YKIJbHhw5pYCoILQ/o.jpg",
+      "open" : 11,
+      "openAmOrPm" : "AM",
+      "close" : 9,
+      "closeAmOrPm" : "PM",
+      "menuItem" : [
+        {
+          "name" : "Thai Vegetable Curry",
+          "price" : 10,
+          "description" : "Mouthwatering perfection starts with two 100% pure beef patties and Big Mac® sauce sandwiched between a sesame seed bun. It’s topped off with pickles, crisp shredded lettuce, finely chopped onion and American cheese for a 100% beef burger with a taste like no other. It contains no artificial flavors, preservatives or added colors from artificial sources.* Our pickle contains an artificial preservative, so skip it if you like. There are 550 calories in a Big Mac®. Order one today with",
+          "image" : "https://daspot.net/images/views/menu/items/thai-vegetable-curry-sq.jpg"
+        },
+        {
+          "name" : "Tofu Salad",
+          "price" : 7,
+          "description" : "Our locally sourced salad topped with parsley, avocado, bell peppers and tofu",
+          "image" : "https://daspot.net/images/views/menu/items/tofu-salad-sq.jpg"
+        },
+        {
+          "name" : "Avocado Salad",
+          "price" : 7,
+          "description" : "Our locally sourced salad topped with parsley, avocado and bell peppers",
+          "image" : "https://daspot.net/images/views/menu/items/avocado-salad-sq.jpg"
+        },
+        {
+          "name" : "Smoothie",
+          "price" : 3.50,
+          "description" : "Choose from a variety of available fruits",
+          "image" : "https://daspot.net/images/views/menu/items/purple-rain-sq.jpg"
+        },
+        {
+          "name" : "Acai Bowl",
+          "price" : 6,
+          "description" : "Acai, banana, strawberry, berries, granola and honey",
+          "image" : "https://daspot.net/images/views/menu/items/acai-bowl-sq.jpg"
+        }
+      ],
+      "description" : "Da Spot Health Foods & Juices came to light in 2004 by Ahmad Ramadan and Ako Kifuji looking to provide healthy affordable food and at the same time give a diverse and unique outlook on food with dishes from around the world. Da Spot's current goals are to educate sustainability and healthy eating practices",
+      "owner" : "john@foo.com"
+    },
+    {
+      "_id" : "pXbWahZyNowWjmTm",
+      "name" : "Panda Express",
+      "foodType" : "Chinese",
+      "storeImage" : "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/Panda_Express_logo.svg/1200px-Panda_Express_logo.svg.png",
+      "open" : 10,
+      "openAmOrPm" : "AM",
+      "close" : 4,
+      "closeAmOrPm" : "PM",
+      "menuItem" : [
+        {
+          "name": "Orange Chicken",
+          "price": 10,
+          "description" : "Orange Chicken with Fried rice",
+          "image": "https://dinnerthendessert.com/wp-content/uploads/2017/08/Panda-Express-Orange-Chicken-8-.jpg"
+        },
+        {
+          "name": "Broccoli Beef",
+          "price": 8,
+          "description": "Beef with Broccoli",
+          "image": "https://i.ytimg.com/vi/25dFr40Oztg/maxresdefault.jpg"
+        },
+        {
+          "name" : "Black Pepper Angus Steak",
+          "price" : 7,
+          "description" : "Our seared black pepper angus steak on a bed of vegetables",
+          "image" : "https://s3.amazonaws.com/PandaExpressWebsite/Responsive/img/food/thumbnails/grid_bpas.jpg"
+        },
+        {
+          "name" : "Fried Rice",
+          "price" : 2.50,
+          "description" : "Rice, Peas and corn",
+          "image" : "https://s3.amazonaws.com/PandaExpressWebsite/Responsive/img/food/thumbnails/grid_FriedRice.jpg"
+        },
+        {
+          "name" : "Cream Cheese Rangoon",
+          "price" : 1.25,
+          "description" : "Wonton wrappers filled with cream cheese and served with sweet and sour sauce.",
+          "image" : "https://s3.amazonaws.com/PandaExpressWebsite/Responsive/img/food/thumbnails/grid_Rangoons.jpg"
+        }
+      ],
+      "description" : "Fast and Delicious Chinese cuisine, located in Paradise Palms.",
+      "owner" : "jane@foo.com"
     }
   ]
 
