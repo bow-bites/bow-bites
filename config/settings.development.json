@@ -2,7 +2,8 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "bowbitestestadmin123!", "role": "admin" },
     { "email": "john@foo.com", "password": "bowbitestestjohn123!" },
-    { "email": "jane@foo.com", "password": "bowbitestestjohn123!" }
+    { "email": "jane@foo.com", "password": "bowbitestestjohn123!" },
+    { "email": "mikekaruba@gmail.com", "password": "MyCaruba" }
   ],
 
   "defaultFavorites": [
@@ -219,6 +220,57 @@
       ],
       "description" : "Fast and Delicious Chinese cuisine, located in Paradise Palms.",
       "owner" : "jane@foo.com"
+    },
+    {
+      "_id" : "pXbWaKZyNowWjmTm",
+      "name" : "Le Crêpe Café",
+      "location" : "Paradise Palms",
+      "foodType" : "French",
+      "storeImage" : "https://media-cdn.tripadvisor.com/media/photo-s/1d/82/47/a6/outside-and-inside-seats.jpg",
+      "open" : 9,
+      "openAmOrPm" : "AM",
+      "close" : 8,
+      "closeAmOrPm" : "PM",
+      "menuItem" : [
+        {
+          "name": "Romeo Et Juliette",
+          "price": 11.99,
+          "description" : "Nutella, Banana, and Strawberry Crêpe",
+          "image": "https://s3-media0.fl.yelpcdn.com/bphoto/z1mFqWQolxXYx6Sx_3fLZA/o.jpg"
+        },
+        {
+          "name": "The Mana Acai Bowl",
+          "price": 10.50,
+          "description": "Acai, organic granola, bananas, strawberries, blueberries, organic Big Island Honey  ",
+          "image": "https://s3-media0.fl.yelpcdn.com/bphoto/xdWPiZhczOiIA50Gxz2zaQ/o.jpg"
+        },
+        {
+          "name" : "The Extravaganza Waffle",
+          "price" : 16.99,
+          "description" : "European butter, fresh strawberries, bananas, organic mango, blueberries, Nutella, caramel sauce, passion fruit puree, vanilla ice cream, chocolate sauce, and whipped cream! ",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/3r5_820AArdRPVGT1SMLUA/o.jpg"
+        },
+        {
+          "name" : "Pesto Pesto Crepe",
+          "price" : 12.99,
+          "description" : "Chicken, turkey slices, tomatoes, and homemade pesto in a savory crepe ",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/PYWaDd5pAJjs-5D9FYwkyA/o.jpg"
+        },
+        {
+          "name" : "The Canadian Crepe",
+          "price" : 10.99,
+          "description" : "Cheese, turkey bacon, organic maple syrup or organic honey, in one tasty breakfast crepe ",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/b01UJMZpWVR7G49iWT20lw/o.jpg"
+        },
+        {
+          "name" : "Sweet Karma",
+          "price" : 12.99,
+          "description" : "European butter, caramel sauce, bananas, cinnamon and vanilla ice cream in a crepe  ",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/5u-dW_ELHNbYkjio1L6QBQ/o.jpg"
+        }
+      ],
+      "description" : "Le Crêpe Café makes traditional French crêpes, cooked to order in front of customers. They specialize in a flavorsome menu of sweet and savory crêpes and use fresh ingredients, organic when possible. Their utensils are even bio-compostable. Enjoy a crêpe any time of day, as a breakfast, snack, main course, or dessert — close your eyes and you’re in Paris!.",
+      "owner" : "mikekaruba@gmail.com"
     }
   ]
 
