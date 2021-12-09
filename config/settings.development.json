@@ -18,6 +18,7 @@
     {
       "_id" : "pXbWnhZyWowWjmTJy",
       "name" : "McD",
+      "location" : "2915 E Manoa Rd, Honolulu, HI 96822",
       "foodType" : "Fast",
       "storeImage" : "https://corporate.mcdonalds.com/content/dam/gwscorp/assets/nav/m-logo_108x108.jpg",
       "open" : 6,

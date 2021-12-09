@@ -1,8 +1,9 @@
 import React from 'react';
-import { Item, Button, Confirm } from 'semantic-ui-react';
+import { Item, Button, Confirm, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Vendors } from '../../api/vendor/Vendor';
+import OperatingTime from './OperatingTime';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AdminVendorItem extends React.Component {
@@ -23,21 +24,21 @@ class AdminVendorItem extends React.Component {
     const vendorImage = { height: '100px' };
     return (
       <Item style = {itemPadding}>
-        <Item.Image style = {vendorImage} src={this.props.vendor.storeImage}/>
+        <Item.Image label={{
+          color: 'orange',
+          content: `${this.props.vendor.foodType} Food`,
+          icon: 'food',
+          ribbon: true,
+        }} style = {vendorImage} src={this.props.vendor.storeImage}/>
         <Item.Content verticalAlign="middle">
           <Item.Header as="h1" id='listVendor-Name'>{this.props.vendor.name}</Item.Header>
-          <Item.Extra>
-            {this.props.vendor.name} sells {this.props.vendor.foodType} food
-          </Item.Extra>
+          <Item.Meta>{this.props.vendor.location}</Item.Meta>
           <Item.Description>
             {this.props.vendor.description}
           </Item.Description>
           <Item.Description>
-                  Open from {this.props.vendor.open} am to {this.props.vendor.close} pm.
+            <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
           </Item.Description>
-          <Item.Extra>
-                  Link to {this.props.vendor.name}&apos;s Profile page.
-          </Item.Extra>
           <Item.Extra>
             <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
             <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>
@@ -46,6 +47,12 @@ class AdminVendorItem extends React.Component {
               onCancel={this.close}
               onConfirm={this.deleteVendor}
             />
+          </Item.Extra>
+          <Item.Extra>
+            <Button primary floated="right" as={Link} to={`/VendorProfile/${this.props.vendor._id}`} id='listVendor-profile'>
+              View menu
+              <Icon name='right arrow' />
+            </Button>
           </Item.Extra>
         </Item.Content>
       </Item>
@@ -57,10 +64,13 @@ class AdminVendorItem extends React.Component {
 AdminVendorItem.propTypes = {
   vendor: PropTypes.shape({
     name: PropTypes.string,
+    location: PropTypes.string,
     _id: PropTypes.string,
     description: PropTypes.string,
     storeImage: PropTypes.string,
     foodType: PropTypes.string,
+    openAmOrPm: PropTypes.string,
+    closeAmOrPm: PropTypes.string,
     open: PropTypes.number,
     close: PropTypes.number,
     menuItem: PropTypes.arrayOf(PropTypes.shape({

@@ -12,6 +12,7 @@ import { Vendors } from '../../api/vendor/Vendor';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
+  location: String,
   owner: String,
   foodType: {
     type: String,
@@ -47,8 +48,8 @@ class EditVendor extends React.Component {
 
   // On submit, insert the data.
   submit(data) {
-    const { name, owner, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description, _id } = data;
-    Vendors.collection.update(_id, { $set: { name, owner, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } }, (error) => (error ?
+    const { name, owner, location, foodType, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description, _id } = data;
+    Vendors.collection.update(_id, { $set: { name, owner, foodType, location, storeImage, open, openAmOrPm, close, closeAmOrPm, menuItem, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Vendor updated successfully', 'success')));
   }
@@ -67,6 +68,7 @@ class EditVendor extends React.Component {
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <TextField name='name'/>
+              <TextField name='location'/>
               <TextField name='owner'/>
               <SelectField name='foodType'/>
               <TextField name='storeImage'/>

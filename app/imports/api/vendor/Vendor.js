@@ -14,6 +14,7 @@ class VendorsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
+      location: String,
       foodType: String,
       storeImage: String,
       open: Number,
