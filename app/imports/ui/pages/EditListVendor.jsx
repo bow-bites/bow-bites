@@ -28,6 +28,7 @@ class EditListVendor extends React.Component {
             },
           )).map((vendor, index) => <EditVendorItem
             key={index} vendor={vendor}/>)}
+          <hr></hr>
         </Item.Group>
       </Container>
     );

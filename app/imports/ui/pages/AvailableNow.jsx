@@ -40,6 +40,7 @@ class AvailableNow extends React.Component {
             },
           )).map((vendor, index) => <PublicVendorItem
             key={index} vendor={vendor}/>)}
+          <hr></hr>
         </Item.Group>
       </Container>
     );
