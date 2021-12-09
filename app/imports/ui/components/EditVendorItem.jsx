@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import OperatingTime from './OperatingTime';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class VendorItem extends React.Component {
+class EditVendorItem extends React.Component {
   render() {
     const itemPadding = { padding: '50px' };
     const vendorImage = { height: '100px' };
@@ -37,7 +37,7 @@ class VendorItem extends React.Component {
 }
 
 // Require a document to be passed to this component.
-VendorItem.propTypes = {
+EditVendorItem.propTypes = {
   vendor: PropTypes.shape({
     name: PropTypes.string,
     owner: PropTypes.string,
@@ -58,4 +58,4 @@ VendorItem.propTypes = {
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(VendorItem);
+export default withRouter(EditVendorItem);
