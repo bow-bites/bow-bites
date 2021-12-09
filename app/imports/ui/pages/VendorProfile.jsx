@@ -15,19 +15,16 @@ class VendorProfile extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
-    console.log('Hello World!');
-    console.log(this.props.vendor);
-    console.log(this.props.vendor._id);
     return (
-      <div className="VendorProfile" id="vendor-profile">
-        <div className="ui image" id='vendor-profile-picture' >
-          <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
-        </div>
-        <container className="middle-background">
+      <container className="middle-background">
+        <div className="VendorProfile" id="vendor-profile">
+          <div className="ui image" id='vendor-profile-picture' >
+            <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
+          </div>
           <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid" >
-            <Grid.Column style={{ color: 'white' }} id='vendor-profile-left-col'>
+            <Grid.Column id='vendor-profile-left-col'>
               <Item.Group >
-                <Header as='h1' style={{ color: 'white' }}>
+                <Header as='h1'>
                   Information
                 </Header>
                 <Item>
@@ -56,8 +53,8 @@ class VendorProfile extends React.Component {
                 </Item>
               </Item.Group>
             </Grid.Column>
-            <Grid.Column style={{ color: 'white' }}>
-              <Header as='h1' style={{ color: 'white' }}>
+            <Grid.Column>
+              <Header as='h1'>
                 Salad Vendor
               </Header>
               <p>
@@ -81,8 +78,8 @@ class VendorProfile extends React.Component {
               </Item.Group>
             </Grid.Column>
           </Grid>
-        </container>
-      </div>
+        </div>
+      </container>
     );
   }
 }
