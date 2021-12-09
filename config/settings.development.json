@@ -131,7 +131,7 @@
     {
       "_id" : "pXbWnhZyNowWjmTm",
       "name" : "Da Spot",
-      "foodType" : "Vegeterian",
+      "foodType" : "Vegetarian",
       "storeImage" : "https://s3-media0.fl.yelpcdn.com/bphoto/2tgqb6YKIJbHhw5pYCoILQ/o.jpg",
       "open" : 11,
       "openAmOrPm" : "AM",
