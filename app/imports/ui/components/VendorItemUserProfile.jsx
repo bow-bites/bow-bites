@@ -32,6 +32,91 @@ class VendorItemUserProfile extends React.Component {
     const vendorImage = { height: '100px' };
     const removeVenTxt = `Remove ${this.props.vendor.name} from Favorites`;
     const itemPadding = { padding: '50px' };
+    const colorOptions = [
+      {
+        key: 'Vegetarian',
+        text: 'Vegetarian',
+        value: 'Vegetarian',
+        color: 'green',
+      },
+      {
+        key: 'Italian',
+        text: 'Italian',
+        value: 'Italian',
+        color: 'teal',
+      },
+      {
+        key: 'French',
+        text: 'French',
+        value: 'French',
+        color: 'black',
+      },
+      {
+        key: 'Chinese',
+        text: 'Chinese',
+        value: 'Chinese',
+        color: 'purple',
+      },
+      {
+        key: 'Japanese',
+        text: 'Japanese',
+        value: 'Japanese',
+        color: 'orange',
+      },
+      {
+        key: 'Vietnamese',
+        text: 'Vietnamese',
+        value: 'Vietnamese',
+      },
+      {
+        key: 'Fast',
+        text: 'Fast',
+        value: 'Fast',
+        color: 'yellow',
+      },
+      {
+        key: 'Mexican',
+        text: 'Mexican',
+        value: 'Mexican',
+        color: 'pink',
+      },
+      {
+        key: 'American',
+        text: 'American',
+        value: 'American',
+        color: 'brown',
+      },
+      {
+        key: 'Indian',
+        text: 'Indian',
+        value: 'Indian',
+        color: 'red',
+      },
+      {
+        key: 'Korean',
+        text: 'Korean',
+        value: 'Korean',
+        color: 'blue',
+      },
+      {
+        key: 'Hawaiian',
+        text: 'Hawaiian',
+        value: 'Hawaiian',
+        color: 'olive',
+      },
+      {
+        key: 'Filipino',
+        text: 'Filipino',
+        value: 'Filipino',
+        color: 'violet',
+      },
+    ];
+    const vendorFoodType = this.props.vendor.foodType;
+    const tagColor = colorOptions.find(
+      function (type) {
+        return type.key === vendorFoodType;
+      },
+    ).color;
 
     return (
       <div className="middle-background">
@@ -39,7 +124,7 @@ class VendorItemUserProfile extends React.Component {
           <Item.Group divided style = {itemPadding}>
             <Item>
               <Item.Image label={{
-                color: 'orange',
+                color: tagColor,
                 content: `${this.props.vendor.foodType} Food`,
                 icon: 'food',
                 ribbon: true,
