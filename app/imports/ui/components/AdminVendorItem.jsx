@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Vendors } from '../../api/vendor/Vendor';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class VendorItem extends React.Component {
+class AdminVendorItem extends React.Component {
 
   state = { open: false };
 
@@ -38,13 +38,15 @@ class VendorItem extends React.Component {
           <Item.Extra>
                   Link to {this.props.vendor.name}&apos;s Profile page.
           </Item.Extra>
-          <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
-          <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>
-          <Confirm
-            open={this.state.open}
-            onCancel={this.close}
-            onConfirm={this.deleteVendor}
-          />
+          <Item.Extra>
+            <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit </Button>
+            <Button color='red' id="listVendor-Delete" onClick={this.open}>{delVenTxt}</Button>
+            <Confirm
+              open={this.state.open}
+              onCancel={this.close}
+              onConfirm={this.deleteVendor}
+            />
+          </Item.Extra>
         </Item.Content>
       </Item>
     );
@@ -52,7 +54,7 @@ class VendorItem extends React.Component {
 }
 
 // Require a document to be passed to this component.
-VendorItem.propTypes = {
+AdminVendorItem.propTypes = {
   vendor: PropTypes.shape({
     name: PropTypes.string,
     _id: PropTypes.string,
@@ -70,4 +72,4 @@ VendorItem.propTypes = {
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(VendorItem);
+export default withRouter(AdminVendorItem);

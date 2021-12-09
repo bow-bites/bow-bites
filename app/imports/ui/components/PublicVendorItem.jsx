@@ -1,7 +1,7 @@
 import React from 'react';
 import { Item, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import {Link, withRouter} from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import OperatingTime from './OperatingTime';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -24,7 +24,7 @@ class PublicVendorItem extends React.Component {
             <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
           </Item.Description>
           <Item.Extra>
-            <Button primary floated='right' as={Link} to={`/VendorProfile/${this.props.vendor._id}`} id='listVendor-profile'>
+            <Button primary as={Link} to={`/VendorProfile/${this.props.vendor._id}`} id='listVendor-profile'>
                     View menu
               <Icon name='right arrow' />
             </Button>

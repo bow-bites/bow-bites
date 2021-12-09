@@ -7,7 +7,7 @@ import { Vendors } from '../../api/vendor/Vendor';
 import AdminVendorItem from '../components/AdminVendorItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListVendor extends React.Component {
+class AdminListVendor extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -29,7 +29,7 @@ class ListVendor extends React.Component {
 }
 
 // Require an array of Stuff documents in the props.
-ListVendor.propTypes = {
+AdminListVendor.propTypes = {
   vendors: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -46,4 +46,4 @@ export default withTracker(() => {
     vendors,
     ready,
   };
-})(ListVendor);
+})(AdminListVendor);
