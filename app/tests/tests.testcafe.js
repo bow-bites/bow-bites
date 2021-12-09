@@ -10,7 +10,6 @@ import { addVendorPage } from './addvendor.page';
 import { removeVendorPage } from './removeVendor.page';
 import { addFavorite } from './addFavorite';
 import { removeFavorite } from './removeFavorite';
-import { topPicksPage } from './topPicks.page';
 import { availableNowPage } from './availableNow';
 import { vendorProfilePage } from './vendorProfile';
 
@@ -128,14 +127,6 @@ test('Test the Delete Vendor Function', async (testController) => {
   await addVendorPage.vendorExists(testController, testVendor.name);
   await removeVendorPage.RemoveVendor(testController, testVendor.name);
   await addVendorPage.existingTestVendorCheck(testController, testVendor.name);
-});
-
-test('Test the Top Picks Page', async (testController) => {
-  await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoTopPicksPage(testController);
-  await topPicksPage.isDisplayed(testController);
-  await topPicksPage.hasMenuItem(testController);
 });
 
 test('Test the Available Now Page', async (testController) => {

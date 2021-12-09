@@ -23,63 +23,65 @@ class VendorProfile extends React.Component {
         <div className="ui image" id='vendor-profile-picture' >
           <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
         </div>
-        <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid" >
-          <Grid.Column style={{ color: 'white' }} id='vendor-profile-left-col'>
-            <Item.Group >
-              <Header as='h1' style={{ color: 'white' }}>
+        <container className="middle-background">
+          <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid" >
+            <Grid.Column style={{ color: 'white' }} id='vendor-profile-left-col'>
+              <Item.Group >
+                <Header as='h1' style={{ color: 'white' }}>
                   Information
-              </Header>
-              <Item>
-                <Item.Header as='h3'>
+                </Header>
+                <Item>
+                  <Item.Header as='h3'>
                     Hours of Operation
-                </Item.Header>
-                <Item.Meta>
-                  <span>M-F: 9AM-3PM</span>
-                </Item.Meta>
-              </Item>
-              <Item>
-                <Item.Header as='h3'>
+                  </Item.Header>
+                  <Item.Meta>
+                    <span>M-F: 9AM-3PM</span>
+                  </Item.Meta>
+                </Item>
+                <Item>
+                  <Item.Header as='h3'>
                     Location
-                </Item.Header>
-                <Item.Meta>
+                  </Item.Header>
+                  <Item.Meta>
                     Paradise Palms
-                </Item.Meta>
-              </Item>
-              <Item>
-                <Item.Header as='h3'>
+                  </Item.Meta>
+                </Item>
+                <Item>
+                  <Item.Header as='h3'>
                     Cuisine
-                </Item.Header>
-                <Item.Meta>
+                  </Item.Header>
+                  <Item.Meta>
                     Salad Bar
-                </Item.Meta>
-              </Item>
-            </Item.Group>
-          </Grid.Column>
-          <Grid.Column style={{ color: 'white' }}>
-            <Header as='h1' style={{ color: 'white' }}>
+                  </Item.Meta>
+                </Item>
+              </Item.Group>
+            </Grid.Column>
+            <Grid.Column style={{ color: 'white' }}>
+              <Header as='h1' style={{ color: 'white' }}>
                 Salad Vendor
-            </Header>
-            <p>
+              </Header>
+              <p>
                 Salad Vendor provides the best leafy salads UH has to offer. Located inside the convenient Paradise Palms,
                 open during convenient hours, and serving a wide variety of foods (and not just our award winning leafy greens),
                 stop by Salad Vendor today!
-            </p>
-            <Item.Group id="VendorProfileMenu">
-              <Item>
-                <Item.Content>
-                  {this.props.vendor.menuItem.map((menuItem) => (
-                    <div key={menuItem.name}>
-                      <Item.Description>{menuItem.name}</Item.Description>
-                      <Item.Image size='small' src={menuItem.image}/>
-                      <Item.Description>{menuItem.description}</Item.Description>
-                      <Item.Description>Price: {menuItem.price}$</Item.Description>
-                    </div>
-                  ))}
-                </Item.Content>
-              </Item>
-            </Item.Group>
-          </Grid.Column>
-        </Grid>
+              </p>
+              <Item.Group divided id="VendorProfileMenu">
+                <Item>
+                  <Item.Content>
+                    {this.props.vendor.menuItem.map((menuItem) => (
+                      <div key={menuItem.name}>
+                        <Item.Description>{menuItem.name}</Item.Description>
+                        <Item.Image size='small' src={menuItem.image}/>
+                        <Item.Description>{menuItem.description}</Item.Description>
+                        <Item.Description>Price: {menuItem.price}$</Item.Description>
+                      </div>
+                    ))}
+                  </Item.Content>
+                </Item>
+              </Item.Group>
+            </Grid.Column>
+          </Grid>
+        </container>
       </div>
     );
   }
