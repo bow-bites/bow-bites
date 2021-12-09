@@ -68,7 +68,7 @@
     },
     {
       "_id" : "pXbWnhZyNowWjmTJp",
-      "name" : "McD'",
+      "name" : "McDonalds'",
       "foodType" : "Fast",
       "storeImage" : "https://corporate.mcdonalds.com/content/dam/gwscorp/assets/nav/m-logo_108x108.jpg",
       "open" : 6,
@@ -77,13 +77,55 @@
       "closeAmOrPm" : "PM",
       "menuItem" : [
         {
-          "name" : "Mc Burger",
-          "price" : 6,
-          "description" : "is burgerr",
+          "name" : "Big Mac®",
+          "price" : 3.99,
+          "description" : "Mouthwatering perfection starts with two 100% pure beef patties and Big Mac® sauce sandwiched between a sesame seed bun. It’s topped off with pickles, crisp shredded lettuce, finely chopped onion and American cheese for a 100% beef burger with a taste like no other. It contains no artificial flavors, preservatives or added colors from artificial sources.* Our pickle contains an artificial preservative, so skip it if you like. There are 550 calories in a Big Mac®. Order one today with",
           "image" : "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F05%2F19%2Furdaburger-FT-RECIPE0621.jpg"
+        },
+        {
+          "name" : "World Famous Fries®",
+          "price" : 1.39,
+          "description" : "McDonald's World Famous Fries® are made with premium potatoes such as the Russet Burbank and the Shepody. With 0g of trans fat per labeled serving, these epic fries are crispy and golden on the outside and fluffy on the inside.",
+          "image" : "https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-fries-small.jpg?$Product_Desktop$"
+        },
+        {
+          "name" : "Chicken McNuggets®",
+          "price" : 4.49,
+          "description" : "Our tender, juicy Chicken McNuggets® are made with 100% white meat chicken and no artificial colors, flavors or preservatives.",
+          "image" : "https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-4pc.jpg?$Product_Desktop$"
+        },
+        {
+          "name" : "Quarter Pounder®* with Cheese",
+          "price" : 4.49,
+          "description" : "Quarter Pounder®* with Cheese\n520 Cal.520 Cal.\nEach Quarter Pounder® with Cheese burger features a ¼ lb.* of 100% fresh beef that’s hot, deliciously juicy and cooked when you order. It’s seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with slivered onions, tangy pickles and two slices of melty American cheese on a sesame seed bun. Our QPC® contains no artificial flavors, preservatives or added colors from artificial sources. **Our pickle contains an artificial preservative.",
+          "image" : "https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Chicken-McNuggets-4pc.jpg?$Product_Desktop$"
+        },
+        {
+          "name" : "Spicy Crispy Chicken Sandwich",
+          "price" : 4.49,
+          "description" : "With our Spicy Pepper Sauce topping the southern style fried chicken fillet on a toasted potato roll, this sandwich was made for those who like it crispy, juicy, tender and hot.",
+          "image" : "https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-spicy-crispy-chicken-sandwich.jpg?$Product_Desktop$"
+        },
+        {
+          "name" : "Sausage Burrito",
+          "price" : 1.29,
+          "description" : "The Sausage Burrito is McDonald's Breakfast Burrito and is loaded with fluffy scrambled egg, pork sausage, melty cheese, green chiles and onion! It's wrapped in a soft tortilla, making it the perfect grab and go breakfast. ",
+          "image" : "https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Sausage-Burrito.jpg?$Product_Desktop$"
+        },
+        {
+          "name" : "Saimin",
+          "price" : 4.99,
+          "description" : "Egg noodles in broth with spam and kamaboko",
+          "image" : "https://i2.wp.com/www.tastyislandhawaii.com/images10/mcdonalds/mcdonalds_saimin2.jpg"
+        },
+        {
+          "name" : "Iced Coffee",
+          "price" : 1.79,
+          "description" : "McCafe Iced Coffee is refreshingly cool and made with 100% Arabica beans, cream and your choice of flavored coffee syrup – caramel, hazelnut, French vanilla and sugar-free French vanilla.",
+          "image" : "https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Premium-Roast-Iced-Coffee-Medium.jpg?$Product_Desktop$"
         }
       ],
-      "description" : "Burger good but not King",
+      "description" : "Back in 1954, a man named Ray Kroc discovered a small burger restaurant in California, and wrote the first page of our history. From humble beginnings as a small restaurant, we're proud to have become one of the world's leading food service brands with more than 36,000 restaurants in more than 100 countries.",
       "owner" : "john@foo.com"
     }
   ]

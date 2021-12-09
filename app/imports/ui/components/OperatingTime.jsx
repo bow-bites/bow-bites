@@ -8,7 +8,7 @@ class OperatingTime extends React.Component {
 
   render() {
     let btnColour = 'yellow';
-    let statMes = 'Retreving';
+    let statMes = 'Retrieving';
     let openTime = this.props.openTime;
     let closeTime = this.props.closeTime;
     if (this.props.openAP === 'PM') {
