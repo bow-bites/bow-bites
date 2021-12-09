@@ -33,7 +33,7 @@ class AvailableNow extends React.Component {
                 closeTime += 12;
               }
               const THours = new Date().getHours();
-              if (openTime < THours && THours < closeTime) {
+              if (openTime <= THours && THours < closeTime) {
                 return vendor;
               }
               return '';

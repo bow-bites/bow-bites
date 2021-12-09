@@ -16,7 +16,7 @@ class VendorItem extends React.Component {
     const user = Meteor.user().username;
     console.log('adding to favorites');
     if (Favorites.collection.find({ userId: user }).fetch()[0]) {
-      console.log('User already has a collection');
+      // console.log('User already has a collection');
       const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
       if (userPro) {
         const userProId = userPro._id;

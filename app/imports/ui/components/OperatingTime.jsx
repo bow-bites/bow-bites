@@ -19,14 +19,13 @@ class OperatingTime extends React.Component {
     }
     const THours = new Date().getHours();
     // const TMinutes = new Date().getMinutes();
-    if (openTime < THours && THours < closeTime) {
+    if (openTime <= THours && THours < closeTime) {
       btnColour = 'green';
       statMes = 'Open Now';
     } else {
       btnColour = 'red';
       statMes = 'Currently Closed: Operating Hours';
     }
-    // console.log(THours);
     return (
       <Item.Description>
         <Label color={btnColour} id="listVendor-Favorite"> {statMes}: {this.props.openTime} {this.props.openAP} to {this.props.closeTime} {this.props.closeAP} </Label>

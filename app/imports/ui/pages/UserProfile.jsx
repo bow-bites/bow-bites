@@ -30,11 +30,6 @@ class UserProfile extends React.Component {
         filterUser.forEach(element => newFilteredArr.push(element));
       }
     });
-    /*
-    if (sampleArr.length < 1 && userPro) {
-      userPro.liked.forEach(element => newFilteredArr.push(Vendors.collection.find({ _id: element.favorite }).fetch()[0]));
-    }
-     */
     return newFilteredArr;
   }
 
@@ -73,7 +68,7 @@ class UserProfile extends React.Component {
           <Grid.Row columns={2}>
             <Grid.Column>
               <Item.Group divided>
-                <Anything/>
+                <Anything newArr={newArr}/>
                 {newArr.map((vendor, index) => <VendorItemUserProfile
                   key={index} vendor={vendor} onUpdate={eventhandler}/>)}
               </Item.Group>
