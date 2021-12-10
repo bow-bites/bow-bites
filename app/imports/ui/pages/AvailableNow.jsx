@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Vendors } from '../../api/vendor/Vendor';
 import { Favorites } from '../../api/favorite/Favorite';
 import PublicVendorItem from '../components/PublicVendorItem';
+import Anything from '../components/Anything';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AvailableNow extends React.Component {
@@ -17,28 +18,32 @@ class AvailableNow extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    const openNowArr = (this.props.vendors.filter(
+      function (vendor) {
+        let openTime = vendor.open;
+        let closeTime = vendor.close;
+        if (vendor.openAmOrPm === 'PM') {
+          openTime += 12;
+        }
+        if (vendor.closeAmOrPm === 'PM') {
+          closeTime += 12;
+        }
+        const THours = new Date().getHours();
+        if (openTime <= THours && THours < closeTime) {
+          return vendor;
+        }
+        return '';
+      },
+    ));
+
     // eslint-disable-next-line no-return-assign
     return (
       <Container id="available-now" className="middle-background">
-        <Header as="h2" textAlign="center" inverted>Available Now</Header>
+        <Anything newArr={openNowArr}/>
+        <Header as="h2" textAlign="center">Available Now</Header>
+        <hr className="new"/>
         <Item.Group divided>
-          {(this.props.vendors.filter(
-            function (vendor) {
-              let openTime = vendor.open;
-              let closeTime = vendor.close;
-              if (vendor.openAmOrPm === 'PM') {
-                openTime += 12;
-              }
-              if (vendor.closeAmOrPm === 'PM') {
-                closeTime += 12;
-              }
-              const THours = new Date().getHours();
-              if (openTime < THours && THours < closeTime) {
-                return vendor;
-              }
-              return '';
-            },
-          )).map((vendor, index) => <PublicVendorItem
+          {openNowArr.map((vendor, index) => <PublicVendorItem
             key={index} vendor={vendor}/>)}
           <hr></hr>
         </Item.Group>

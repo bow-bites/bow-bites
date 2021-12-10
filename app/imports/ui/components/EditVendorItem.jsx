@@ -109,7 +109,7 @@ class EditVendorItem extends React.Component {
             {this.props.vendor.description}
           </Item.Description>
           <Item.Description>
-            <OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/>
+            <OperatingTime vendor = {this.props.vendor}/>
           </Item.Description>
           <Item.Extra>
             <Button as={Link} to={`/edit/${this.props.vendor._id}`} > Edit My Vendor </Button>
