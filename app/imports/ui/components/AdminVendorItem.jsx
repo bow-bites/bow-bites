@@ -16,6 +16,7 @@ class AdminVendorItem extends React.Component {
 
   deleteVendor = () => {
     Vendors.collection.remove(this.props.vendor._id);
+    this.setState({ open: false });
   }
 
   render() {
