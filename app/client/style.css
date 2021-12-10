@@ -41,6 +41,22 @@
   padding-top: 20px;
 }
 
+#edit-list-vendor-page {
+  padding-top : 20px;
+}
+
+#list-vendor-page {
+  padding-top : 20px;
+}
+
+#public-list-vendor-page {
+  padding-top : 20px;
+}
+
+#admin-list-vendor-page {
+  padding-top : 20px;
+}
+
 hr.new {
   border: 5px solid #024731;
   border-radius: 0px;

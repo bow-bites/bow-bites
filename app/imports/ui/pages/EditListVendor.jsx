@@ -17,17 +17,30 @@ class EditListVendor extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    const myVendorList = (this.props.vendors.filter(
+      function (vendor) {
+        return Meteor.user().username === vendor.owner;
+      },
+    ));
+    console.log(myVendorList.length);
     // eslint-disable-next-line no-return-assign
+    if (myVendorList.length > 0) {
+      return (
+        <Container id="edit-list-vendor-page" className="middle-background">
+          <Header as="h2" textAlign="center" >My Vendors</Header>
+          <Item.Group divided>
+            {(myVendorList).map((vendor, index) => <EditVendorItem
+              key={index} vendor={vendor}/>)}
+            <hr></hr>
+          </Item.Group>
+        </Container>
+      );
+    }
     return (
       <Container id="edit-list-vendor-page" className="middle-background">
-        <Header as="h2" textAlign="center" inverted>List of Vendors</Header>
         <Item.Group divided>
-          {(this.props.vendors.filter(
-            function (vendor) {
-              return Meteor.user().username === vendor.owner;
-            },
-          )).map((vendor, index) => <EditVendorItem
-            key={index} vendor={vendor}/>)}
+          <Header textAlign="center" as='h3'>You do not currently have any vendors.</Header>
+          <Header textAlign="center" as='h3'>If you would like to add one contact us using the information below</Header>
           <hr></hr>
         </Item.Group>
       </Container>

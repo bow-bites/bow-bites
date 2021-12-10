@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Item, Header, Loader, Button, Message } from 'semantic-ui-react';
+import { Container, Item, Header, Loader, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -54,11 +54,11 @@ class AvailableNow extends React.Component {
     }
     return (
       <Container id="available-nowEmpty" className="middle-background">
-        <Header as="h2" textAlign="center">Nothing is Open Right Now</Header>
+        <Header as="h2" textAlign="center">Nothing Is Open Right Now</Header>
         <hr className="new"/>
         <Item.Group divided>
           <Header textAlign="center" as='h3'>Looks like you are out of luck. Go out and forage that should keep you going. You might even find some Basil!</Header>
-          <Button fluid attached as={Link} color='orange' to={'/PublicListVendor'}>check out what you could get if something was open</Button>
+          <Button attached as={Link} color='orange' to={'/PublicListVendor'}>check out what you could get if something was open</Button>
           <hr></hr>
         </Item.Group>
       </Container>

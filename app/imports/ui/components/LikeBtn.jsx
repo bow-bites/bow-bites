@@ -23,7 +23,7 @@ class LikeBtn extends React.Component {
     }
     if (user) {
 
-      console.log('adding to favorites');
+      // console.log('adding to favorites');
       if (Favorites.collection.find({ userId: user }).fetch()[0]) {
         // console.log('User already has a collection');
         const userPro = Favorites.collection.find({ userId: user }).fetch()[0];
@@ -32,9 +32,9 @@ class LikeBtn extends React.Component {
           const newArr = [];
           userPro.liked.forEach(element => newArr.push(element.favorite));
           if (newArr.includes(data)) {
-            console.log('Vendor already exists in favorites');
+            // console.log('Vendor already exists in favorites');
           } else {
-            console.log('it does not exist updating collection');
+            // console.log('it does not exist updating collection');
             Favorites.collection.update({ _id: userProId }, { $push: { liked: favorite } });
           }
         }
@@ -84,7 +84,7 @@ class LikeBtn extends React.Component {
     } catch {
       console.log('not logged in');
     }
-    console.log(userCheck);
+    // console.log(userCheck);
     if (userCheck) {
       if (Favorites.collection.find({ userId: userCheck }).fetch()[0]) {
         const userProCheck = Favorites.collection.find({ userId: userCheck }).fetch()[0];
@@ -92,7 +92,7 @@ class LikeBtn extends React.Component {
           const newArrCheck = [];
           userProCheck.liked.forEach(element => newArrCheck.push(element.favorite));
           if (newArrCheck.includes(dataCheck)) {
-            console.log('Vendor already exists in favorites');
+            // console.log('Vendor already exists in favorites');
             favAdded = 'grey';
             favVenTxt = 'Added to Favorites';
           } else {
@@ -116,8 +116,10 @@ class LikeBtn extends React.Component {
     }
     return (
       <Container>
-        <Button color={favAdded} id="listVendor-Favorite"> {favVenTxt}</Button>
-        <Button icon='remove circle' color='red' onClick={this.deleteFavorite}/>
+        <Button.Group>
+          <Button color={favAdded} id="listVendor-Favorite"> {favVenTxt}</Button>
+          <Button icon='remove circle' color='red' onClick={this.deleteFavorite}/>
+        </Button.Group>
       </Container>
     );
   }

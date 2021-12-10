@@ -18,7 +18,7 @@ class ListVendor extends React.Component {
   renderPage() {
     return (
       <Container id="public-list-vendor-page" className="middle-background">
-        <Header as="h2" textAlign="center" inverted>List of Vendors</Header>
+        <Header as="h2" textAlign="center">List of Vendors</Header>
         <Item.Group divided>
           {this.props.vendors.map((vendor, index) => <PublicVendorItem
             key={index} vendor={vendor}/>)}

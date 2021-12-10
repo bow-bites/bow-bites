@@ -59,7 +59,6 @@ class UserProfile extends React.Component {
     } else {
       // console.log('userPro empty');
     }
-    console.log(newArr);
     let newFilteredArr = this.filterVendor(newArr, userPro, []);
 
     const eventhandler = data => {

@@ -18,7 +18,7 @@ class AdminListVendor extends React.Component {
   renderPage() {
     return (
       <Container id="admin-list-vendor-page" className="middle-background">
-        <Header as="h2" textAlign="center" inverted>Admin Vendor Page</Header>
+        <Header as="h2" textAlign="center" >Admin Vendor Page</Header>
         <Item.Group divided>
           {this.props.vendors.map((vendor, index) => <AdminVendorItem
             key={index} vendor={vendor}/>)}
