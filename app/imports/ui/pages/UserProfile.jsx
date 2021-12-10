@@ -51,10 +51,15 @@ class UserProfile extends React.Component {
     const newArr = [];
     const nullArr = Vendors.collection.find({}).fetch();
     if (userPro) {
-      userPro.liked.forEach(element => newArr.push(Vendors.collection.find({ _id: element.favorite }).fetch()[0]));
+      userPro.liked.forEach(function (element) {
+        if (Vendors.collection.find({ _id: element.favorite }).fetch()[0]) {
+          newArr.push(Vendors.collection.find({ _id: element.favorite }).fetch()[0]);
+        }
+      });
     } else {
       // console.log('userPro empty');
     }
+    console.log(newArr);
     let newFilteredArr = this.filterVendor(newArr, userPro, []);
 
     const eventhandler = data => {
