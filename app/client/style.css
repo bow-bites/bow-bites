@@ -15,8 +15,29 @@
 #vendor-profile-picture {
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 #vendor-profile-left-col {
   foreground-color: white;
+}
+
+#user-profile-pageEmpty {
+  foreground-color: white;
+  background-color: white;
+  padding: 100px;
+  border-radius: 25px;
+}
+
+#vendor-profile {
+  padding-top: 20px;
+}
+
+#venPInfo {
+  padding-bottom: 20px;
+}
+
+hr.new {
+  border: 5px solid #024731;
+  border-radius: 0px;
 }

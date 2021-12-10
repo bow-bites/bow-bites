@@ -21,6 +21,7 @@ class AnythingContent extends React.Component {
   }
 
   render() {
+    // console.log(this.props);
     const theVendor = this.randomVendor();
     const theItem = this.randomItem(theVendor);
     const randItem = theVendor.menuItem[theItem];

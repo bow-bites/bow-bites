@@ -8,12 +8,25 @@ import AnythingContent from './AnythingContent';
 class Anything extends React.Component {
 
   render() {
+    // console.log(this.props);
+    if (this.props.newArr.length > 0) {
+      return (
+        <Popup
+          trigger={
+            <Button fluid attached color='green' icon='quidditch' id="listVendor-Delete" content="Anything"/>
+          }
+          content={<AnythingContent newArr={this.props}/>}
+          on='click'
+          position='top left'
+        />
+      );
+    }
     return (
       <Popup
         trigger={
-          <Button fluid color='green' icon='quidditch' id="listVendor-Delete" content="Anything"/>
+          <Button fluid attached color='green' icon='quidditch' id="listVendor-Delete" content="Anything"/>
         }
-        content={<AnythingContent newArr={this.props}/>}
+        content='Nothing avaliable'
         on='click'
         position='top left'
       />
@@ -21,8 +34,8 @@ class Anything extends React.Component {
   }
 }
 
-AnythingContent.propTypes = {
-  newArr: PropTypes.object,
+Anything.propTypes = {
+  newArr: PropTypes.array,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.

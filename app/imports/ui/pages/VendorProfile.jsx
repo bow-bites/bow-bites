@@ -3,8 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { Item, Header, Loader, Grid, Container } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Favorites } from '../../api/favorite/Favorite';
 import { Vendors } from '../../api/vendor/Vendor';
 import OperatingTime from '../components/OperatingTime';
+import LikeBtn from '../components/LikeBtn';
 
 /** Represents a vendor's profile page */
 class VendorProfile extends React.Component {
@@ -22,12 +24,21 @@ class VendorProfile extends React.Component {
           <div className="ui image" id='vendor-profile-picture' >
             <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
           </div>
-          <Grid container stackable centered columns={2} verticalAlign="middle" id="VendorProfileGrid" >
+          <Grid container stackable centered columns={2} verticalAlign="top" id="VendorProfileGrid" >
             <Grid.Column id='vendor-profile-left-col'>
               <Item.Group divided>
-                <Header as='h1'>
-                  Information
-                </Header>
+                <Grid container stackable columns={2} id ="venPInfo">
+                  <Grid.Column>
+                    <Item.Header as='h1'>
+                      Information
+                    </Item.Header>
+                  </Grid.Column>
+                  <Grid.Column>
+                    <Item.Meta>
+                      <LikeBtn vendor = {this.props.vendor}/>
+                    </Item.Meta>
+                  </Grid.Column>
+                </Grid>
                 <Item>
                   <Grid container stackable columns={2}>
                     <Grid.Column>
@@ -37,7 +48,7 @@ class VendorProfile extends React.Component {
                     </Grid.Column>
                     <Grid.Column>
                       <Item.Meta>
-                        <span><OperatingTime openTime ={this.props.vendor.open} openAP ={this.props.vendor.openAmOrPm} closeTime ={this.props.vendor.close} closeAP={this.props.vendor.closeAmOrPm}/></span>
+                        <span><OperatingTime vendor = {this.props.vendor}/></span>
                       </Item.Meta>
                     </Grid.Column>
                   </Grid>
@@ -101,8 +112,9 @@ class VendorProfile extends React.Component {
   }
 }
 VendorProfile.propTypes = {
-  vendor: PropTypes.object.isRequired,
+  vendor: PropTypes.object,
   ready: PropTypes.bool.isRequired,
+  vamos: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -110,11 +122,16 @@ export default withTracker(({ match }) => {
   const vendorId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Vendors.userPublicationName);
+  const subscription2 = Meteor.subscribe(Favorites.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
+  const vamos = subscription2.ready();
   const vendor = Vendors.collection.findOne({ _id: vendorId });
+  const favorites = Favorites.collection.find({}).fetch();
   return {
     vendor,
+    favorites,
     ready,
+    vamos,
   };
 })(VendorProfile);

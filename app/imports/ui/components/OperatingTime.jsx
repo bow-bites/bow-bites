@@ -9,12 +9,13 @@ class OperatingTime extends React.Component {
   render() {
     let btnColour = 'yellow';
     let statMes = 'Retrieving';
-    let openTime = this.props.openTime;
-    let closeTime = this.props.closeTime;
-    if (this.props.openAP === 'PM') {
+    // console.log(this.props.vendor);
+    let openTime = this.props.vendor.open;
+    let closeTime = this.props.vendor.close;
+    if (this.props.vendor.openAmOrPm === 'PM') {
       openTime += 12;
     }
-    if (this.props.closeAP === 'PM') {
+    if (this.props.vendor.closeAmOrPm === 'PM') {
       closeTime += 12;
     }
     const THours = new Date().getHours();
@@ -28,17 +29,19 @@ class OperatingTime extends React.Component {
     }
     return (
       <Item.Description>
-        <Label color={btnColour} id="listVendor-Favorite"> {statMes}: {this.props.openTime} {this.props.openAP} to {this.props.closeTime} {this.props.closeAP} </Label>
+        <Label color={btnColour} id="listVendor-Favorite"> {statMes}: {this.props.vendor.open} {this.props.vendor.openAmOrPm} to {this.props.vendor.close} {this.props.vendor.closeAmOrPm} </Label>
       </Item.Description>
     );
   }
 }
 
 OperatingTime.propTypes = {
-  openTime: PropTypes.number,
-  closeTime: PropTypes.number,
-  openAP: PropTypes.string,
-  closeAP: PropTypes.string,
+  vendor: PropTypes.shape({
+    open: PropTypes.number,
+    close: PropTypes.number,
+    openAmOrPm: PropTypes.string,
+    closeAmOrPm: PropTypes.string,
+  }).isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
