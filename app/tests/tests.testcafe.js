@@ -121,6 +121,16 @@ test('Test Remove Favorite Button', async (testController) => {
   await removeFavorite.likeRemoved(testController, testVendor.name);
 });
 
+test('Test the VendorProfile', async (testController) => {
+  await navBar.gotoPublicListVendorPage(testController);
+  await publicListVendorPage.isDisplayed(testController);
+  // await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
+  // await navBar.gotoVendorProfile(testController);
+  await publicListVendorPage.gotoVendorProfile(testController);
+  await vendorProfilePage.isDisplayed(testController);
+  await vendorProfilePage.hasMenuItems(testController);
+});
+
 test('Test the Delete Vendor Function', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
@@ -134,14 +144,4 @@ test('Test the Available Now Page', async (testController) => {
   await navBar.gotoAvailableNow(testController);
   await availableNowPage.isDisplayed(testController);
   await availableNowPage.hasMenuItem(testController);
-});
-
-test('Test the VendorProfile', async (testController) => {
-  await navBar.gotoPublicListVendorPage(testController);
-  await publicListVendorPage.isDisplayed(testController);
-  // await signinPage.signin(testController, adminCredentials.username, adminCredentials.password);
-  // await navBar.gotoVendorProfile(testController);
-  await publicListVendorPage.gotoVendorProfile(testController);
-  await vendorProfilePage.isDisplayed(testController);
-  await vendorProfilePage.hasMenuItems(testController);
 });
