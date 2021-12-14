@@ -427,6 +427,96 @@
       ],
       "description" : "Kamitoku Ramen specializes in a Tottori-style beef bone ramen.\n\n",
       "owner" : "yamamoto-san808@gmail.com"
+    },
+    {
+      "_id" : "pXbWahZyNowWjmTq",
+      "name": "Holoholo Grill",
+      "location": "2494 S Beretania Street, Honolulu, 96826",
+      "foodType": "Filipino",
+      "storeImage": "http://media.bizj.us/view/img/8433282/holoholo-bar-grill*1200xx2000-1125-0-104.jpg",
+      "open": 10,
+      "openAmOrPm": "AM",
+      "close": "10",
+      "closeAmOrPm": "PM",
+      "menuItem": [
+        {
+          "name": "Chicken Wrap",
+          "price": 7.99,
+          "description": "A delicious chicken wrap made with all-natural ingredients.",
+          "image": "https://healthyfitnessmeals.com/wp-content/uploads/2020/07/Chicken-caesar-wrap-5.jpg"
+        },
+        {
+          "name": "Turkey Avocado Bomb Panini",
+          "price": 9.99,
+          "description": "A refreshing Turkey panini with fresh grilled turkey and Californian avocado.",
+          "image": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5428404.jpg&w=596&h=399&c=sc&poi=face&q=85"
+        },
+        {
+          "name": "Caesar Salad",
+          "price": 10.99,
+          "description": "A large, filling caesar salad with plentiful croutons and caesar dressing.",
+          "image": "https://www.cookingclassy.com/wp-content/uploads/2015/01/chicken-caesar-salad-srgb...jpg"
+        },
+        {
+          "name": "Blueberry Muffin",
+          "price": 3.49,
+          "description": "A great way to start your day, try our fresh blueberry muffin with your choice of coffee.",
+          "image": "https://thebusybaker.ca/wp-content/uploads/2020/07/blueberry-muffins-title.jpg"
+        },
+        {
+          "name": "Milk Tea",
+          "price": 4.99,
+          "description": "Try our imported Japanese-style milk tea today, hot or iced!",
+          "image": "https://www.justonecookbook.com/wp-content/uploads/2020/04/Royal-Milk-Tea-4740-IV.jpg"
+        }
+      ],
+      "description": "Holoholo Grill features healthy, locally grown salads, sandwiches, and grab-and-go items at affordable prices. They are committed to using the freshest island-grown ingredients sourced directly from farmers and fishermen. Grab-and-go, breakfast items, or catering for any sized group are also available!",
+      "owner": "David Tanaka"
+    },
+    {
+      "_id" : "pXbWahZyNowWjmTqonoseafood",
+      "name": "Ono Seafood",
+      "location": "Krauss Hall, UH Manoa",
+      "foodType": "Hawaiian",
+      "storeImage": "https://bloximages.newyork1.vip.townnews.com/manoanow.org/content/tncms/assets/v3/editorial/1/6c/16ccf03e-df0a-11e9-9aa5-6f2bce4f228e/5d8a7ccba61d0.image.jpg",
+      "open": 9,
+      "openAmOrPm": "AM",
+      "close": "3",
+      "closeAmOrPm": "PM",
+      "menuItem": [
+        {
+          "name": "Shoyu Ahi",
+          "price": 6.99,
+          "description": "Our classic shoyu ahi bowl - made with fresh ahi, white or brown rice, furikake on top, and a free drink.",
+          "image": "https://www.abeautifulplate.com/wp-content/uploads/2019/04/shoyu-ahi-poke-1-7-600x900.jpg"
+        },
+        {
+          "name": "Hawaiian Style Tako",
+          "price": 9.99,
+          "description": "Enjoy this original hawaiian style poke bowl, featuring tako, white or brown rice, furikake on top, and a free drink.",
+          "image": "https://www.aspicyperspective.com/wp-content/uploads/2018/05/hawaiian-tako-poke-15.jpg"
+        },
+        {
+          "name": "Miso Tako",
+          "price": 9.99,
+          "description": "For an authentic Japanese inspired dish, why not try our Miso Tako style? Complete with white or brown rice, furikake on top, and a free drink.",
+          "image": "https://asiantestkitchen.com/wp-content/uploads/2021/05/poke-tako-3-1-of-1-1024x683.jpg"
+        },
+        {
+          "name": "Wasabi Ahi",
+          "price": 7.99,
+          "description": "Looking for a spicy kick in your day? Our spicy wasabi is just for you! Featuring extra spicy wasabi, brown or white rice, furikake, and a free drink.",
+          "image": "https://www.theroastedroot.net/wp-content/uploads/2016/06/ahi_poke_sushi_bowls_with_wasabi_mayo.jpg.webp"
+        },
+        {
+          "name": "Soft drink",
+          "price": 3.99,
+          "description": "Your choice from our wide selection of softdrinks, including Coca-Cola, Hawaiian Sun, Sprite, and more! ",
+          "image": "https://www.hawaiibevguide.com/hawaiian-sun"
+        }
+      ],
+      "description": "Traditional super ono ahi & tako poke; always fresh, premium ahi — never frozen! Made to order poke by the pound & poke bowls.",
+      "owner": "John Kauila"
     }
   ]
 
