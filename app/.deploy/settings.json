@@ -3,7 +3,10 @@
     { "email": "admin@foo.com", "password": "bowbitestestadmin123!", "role": "admin" },
     { "email": "john@foo.com", "password": "bowbitestestjohn123!" },
     { "email": "jane@foo.com", "password": "bowbitestestjohn123!" },
-    { "email": "mikekaruba@gmail.com", "password": "MyCaruba" }
+    { "email": "mikekaruba@gmail.com", "password": "MyCaruba" },
+    { "email": "calebhawkins2002@gmail.com", "password": "18locked!" },
+    { "email": "xXTaysha763@gmail.com", "password": "#i6ksj890" },
+    { "email": "yamamoto-san808@gmail.com", "password": "&and^beefy" }
   ],
 
   "defaultFavorites": [
@@ -271,6 +274,159 @@
       ],
       "description" : "Le Crêpe Café makes traditional French crêpes, cooked to order in front of customers. They specialize in a flavorsome menu of sweet and savory crêpes and use fresh ingredients, organic when possible. Their utensils are even bio-compostable. Enjoy a crêpe any time of day, as a breakfast, snack, main course, or dessert — close your eyes and you’re in Paris!.",
       "owner" : "mikekaruba@gmail.com"
+    },
+    {
+      "_id" : "pXbWaKZyNowWjbTm",
+      "name" : "Lasoon",
+      "location" : "Paradise Palms",
+      "foodType" : "Indian",
+      "storeImage" : "https://s3-media0.fl.yelpcdn.com/bphoto/2y-8CffisL67L5X6YVnEGA/o.jpg",
+      "open" : 10,
+      "openAmOrPm" : "AM",
+      "close" : 2,
+      "closeAmOrPm" : "PM",
+      "menuItem" : [
+        {
+          "name": "Butter Chicken Plate",
+          "price": 9.95,
+          "description" : "Butter Chicken plate served with Rice and two sides",
+          "image": "https://s3-media0.fl.yelpcdn.com/bphoto/zJIrOVHI5qyFoCdOZdLaFA/o.jpg"
+        },
+        {
+          "name": "Vegetarian Plate",
+          "price": 8.95,
+          "description": "3 choices of vegetables, served with Rice",
+          "image": "https://s3-media0.fl.yelpcdn.com/bphoto/G8vvfZAdyLVb584PdkrO0A/o.jpg"
+        },
+        {
+          "name" : "Lamb Curry Plate",
+          "price" : 11.95,
+          "description" : "Lamb Curry served with rice and 2 sides",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/QtpJgLsgHWp0xR9Th4ZiQw/o.jpg"
+        },
+        {
+          "name" : "Chicken Curry Bowl",
+          "price" : 5.95,
+          "description" : "Chicken Curry served with Rice",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/Mik9rlFSB3LCTsXkvSBC2A/o.jpg"
+        },
+        {
+          "name" : "Roti",
+          "price" : 1.95,
+          "description" : "Crispy, chewy, piping hot and fresh Roti bread",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/YXkvwVsn63QR_d4-Iqa2dw/o.jpg"
+        },
+        {
+          "name" : "Mango Lassi",
+          "price" : 3.95,
+          "description" : "Delicious creamy drink with mango, yogurt, milk, a little sugar, and a sprinkling of cardamom",
+          "image" : "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/12/24/0/FNM_010120-Mango-Lassi_s4x3.jpg.rend.hgtvcom.616.462.suffix/1577211982468.jpeg"
+        }
+      ],
+      "description" : "Lasoon offers natural home-cooked Nepali and Indian food for everyone. From a $5 bowl options when you are in a hurry to larger plates to please your appetite.\n\n",
+      "owner" : "calebhawkins2002@gmail.com"
+    },
+    {
+      "_id" : "pXcWaKZyNowWjbTm",
+      "name" : "Ba-Le",
+      "location" : "Hemenway Hall",
+      "foodType" : "Vietnamese",
+      "storeImage" : "https://media-cdn.tripadvisor.com/media/photo-s/06/a7/93/c6/bale-sandwich-shop.jpg",
+      "open" : 10,
+      "openAmOrPm" : "AM",
+      "close" : 8,
+      "closeAmOrPm" : "PM",
+      "menuItem" : [
+        {
+          "name": "Chicken Pad Thai",
+          "price": 4.50,
+          "description" : "Noodle stir fry dish made up of rice noodles, chicken, tofu, eggs and a deeply flavored, sweet and sour sauce. ",
+          "image": "https://fastly.4sqi.net/img/general/600x600/22435133_LSuFzJNt2MtlQ42MGpooW5O6yoym1NRjbH_aJE_pZV0.jpg"
+        },
+        {
+          "name": "Lemongrass Bahn-mi",
+          "price": 6.50,
+          "description": "French bread lemongrass chicken sandwich served Vietnamese style with house made mayo, pickled daikon & carrots, cucumbers and cilantro",
+          "image": "https://s3-media0.fl.yelpcdn.com/bphoto/kzk30joxpqJ6gqbWS8a6Yw/o.jpg"
+        },
+        {
+          "name" : "Rare Beef, Brisket, and Meatball Pho",
+          "price" : 8.00,
+          "description" : "Vietnamese Pho (Soup) with Rare Beef, Beef brisket and Meatballs, served with rice noodles, fresh bean spouts, lemon and basil.  ",
+          "image" : "http://www.kamehamehashoppingcenter.com/wp-content/uploads/2017/10/bale2.jpg"
+        },
+        {
+          "name" : "Thit Khia Bahn-mi",
+          "price" : 8.75,
+          "description" : "Vietnamese Style braised pork in a french bread sandwich served with house made mayo, pickled daikon & carrots, cucumbers and cilantro",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/Iiz0BWS25z0dz_4j85kOwA/o.jpg"
+        },
+        {
+          "name" : "Spring Rolls",
+          "price" : 5.50,
+          "description" : "Pork spring rolls served with rice noodles, lettuce, and fish sauce.",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/Z4QxeirmsmJ0emOCZjTHAQ/348s.jpg"
+        },
+        {
+          "name" : "Sweet Potato Tapioca Pudding",
+          "price" : 3.95,
+          "description" : "Sweet Potato Tapioca Pudding is naturally colored with purple sweet potato, flavored with coconut milk & filled with chewy tapioca pearls.",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/ao7ETE6xN7A9vo6or5KLZA/o.jpg"
+        }
+      ],
+      "description" : "Ba-Le is a casual dining restaurant serving delicious Vietnamese and Thai food.\n\n",
+      "owner" : "xXTaysha763@gmail.com"
+    },
+    {
+      "_id" : "pXcWaKZyNoqWjbTm",
+      "name" : "Kamitoku Ramen",
+      "location" : "POST Building (Mon, Tues, Thurs, Fri), and Krauss (Wed)",
+      "foodType" : "Japanese",
+      "storeImage" : "https://s3-media0.fl.yelpcdn.com/bphoto/W53Yo-k0beaIn6opkjcLHQ/o.jpg",
+      "open" : 10,
+      "openAmOrPm" : "AM",
+      "close" : 2,
+      "closeAmOrPm" : "PM",
+      "menuItem" : [
+        {
+          "name": "Beefy Wild Ramen",
+          "price":8.75,
+          "description" : "Robust, full flavored beef broth with a garlic kick! Add an egg for $1.20",
+          "image": "https://s3-media0.fl.yelpcdn.com/bphoto/JYnh_Bm3fNlTlfb6tsSjKw/o.jpg"
+        },
+        {
+          "name": "Beefy Miso Ramen",
+          "price": 8.75,
+          "description": "Our delicious beef broth with red miso!",
+          "image": "https://s3-media0.fl.yelpcdn.com/bphoto/9r4rJaH6lrdqPK3iDZOZ9w/o.jpg"
+        },
+        {
+          "name" : "Beefy Shoyu Ramen",
+          "price" : 8.75,
+          "description" : "Shoyu makes a revolution! Shoyu broth with a bit of bonito, add an egg for $1.20",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/3QIJSoHQkMBVX57HVX9QMQ/o.jpg"
+        },
+        {
+          "name" : "Beefy Lite Ramen",
+          "price" : 8.75,
+          "description" : "A lighter version of our traditional tonkotsu beefy broth, add an egg for $1.20",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/TbDCQEfW_76M32XLYlMdHw/o.jpg"
+        },
+        {
+          "name" : "Beefy Rice Bowl",
+          "price" : 6.92,
+          "description" : "Delicious chunks of beef in our wonderful sauce",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/xo33HHlzCy1MLKCCRv1d-g/o.jpg"
+        },
+        {
+          "name" : "Pan Fried Gyoza",
+          "price" : 5.00,
+          "description" : "Crunchy on the outside, with a juicy pork filling on the inside, these are some scrumptious dumplings",
+          "image" : "https://s3-media0.fl.yelpcdn.com/bphoto/oc8hJSPPuzSk0ruDW2yIgw/o.jpg"
+        }
+      ],
+      "description" : "Kamitoku Ramen specializes in a Tottori-style beef bone ramen.\n\n",
+      "owner" : "yamamoto-san808@gmail.com"
     }
   ]
 
