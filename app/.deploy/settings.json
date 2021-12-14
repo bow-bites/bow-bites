@@ -518,51 +518,6 @@
       "description": "Traditional super ono ahi & tako poke; always fresh, premium ahi — never frozen! Made to order poke by the pound & poke bowls.",
       "owner": "John Kauila"
     },
-    {
-      "_id" : "pXbWahZyNowWjmTqLasoon",
-      "name": "Lasoon",
-      "location": "Paradise Palms",
-      "foodType": "Indian",
-      "storeImage": "https://scontent.fhnl3-1.fna.fbcdn.net/v/t1.6435-9/39004251_2266799650214810_6310066570034937856_n.png?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=LxvQFurqYqwAX9VRLR5&_nc_oc=AQnFY_kN21mDsX21mD_S8OE8l-gRc1bX-LqKsetwLYlMlYdyI2zb0-3Fi9cc49Ws4ow&_nc_ht=scontent.fhnl3-1.fna&oh=00_AT8fIM5WKK82wmCVx5yxs9JfNlIyzFjtctrZZgQuX5ckow&oe=61DFE28B",
-      "open": 10,
-      "openAmOrPm": "AM",
-      "close": 2,
-      "closeAmOrPm": "PM",
-      "menuItem": [
-        {
-          "name": "Daal",
-          "price": 6.99,
-          "description": "Simple, classic, and filling, Daal is the perfect meal for busy students looking for a healthy vegetarian meal.",
-          "image": "https://www.thespruceeats.com/thmb/jNYlBqs6XsFn6c6C0yj4KCXznrE=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/masala-daal-recipe-1957965-86435273a6824733b4c6baa2c3f649ff.jpg"
-        },
-        {
-          "name": "Chicken Curry",
-          "price": 8.99,
-          "description": "Our most popular dish, featuring chicken in a warm spicy curry sauce with rice.",
-          "image": "https://hips.hearstapps.com/hmg-prod/images/190509-coconut-chicken-curry-157-1558039780.jpg"
-        },
-        {
-          "name": "Lamb Masala",
-          "price": 10.99,
-          "description": "The only lamb dish on campus, featuring tender lamb with basil and rice. Perfect for a cold day!",
-          "image": "https://veenaazmanov.com/wp-content/uploads/2017/11/Slow-Cooked-Lamb-Masala-aka-Mutton-Masala.jpg"
-        },
-        {
-          "name": "Roti",
-          "price": 5.99,
-          "description": "Roti is the ultimate grab-and-go meal - fresh baked, warm, and buttery.",
-          "image": "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/63/2019/09/Roti-1-1842x1212.jpg"
-        },
-        {
-          "name": "https://masalaandchai.com/wp-content/uploads/2021/07/Masala-Chai-Featured.jpg",
-          "price": 4.99,
-          "description": "Warm and spicy with darjeeling black tea and fresh whole milk, available either hot or cold.",
-          "image": "https://masalaandchai.com/wp-content/uploads/2021/07/Masala-Chai-Featured.jpg"
-        }
-      ],
-      "description": "Lasoon offers natural home-cooked Nepali and Indian food for everyone. From a $5 bowl options when you are in a hurry to larger plates to please your appetite.\n\nWe are focusing on vegan and gluten free meals and offer 4 – 5 options that are changed daily. Besides the vegan options we offer 3 meat options ranging from mild to spicy!",
-      "owner": "Jason Ramdas"
-    }
   ]
 
 }
