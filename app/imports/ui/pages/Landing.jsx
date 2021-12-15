@@ -16,9 +16,9 @@ class Landing extends React.Component {
           </Grid.Column>
 
           <Grid.Column textAlign="center">
-            <Icon name="truck" size="huge" inverted/>
-            <Header as="h1" inverted>Become a Vendor</Header>
-            <Header as="h3" inverted>Become a vendor to showcase your food and choice of the day to members of the UH community</Header>
+            <Icon name="user" size="huge" inverted/>
+            <Header as="h1" inverted>Become a User</Header>
+            <Header as="h3" inverted>Become a user to like your favorite vendor picks, and sort through your liked vendors to find something good to eat!</Header>
           </Grid.Column>
         </Grid>
       </div>

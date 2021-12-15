@@ -62,7 +62,7 @@ class VendorProfile extends React.Component {
                     </Grid.Column>
                     <Grid.Column>
                       <Item.Meta>
-                    Paradise Palms
+                        {this.props.vendor.location}
                       </Item.Meta>
                     </Grid.Column>
                   </Grid>
@@ -95,10 +95,11 @@ class VendorProfile extends React.Component {
                   <Item.Content>
                     {this.props.vendor.menuItem.map((menuItem) => (
                       <div key={menuItem.name}>
-                        <Item.Description>{menuItem.name}</Item.Description>
+                        <Item.Header as="h2">{menuItem.name}</Item.Header>
                         <Item.Image size='small' src={menuItem.image}/>
                         <Item.Description>{menuItem.description}</Item.Description>
-                        <Item.Description>Price: {menuItem.price}$</Item.Description>
+                        <Item.Description>Price: ${menuItem.price}</Item.Description>
+                        <hr></hr>
                       </div>
                     ))}
                   </Item.Content>

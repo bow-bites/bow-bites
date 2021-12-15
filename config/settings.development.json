@@ -1,19 +1,33 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "bowbitestestadmin123!", "role": "admin" },
-    { "email": "john@foo.com", "password": "bowbitestestjohn123!" },
-    { "email": "jane@foo.com", "password": "bowbitestestjohn123!" },
+    { "email": "bowbites-admin@gmail.com", "password": "bowbitestestadmin123!", "role": "admin" },
+    { "email": "johncera@gmail.com", "password": "bowbitestestjohn123!" },
+    { "email": "janemary@gmail.com", "password": "bowbitestestjohn123!" },
     { "email": "mikekaruba@gmail.com", "password": "MyCaruba" },
     { "email": "calebhawkins2002@gmail.com", "password": "18locked!" },
     { "email": "xXTaysha763@gmail.com", "password": "#i6ksj890" },
-    { "email": "yamamoto-san808@gmail.com", "password": "&and^beefy" }
+    { "email": "yamamoto-san808@gmail.com", "password": "&and^beefy" },
+    { "email": "tanakad@yahoo.com", "password": "%HI-life" },
+    { "email": "JK39@msn.com", "password": "P38XxHI" },
+    { "email": "jsato@hawaii.edu", "password": "10osi394" },
+    { "email": "jasonh@hawaii.edu", "password": "Go123Warriorz" },
+    { "email": "bennybutton@hawaii.edu", "password": "BBfor74$$" },
+    { "email": "livinlikeLarry@gmail.com", "password": "l!KEM3" },
+    { "email": "koamatt@hawaii.edu", "password": "321GoBows456" }
   ],
 
   "defaultFavorites": [
-    { "userId": "john@foo.com",
+    { "userId": "johncera@gmail.com",
       "liked": [
         {
-          "favorite" : "pXbWnhZyWowWjmTJy"
+          "favorite" : "pXbWaKZyNowWjmTm"
+        }
+      ]
+    },
+    { "userId": "bennybutton@hawaii.edu",
+      "liked": [
+        {
+          "favorite" : "pXbWahZyNowWjmTq"
         }
       ]
     }
@@ -69,7 +83,7 @@
         }
       ],
       "description" : "Dunkin’ Donuts in Paradise Palms Cafe will keep Hawaii running with high-quality beverage offerings–including freshly-brewed Hot and Iced Coffees–paired perfectly with delicious donuts, bakery good, sandwiches and more.",
-      "owner" : "jane@foo.com"
+      "owner" : "janemary@gmail.com"
     },
     {
       "_id" : "pXbWnhZyNowWjmTJ",
@@ -132,7 +146,7 @@
         }
       ],
       "description" : "Back in 1954, a man named Ray Kroc discovered a small burger restaurant in California, and wrote the first page of our history. From humble beginnings as a small restaurant, we're proud to have become one of the world's leading food service brands with more than 36,000 restaurants in more than 100 countries.",
-      "owner" : "john@foo.com"
+      "owner" : "johncera@gmail.com"
     },
     {
       "_id" : "pXbWnhZyNowWjmTm",
@@ -177,7 +191,7 @@
         }
       ],
       "description" : "Da Spot Health Foods & Juices came to light in 2004 by Ahmad Ramadan and Ako Kifuji looking to provide healthy affordable food and at the same time give a diverse and unique outlook on food with dishes from around the world. Da Spot's current goals are to educate sustainability and healthy eating practices",
-      "owner" : "john@foo.com"
+      "owner" : "johncera@gmail.com"
     },
     {
       "_id" : "pXbWahZyNowWjmTm",
@@ -222,7 +236,7 @@
         }
       ],
       "description" : "Fast and Delicious Chinese cuisine, located in Paradise Palms.",
-      "owner" : "jane@foo.com"
+      "owner" : "janemary@gmail.com"
     },
     {
       "_id" : "pXbWaKZyNowWjmTm",
