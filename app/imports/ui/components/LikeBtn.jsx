@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Favorites } from '../../api/favorite/Favorite';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -109,9 +109,16 @@ class LikeBtn extends React.Component {
       favAdded = 'orange';
     }
 
-    if (favAdded === 'green' || favAdded === 'orange') {
+    if (favAdded === 'green') {
       return (
         <Button color={favAdded} id="listVendor-Favorite" onClick={this.like}> {favVenTxt} </Button>
+      );
+
+    }
+
+    if (favAdded === 'orange') {
+      return (
+        <Button color={favAdded} id="listVendor-Favorite" as={Link} to={'/Signin/'}> {favVenTxt} </Button>
       );
     }
     return (
