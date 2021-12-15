@@ -9,7 +9,7 @@
 }
 
 .middle-background {
-  background-color: white;
+  background-color: #EDF5E1;
 }
 
 #vendor-profile-picture {
@@ -19,12 +19,12 @@
 }
 
 #vendor-profile-left-col {
-  foreground-color: white;
+  foreground-color: #EDF5E1;
 }
 
 #user-profile-pageEmpty {
-  foreground-color: white;
-  background-color: white;
+  foreground-color: #EDF5E1;
+  background-color: #EDF5E1;
   padding: 100px;
   border-radius: 25px;
 }
