@@ -22,7 +22,7 @@ class VendorProfile extends React.Component {
       <Container className="middle-background">
         <div className="VendorProfile" id="vendor-profile">
           <div className="ui image" id='vendor-profile-picture' >
-            <img src='https://pbs.twimg.com/media/FDy0rCzVQAk4DIe?format=jpg&name=medium' alt='Image of Paradise Palms' width='500px' height='500px'/>
+            <img src={this.props.vendor.storeImage} alt='Picture of this vendor' width='700px' height='700px'/>
           </div>
           <Grid container stackable centered columns={2} verticalAlign="top" id="VendorProfileGrid" >
             <Grid.Column id='vendor-profile-left-col'>
