@@ -628,6 +628,11 @@
       "description" : "Jamba Juice features delicious and fresh frozen fruit smoothies. Stop by for some of our nutritious smoothies today. For more campus dining selections or information, visit the UH Dining Website.\n",
       "owner" : "jasonh@hawaii.edu"
     }
-  ]
+  ],
+
+  "monti": {
+    "appId": "LS6XaJwH7nd6pWYEH",
+    "appSecret": "35783cf7-d8f5-4c16-83f6-3795ce499720"
+  }
 
 }
