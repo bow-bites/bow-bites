@@ -13,7 +13,7 @@ class Anything extends React.Component {
       return (
         <Popup
           trigger={
-            <Button fluid attached color='green' icon='quidditch' id="listVendor-Delete" content="Anything"/>
+            <Button fluid attached color='green' icon='quidditch' id="listVendor-Delete" content="Pick for me"/>
           }
           content={<AnythingContent newArr={this.props}/>}
           on='click'
@@ -24,7 +24,7 @@ class Anything extends React.Component {
     return (
       <Popup
         trigger={
-          <Button fluid attached color='green' icon='quidditch' id="listVendor-Delete" content="Anything"/>
+          <Button fluid attached color='green' icon='quidditch' id="listVendor-Delete" content="Pick for me"/>
         }
         content='Nothing avaliable'
         on='click'
