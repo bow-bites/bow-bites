@@ -16,8 +16,8 @@ import { vendorProfilePage } from './vendorProfile';
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
-const credentials = { username: 'john@foo.com', password: 'bowbitestestjohn123!' };
-const adminCredentials = { username: 'admin@foo.com', password: 'bowbitestestadmin123!' };
+const credentials = { username: 'johncera@gmail.com', password: 'bowbitestestjohn123!' };
+const adminCredentials = { username: 'bowbites-admin@gmail.com', password: 'bowbitestestadmin123!' };
 
 const testVendor = {
   _id: 'opXbCopxTEPQizQ6C',
@@ -44,7 +44,7 @@ const testVendor = {
     },
   ],
   description: 'Fast and Delicious Chinese cuisine.',
-  owner: 'john@foo.com',
+  owner: 'johncera@gmail.com',
 };
 
 fixture('meteor-application-template-react localhost test with default db')
@@ -60,6 +60,12 @@ test('Test that signin and signout work', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
+});
+
+test('Test the Available Now Page', async (testController) => {
+  await navBar.gotoAvailableNow(testController);
+  await availableNowPage.isDisplayed(testController);
+  await availableNowPage.hasMenuItem(testController);
 });
 
 test('Test the Public List Vendor page', async (testController) => {
@@ -138,10 +144,4 @@ test('Test the Delete Vendor Function', async (testController) => {
   await addVendorPage.vendorExists(testController, testVendor.name);
   await removeVendorPage.RemoveVendor(testController, testVendor.name);
   await addVendorPage.existingTestVendorCheck(testController, testVendor.name);
-});
-
-test('Test the Available Now Page', async (testController) => {
-  await navBar.gotoAvailableNow(testController);
-  await availableNowPage.isDisplayed(testController);
-  await availableNowPage.hasMenuItem(testController);
 });
