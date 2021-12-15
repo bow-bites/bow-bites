@@ -64,7 +64,6 @@ test('Test that signin and signout work', async (testController) => {
 
 test('Test the Available Now Page', async (testController) => {
   await navBar.gotoAvailableNow(testController);
-  await availableNowPage.isDisplayed(testController);
   await availableNowPage.hasMenuItem(testController);
 });
 

@@ -6,12 +6,6 @@ class AvailableNowPage {
     this.pageSelector = Selector(this.pageId);
   }
 
-  /** Asserts that this page is currently displayed. */
-  async isDisplayed(testController) {
-    // This is first test to be run. Wait 120 seconds to avoid timeouts with GitHub Actions.
-    await testController.expect(this.pageSelector.exists).ok();
-  }
-
   /** Makes sure AvailableNow has Menu Items displayed */
   async hasMenuItem(testController) {
     const menuItemCount = Selector('.ui .item').count;
