@@ -9,7 +9,7 @@ class Footer extends React.Component {
       <footer>
         <div style={divStyle} className="ui center aligned container">
           <hr />
-          <Header inverted>To add a vendor please email: bowbites.requests@gmail.com</Header>
+          <Header inverted>To add a vendor, please email: bowbites.requests@gmail.com</Header>
           <Header inverted>Please include the following information in the email:</Header>
           <List inverted bulleted>
             <List.Item>Restaurant Name</List.Item>
