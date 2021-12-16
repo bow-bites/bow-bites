@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Item, Header, Loader, Grid, Container } from 'semantic-ui-react';
+import { Item, Header, Loader, Grid, Container, Label } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Favorites } from '../../api/favorite/Favorite';
@@ -18,6 +18,66 @@ class VendorProfile extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    const colorOptions = [
+      {
+        key: 'Vegetarian',
+        color: 'green',
+      },
+      {
+        key: 'Italian',
+        color: 'teal',
+      },
+      {
+        key: 'French',
+        color: 'black',
+      },
+      {
+        key: 'Chinese',
+        color: 'purple',
+      },
+      {
+        key: 'Japanese',
+        color: 'orange',
+      },
+      {
+        key: 'Vietnamese',
+        value: 'Vietnamese',
+      },
+      {
+        key: 'Fast',
+        color: 'yellow',
+      },
+      {
+        key: 'Mexican',
+        color: 'pink',
+      },
+      {
+        key: 'American',
+        color: 'brown',
+      },
+      {
+        key: 'Indian',
+        color: 'red',
+      },
+      {
+        key: 'Korean',
+        color: 'blue',
+      },
+      {
+        key: 'Hawaiian',
+        color: 'olive',
+      },
+      {
+        key: 'Filipino',
+        color: 'violet',
+      },
+    ];
+    const vendorFoodType = this.props.vendor.foodType;
+    const tagColor = colorOptions.find(
+      function (type) {
+        return type.key === vendorFoodType;
+      },
+    ).color;
     return (
       <Container className="middle-background">
         <div className="VendorProfile" id="vendor-profile">
@@ -76,7 +136,7 @@ class VendorProfile extends React.Component {
                     </Grid.Column>
                     <Grid.Column>
                       <Item.Meta>
-                        {this.props.vendor.foodType}
+                        <Label color = { tagColor }  > {this.props.vendor.foodType} food</Label>
                       </Item.Meta>
                     </Grid.Column>
                   </Grid>
@@ -98,7 +158,9 @@ class VendorProfile extends React.Component {
                         <Item.Header as="h2">{menuItem.name}</Item.Header>
                         <Item.Image size='small' src={menuItem.image}/>
                         <Item.Description>{menuItem.description}</Item.Description>
-                        <Item.Description>Price: ${menuItem.price}</Item.Description>
+                        <Item.Extra>
+                          <Label color="teal" icon="dollar sign"> ${menuItem.price}</Label>
+                        </Item.Extra>
                         <hr></hr>
                       </div>
                     ))}
